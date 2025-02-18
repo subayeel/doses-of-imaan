@@ -3,11 +3,8 @@ import { GeistSans, GeistMono } from "geist/font";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   SidebarProvider,
-  SidebarTrigger,
   Sidebar,
   SidebarContent,
   SidebarMenu,
@@ -40,6 +37,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ThemeProvider } from "next-themes";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export const metadata: Metadata = {
   title: "Doses of Imaan",
@@ -49,10 +48,11 @@ export const metadata: Metadata = {
 
 // Define the sidebar content as a separate component
 const SidebarComponent = () => {
+  // const { setTheme } = useTheme();
   // Menu items.
   const primaryDose = [
     {
-      title: "God",
+      title: "God’s Existence",
       url: "#",
       icon: Dot,
     },
@@ -131,8 +131,9 @@ const SidebarComponent = () => {
               className="object-contain"
             />{" "}
             <div className="text-core flex flex-col font-semibold text-lg leading-3">
-              <span className="tracking-wide text-xl m-0">Doses of Imaan</span>
+              <span className="tracking-wide text-lg m-0">Doses of Imaan</span>
             </div>
+            <ModeToggle />
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
@@ -228,52 +229,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(GeistSans.variable, GeistMono.variable)}>
+    <html
+      lang="en"
+      className={cn(GeistSans.variable, GeistMono.variable)}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased">
-        <SidebarProvider defaultOpen={true}>
-          <SidebarComponent />
-          <header className="border-b">
-            <div className="container mx-auto">
-              <nav className="flex items-center justify-between h-16 px-4">
-                <div className="flex items-center gap-4">
-                  <SidebarTrigger />
-                  <Link href="/">
-                    <Image
-                      src="/logo.png"
-                      alt="Brand logo"
-                      width={48}
-                      height={48}
-                      className="object-contain"
-                    />
-                  </Link>
-                </div>
-
-                <div className="hidden md:flex items-center gap-6">
-                  <Link
-                    href="/providers"
-                    className="text-sm font-medium hover:text-core"
-                  >
-                    For Providers
-                  </Link>
-                  <Link
-                    href="/patients"
-                    className="text-sm font-medium hover:text-core"
-                  >
-                    For Patients
-                  </Link>
-                  <Button asChild variant="default">
-                    <Link href="https://app.curus.co.in">Enroll</Link>
-                  </Button>
-                </div>
-              </nav>
-            </div>
-          </header>
-          <main className="container mx-auto px-4">{children}</main>
-        </SidebarProvider>
-      </body>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <body className="flex flex-col min-h-screen bg-background font-sans antialiased">
+          <SidebarProvider defaultOpen={true}>
+            <SidebarComponent />
+            {/* <SidebarTrigger className="ml-2 aspect-square" /> */}
+            <main className="container">{children}</main>
+          </SidebarProvider>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
