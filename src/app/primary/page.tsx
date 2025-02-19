@@ -3,13 +3,9 @@ import mountain from "../../../public/mountain.png";
 import sky from "../../../public/sky.png";
 import river from "../../../public/river.png";
 import trees from "../../../public/trees.png";
-import sunset from "../../../public/sunset.png";
 import Image from "next/image";
 
 const Page = () => {
-  // Function to randomly decide image position
-  const getRandomPosition = () => (Math.random() > 0.5 ? "right" : "left");
-
   const sections = [
     {
       id: "g",
