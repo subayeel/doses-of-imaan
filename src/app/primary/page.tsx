@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRightIcon, Copy, Info } from "lucide-react";
+import { CardContent } from "@/components/ui/card";
+import { Copy, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { cn } from "@/lib/utils";
@@ -14,107 +14,71 @@ const Page = () => {
   const { theme } = useTheme();
 
   return (
-    <div className=" w-full px-3 md:px-6">
+    <div className=" w-full px-3 md:px-6 space-y-6">
       <div className="space-y-4 flex flex-col justify-center mt-10">
         <div
           className={cn(
-            "m-auto z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit max-w-56 w-full"
+            "m-auto z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit "
           )}
         >
           <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
             <span>✨ Spiritual Journey</span>
-            <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
           </AnimatedShinyText>
         </div>
-        <h1 className="text-5xl font-semibold text-center">We Start Here!</h1>
       </div>
       {/* God Card */}
-      <div className="flex gap-6 items-stretch relative overflow-hidden w-full py-4 ">
-        <div className="cursor-pointer flex flex-col justify-between  border text-4xl flex-2 w-full py-6 rounded-xl">
+      <div className="grid md:grid-cols-2 gap-6 items-stretch relative overflow-hidden w-full">
+        <MagicCard
+          className="cursor-pointer flex flex-col justify-between  border text-4xl w-full py-6 rounded-xl"
+          gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+        >
           <CardContent>
             <div className="flex justify-between w-full">
-              <p className="text-3xl mb-6">God's Existence</p>
+              <p className="text-3xl mb-6">God&apos;s Existence</p>
 
               <div className="flex gap-2">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-gray-50"
-                >
+                <Button variant="ghost" size="icon" className="rounded-full">
                   <Copy />
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-gray-50"
-                >
+                <Button variant="ghost" size="icon" className="rounded-full">
                   <Info />
                 </Button>
               </div>
             </div>
             <ul className="text-sm text-gray-600">
               <li>
-                <strong>Design Argument:</strong> Like a phone made of oil and
-                sand couldn't form randomly, the universe's complexity points to
-                a designer.
+                <strong className="text-xl">Design Argument:</strong>
+                <br></br> Like a phone made of oil and sand couldn&apos;t form
+                randomly, the universe&apos;s complexity points to a designer.
               </li>
               ...
               <li>
-                <strong>Order in Universe:</strong>Fine-tuned conditions for
-                life (Earth's rotation, habitable zone, atmosphere) suggest
-                intelligent design
+                <strong className="text-xl">Order in Universe:</strong>
+                <br></br>
+                Fine-tuned conditions for life (Earth&apos;s rotation, habitable
+                zone, atmosphere) suggest intelligent design
               </li>
               ...
               <li>
-                <strong>Everything has a cause:</strong> The universe couldn't
-                come from nothing or create itself, pointing to a Creator.
+                <strong className="text-xl">Everything has a cause:</strong>
+                <br></br> The universe couldn&apos;t come from nothing or create
+                itself, pointing to a Creator.
               </li>
             </ul>
           </CardContent>
-          <div className="flex justify-center gap-4 w-full mt-4">
-            <div
-              className={cn(
-                "z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit max-w-36 w-full"
-              )}
-            >
-              <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span>✨ Logic</span>
-                <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-              </AnimatedShinyText>
-            </div>
-            <div
-              className={cn(
-                "z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit max-w-48 w-full"
-              )}
-            >
-              <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span>✨ Reasoning</span>
-                <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-              </AnimatedShinyText>
-            </div>
-          </div>
-        </div>
+        </MagicCard>
 
         <MagicCard
-          className="relative overflow-hidden max-w-[400px] z-10 border"
+          className="relative overflow-hidden z-10 border flex flex-col w-full"
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
         >
           <div className="flex justify-between p-6 w-full">
-            <p className="text-3xl">God's Oneness</p>
-
+            <p className="text-3xl">God&apos;s Oneness</p>
             <div className="flex gap-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-50"
-              >
+              <Button variant="ghost" size="icon" className="rounded-full">
                 <Copy />
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-50"
-              >
+              <Button variant="ghost" size="icon" className="rounded-full ">
                 <Info />
               </Button>
             </div>
@@ -122,67 +86,46 @@ const Page = () => {
           <CardContent>
             <ul className="text-sm text-gray-600">
               <li>
-                <strong>Creator must be different from creation:</strong> If
-                Creator was like creation, it would need a creator too.
+                <strong className="text-xl">
+                  Creator must be different from creation:
+                </strong>
+                <br></br> If Creator was like creation, it would need a creator
+                too.
               </li>
               ...
               <li>
-                <strong>Cannot have infinite creators:</strong>Cannot have
-                infinite creators: Like an endless chain of people refusing to
-                lift a table, we need an uncaused cause.
+                <strong className="text-xl">
+                  Cannot have infinite creators:
+                </strong>
+                <br></br>
+                Cannot have infinite creators: Like an endless chain of people
+                refusing to lift a table, we need an uncaused cause.
               </li>
               ...
               <li>
-                <strong>One Unique Creator:</strong>One Unique Creator: The
-                Creator must be self-sufficient, eternal, and uncreated.
+                <strong className="text-xl">One Unique Creator:</strong>
+                <br></br>One Unique Creator: The Creator must be
+                self-sufficient, eternal, and uncreated.
               </li>
             </ul>
-
-            <div className="flex justify-center mt-4 gap-4">
-              <div
-                className={cn(
-                  "z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit max-w-48 w-full"
-                )}
-              >
-                <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <span>✨ Logic</span>
-                  <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-                </AnimatedShinyText>
-              </div>
-              <div
-                className={cn(
-                  "z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit max-w-48 w-full"
-                )}
-              >
-                <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <span>✨ Reasoning</span>
-                  <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-                </AnimatedShinyText>
-              </div>
-            </div>
           </CardContent>
         </MagicCard>
       </div>
 
       {/* Revelation & Prophethood */}
-      <div className="flex gap-8 justify-center">
-        <Card className="relative overflow-hidden max-w-[400px] mt-10 z-10">
+      <div className="grid md:grid-cols-2 gap-6 items-stretch relative overflow-hidden w-ful">
+        <MagicCard
+          className="relative overflow-hidden shadow-none z-10 border flex flex-col w-full"
+          gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+        >
           <div className="flex justify-between p-6 w-full">
             <p className="text-3xl">Revelation (Quran)</p>
 
             <div className="flex gap-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-50"
-              >
+              <Button variant="ghost" size="icon" className="rounded-full ">
                 <Copy />
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-50"
-              >
+              <Button variant="ghost" size="icon" className="rounded-full ">
                 <Info />
               </Button>
             </div>
@@ -190,45 +133,44 @@ const Page = () => {
           <CardContent>
             <ul className="text-gray-700 text-sm">
               <li>
-                <strong>Perfect Preservation:</strong>
+                <strong className="text-xl">Perfect Preservation:</strong>
+                <br></br>
                 Unchanged text for 1400+ years, memorized by millions globally.
               </li>
               ...
               <li>
-                <strong>Linguistic Miracle:</strong>
+                <strong className="text-xl">Linguistic Miracle:</strong>
+                <br></br>
                 Unmatched literary excellence, even by master Arab poets.
               </li>
               ...
               <li>
-                <strong>Universal Message:</strong>
+                <strong className="text-xl">Universal Message:</strong>
+                <br></br>
                 Teachings align with rational understanding of Creator.
               </li>
               ...
               <li>
-                <strong>Scientific Harmony:</strong>
+                <strong className="text-xl">Scientific Harmony:</strong>
+                <br></br>
                 Natural phenomena descriptions align with modern discoveries.
               </li>
             </ul>
           </CardContent>
-        </Card>
+        </MagicCard>
 
-        <Card className=" relative overflow-hidden max-w-[400px] mt-10">
+        <MagicCard
+          className=" relative overflow-hidden shadow-none border flex flex-col w-full"
+          gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+        >
           <div className="flex justify-between p-6 w-full">
             <p className="text-3xl">Prophethood</p>
 
             <div className="flex gap-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-50"
-              >
+              <Button variant="ghost" size="icon" className="rounded-full ">
                 <Copy />
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-50"
-              >
+              <Button variant="ghost" size="icon" className="rounded-full">
                 <Info />
               </Button>
             </div>
@@ -236,28 +178,32 @@ const Page = () => {
           <CardContent>
             <ul className="text-sm text-gray-700">
               <li>
-                <strong>Character Analysis:</strong>
-                Known as 'The Truthful' even before prophethood.
+                <strong className="text-xl">Character Analysis:</strong>
+                <br></br>
+                Known as &apos;The Truthful&apos; even before prophethood.
               </li>
               ...
               <li>
-                <strong>No Personal Gain:</strong>
+                <strong className="text-xl">No Personal Gain:</strong>
+                <br></br>
                 Faced persecution, lived simply, rejected worldly offers.
               </li>
               ...
               <li>
-                <strong>Complete System:</strong>
+                <strong className="text-xl">Complete System:</strong>
+                <br></br>
                 Brought comprehensive life guidance (social, economic,
                 spiritual).
               </li>
               ...
               <li>
-                <strong>Fulfilled Prophecies:</strong>
+                <strong className="text-xl">Fulfilled Prophecies:</strong>
+                <br></br>
                 Accurately predicted future events.
               </li>
             </ul>
           </CardContent>
-        </Card>
+        </MagicCard>
       </div>
 
       <div className="flex w-full justify-center items-center mt-3 mb-6 text-3xl">

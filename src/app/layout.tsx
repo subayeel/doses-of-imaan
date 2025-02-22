@@ -15,6 +15,7 @@ import {
   SidebarGroupContent,
   SidebarHeader,
   SidebarFooter,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import {
   Dot,
@@ -246,8 +247,22 @@ export default function RootLayout({
         <body className="flex flex-col min-h-screen bg-background font-sans antialiased">
           <SidebarProvider defaultOpen={true}>
             <SidebarComponent />
-            {/* <SidebarTrigger className="ml-2 aspect-square" /> */}
-            <main className="container">{children}</main>
+            {/* <SidebarTrigger className="ml-2 aspect-square hidden md:block" /> */}
+            <main className="container flex flex-col">
+              <div className="border-b flex justify-between md:hidden py-2 px-3 sticky top-0 z-[20] bg-white dark:bg-gray-700">
+                <SidebarTrigger className="ml-2 aspect-square" />
+                <Image
+                  src="/logo.png"
+                  alt="Brand logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+                <div className="w-[28px]"></div>
+              </div>
+
+              <div className="z-10">{children}</div>
+            </main>
           </SidebarProvider>
         </body>
       </ThemeProvider>

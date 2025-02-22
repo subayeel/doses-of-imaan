@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -14,7 +15,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export default function IslamicGuidance() {
+function IslamicGuidance() {
   const [activeTab, setActiveTab] = useState("primary");
 
   return (
@@ -54,15 +55,15 @@ export default function IslamicGuidance() {
                     <ul className="pl-6 space-y-3">
                       <li className="text-slate-700">
                         <span className="font-medium">Existence of God:</span>{" "}
-                        The Islamic understanding of God's existence through
-                        rational and spiritual proofs
+                        The Islamic understanding of God&apos;s existence
+                        through rational and spiritual proofs
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">
                           Creation of Universe:
                         </span>{" "}
-                        How the universe's origin points to divine design and
-                        purpose
+                        How the universe&apos;s origin points to divine design
+                        and purpose
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">
@@ -180,12 +181,12 @@ export default function IslamicGuidance() {
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">Tawheed:</span> The
-                        practical understanding of God's oneness in worship and
-                        daily life
+                        practical understanding of God&apos;s oneness in worship
+                        and daily life
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">Religions:</span>{" "}
-                        Understanding Islam's relationship to other faiths
+                        Understanding Islam&apos;s relationship to other faiths
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">Quran:</span> The central
@@ -280,7 +281,7 @@ export default function IslamicGuidance() {
                   <AccordionContent>
                     <ul className="pl-6 space-y-3">
                       <li className="text-slate-700">
-                        <span className="font-medium">Qur'an:</span> Study and
+                        <span className="font-medium">Quran:</span> Study and
                         recitation of the divine revelation
                       </li>
                       <li className="text-slate-700">
@@ -293,7 +294,7 @@ export default function IslamicGuidance() {
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">Ḥadith:</span> Study of
-                        the Prophet's sayings and traditions
+                        the Prophet&apos;s sayings and traditions
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">Sīrah:</span> Biography
@@ -372,8 +373,8 @@ export default function IslamicGuidance() {
                         <span className="font-medium">
                           Mercy & Forgiveness:
                         </span>{" "}
-                        Understanding Allah's infinite mercy and love for His
-                        servants
+                        Understanding Allah&apos;s infinite mercy and love for
+                        His servants
                       </li>
                       <li className="text-slate-700">
                         <span className="font-medium">
@@ -397,3 +398,5 @@ export default function IslamicGuidance() {
     </div>
   );
 }
+
+export default IslamicGuidance;
