@@ -64,6 +64,21 @@ const Page = () => {
                 <br></br> The universe couldn&apos;t come from nothing or create
                 itself, pointing to a Creator.
               </li>
+              ...
+              <li>
+                <strong className="text-xl">Instinctive Evidence:</strong>
+                <br></br> Every person feels inside himself that he has a Lord
+                and Creator.
+              </li>
+              ...
+              <li>
+                <strong className="text-xl">
+                  COSMOLOGICAL AND ONTOLOGICAL ARGUMENTS:
+                </strong>
+                <br></br> Kalam Argument, Leibniz and the Principle of
+                Sufficient Reason, Alvin Plantinga&apos;s Victorious
+                Argument&apos;, Gödel&apos;s Ontological Argument
+              </li>
             </ul>
           </CardContent>
         </MagicCard>

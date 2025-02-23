@@ -34,6 +34,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { ModeToggle } from "@/components/mode-toggle";
+import Link from "next/link";
 
 const SidebarComponent = () => {
   // const { setTheme } = useTheme();
@@ -111,13 +112,15 @@ const SidebarComponent = () => {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem className="flex gap-4 items-center">
-            <Image
-              src="/logo.png"
-              alt="Brand logo"
-              width={32}
-              height={32}
-              className="object-contain"
-            />{" "}
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Brand logo"
+                width={32}
+                height={32}
+                className="object-contain"
+              />{" "}
+            </Link>
             <div className="text-core flex flex-col font-semibold text-lg leading-3">
               <span className="tracking-wide text-lg m-0">Doses of Imaan</span>
             </div>
