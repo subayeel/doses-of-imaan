@@ -2,8 +2,8 @@ import React from "react";
 
 import { ReactNode } from "react";
 
-const Page = ({ children }: { children: ReactNode }) => {
-  return <main>{children}</main>;
-};
+function Page({ children }: { children: ReactNode }) {
+  return <main className="px-6 py-4">{children}</main>;
+}
 
 export default Page;
