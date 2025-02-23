@@ -36,7 +36,7 @@ export function MagicCard({
         mouseY.set(clientY - top);
       }
     },
-    [mouseX, mouseY],
+    [mouseX, mouseY]
   );
 
   const handleMouseOut = useCallback(
@@ -47,7 +47,7 @@ export function MagicCard({
         mouseY.set(-gradientSize);
       }
     },
-    [handleMouseMove, mouseX, gradientSize, mouseY],
+    [handleMouseMove, mouseX, gradientSize, mouseY]
   );
 
   const handleMouseEnter = useCallback(() => {
@@ -78,7 +78,7 @@ export function MagicCard({
       ref={cardRef}
       className={cn("group relative flex size-full rounded-xl", className)}
     >
-      <div className="absolute inset-px z-10 rounded-xl bg-white dark:bg-slate-950" />
+      <div className="absolute inset-px z-10 rounded-xl bg-white dark:bg-gray-800" />
       <div className="relative z-30">{children}</div>
       <motion.div
         className="pointer-events-none absolute inset-px z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -90,7 +90,7 @@ export function MagicCard({
         }}
       />
       <motion.div
-        className="pointer-events-none absolute inset-0 rounded-xl bg-slate-200 duration-300 group-hover:opacity-100 dark:bg-slate-800"
+        className="pointer-events-none absolute inset-0 rounded-xl bg-gray-200 duration-300 group-hover:opacity-100 dark:bg-gray-800"
         style={{
           background: useMotionTemplate`
             radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
