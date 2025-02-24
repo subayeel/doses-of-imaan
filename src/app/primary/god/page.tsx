@@ -91,13 +91,11 @@ const GodExistence = () => {
               </p>
               <div className="prose dark:prose-invert max-w-none">
                 <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-4">
-                    The Red Underpants Analogy
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-4">Scenario</h3>
                   <p className="text-lg leading-relaxed">
-                    Imagine this scenario: A man wearing nothing but red
-                    underpants knocks on your door, claiming to be the
-                    electricity meter reader. How would you react? Would you:
+                    Imagine this scenario: A man wearing nothing but underpants
+                    knocks on your door, claiming to be the electricity meter
+                    reader. How would you react? Would you:
                   </p>
                   <ul className="mt-4 space-y-2">
                     <li className="flex items-center gap-2">

@@ -25,6 +25,7 @@ import {
   Sparkle,
   Settings,
   ChevronUp,
+  MessageCircle,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -53,6 +54,11 @@ const SidebarComponent = () => {
     {
       title: "Revelation from God",
       url: "/primary/revelation",
+      icon: MessageCircle,
+    },
+    {
+      title: "Quran",
+      url: "/primary/quran",
       icon: Book,
     },
     {
