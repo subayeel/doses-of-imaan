@@ -13,9 +13,43 @@ import {
   X,
   MessageCircle,
   Clock,
+  Logs,
 } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 
 const ProphetMuhammad = () => {
+  const contents = [
+    {
+      id: "introduction",
+      title: "Understanding the Claim",
+      icon: User,
+    },
+    {
+      id: "lying",
+      title: "Was He Lying?",
+      icon: X,
+    },
+    {
+      id: "deluded",
+      title: "Was He Deluded?",
+      icon: Brain,
+    },
+    {
+      id: "truthful",
+      title: "He Was Truthful",
+      icon: CheckCircle,
+    },
+    {
+      id: "conclusion",
+      title: "A Messenger for Humanity",
+      icon: Award,
+    },
+  ];
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -23,7 +57,7 @@ const ProphetMuhammad = () => {
           {/* Main Content */}
           <div className="lg:col-span-4 space-y-12">
             <h1 className="text-4xl font-bold mb-8">
-              Was Muhammad Really a Messenger of God?
+              Was Muhammad ﷺ Really a Messenger of God?
             </h1>
 
             {/* Introduction Section */}
@@ -149,9 +183,9 @@ const ProphetMuhammad = () => {
                     The Abu Sufyan Incident:
                   </h3>
                   <p className="text-lg mb-4">
-                    Abu Sufyan was a strong opponent of Muhammad at the time.
+                    Abu Sufyan was a strong opponent of Muhammad ﷺ at the time.
                     When he met Heraclius (the Roman Emperor), he was asked
-                    several questions about Muhammad, including:
+                    several questions about Muhammad ﷺ, including:
                   </p>
                   <div className="space-y-4 pl-4 border-l-4 border-yellow-300 dark:border-yellow-700">
                     <p className="italic">
@@ -162,7 +196,7 @@ const ProphetMuhammad = () => {
                     <p className="italic">
                       (Later, Abu Sufyan admitted, &quot;If I had not been
                       afraid of my companions labeling me a liar, I would not
-                      have spoken the truth about Muhammad.&quot;)
+                      have spoken the truth about Muhammad ﷺ .&quot;)
                     </p>
                   </div>
                   <p className="mt-4">
@@ -230,13 +264,13 @@ const ProphetMuhammad = () => {
               </h2>
               <div className="prose dark:prose-invert max-w-none">
                 <p className="text-lg leading-relaxed">
-                  Could Muhammad have sincerely but mistakenly believed he was a
-                  prophet? Let&apos;s think about what this would mean:
+                  Could Muhammad ﷺ have sincerely but mistakenly believed he was
+                  a prophet? Let&apos;s think about what this would mean:
                 </p>
 
                 <div className="bg-orange-50 dark:bg-orange-900/30 p-6 rounded-lg my-6">
                   <h3 className="text-xl font-semibold mb-4">
-                    What Muhammad brought:
+                    What Muhammad ﷺ brought:
                   </h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-2">
@@ -285,14 +319,14 @@ const ProphetMuhammad = () => {
                     The Solar Eclipse Incident:
                   </h3>
                   <p className="text-lg">
-                    When Muhammad&apos;s young son Ibrahim died, there happened
-                    to be a solar eclipse on the same day. Many people thought
-                    this was a divine sign mourning the death of the
+                    When Muhammad&apos;s ﷺ young son Ibrahim died, there
+                    happened to be a solar eclipse on the same day. Many people
+                    thought this was a divine sign mourning the death of the
                     Prophet&apos;s son.
                   </p>
                   <p className="text-lg mt-4">
-                    If Muhammad was deluded or dishonest, this would have been a
-                    perfect opportunity to reinforce his claim to prophethood.
+                    If Muhammad ﷺ was deluded or dishonest, this would have been
+                    a perfect opportunity to reinforce his claim to prophethood.
                     Instead, he gathered people and said:
                   </p>
                   <p className="italic text-center text-xl my-4">
@@ -407,7 +441,7 @@ const ProphetMuhammad = () => {
               </h2>
               <div className="prose dark:prose-invert max-w-none">
                 <p className="text-lg leading-relaxed">
-                  When we look at Muhammad&apos;s life, his character, his
+                  When we look at Muhammad&apos;s life ﷺ, his character, his
                   message, and the impact he&apos;s had on history, the evidence
                   points to the truth of his claim to be God&apos;s messenger.
                 </p>
@@ -426,7 +460,7 @@ const ProphetMuhammad = () => {
                 </div>
 
                 <p className="text-lg leading-relaxed">
-                  By recognizing Muhammad as God&apos;s messenger, we open
+                  By recognizing Muhammad ﷺ as God&apos;s messenger, we open
                   ourselves to learning from his teachings and example -
                   guidance that has positively transformed countless lives
                   throughout history and continues to do so today.
@@ -446,33 +480,7 @@ const ProphetMuhammad = () => {
             <div className="sticky top-8 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
               <h3 className="font-semibold mb-4">Contents</h3>
               <nav className="space-y-2">
-                {[
-                  {
-                    id: "introduction",
-                    title: "Understanding the Claim",
-                    icon: User,
-                  },
-                  {
-                    id: "lying",
-                    title: "Was He Lying?",
-                    icon: X,
-                  },
-                  {
-                    id: "deluded",
-                    title: "Was He Deluded?",
-                    icon: Brain,
-                  },
-                  {
-                    id: "truthful",
-                    title: "He Was Truthful",
-                    icon: CheckCircle,
-                  },
-                  {
-                    id: "conclusion",
-                    title: "A Messenger for Humanity",
-                    icon: Award,
-                  },
-                ].map(({ id, title, icon: Icon }) => (
+                {contents.map(({ id, title, icon: Icon }) => (
                   <Link
                     key={id}
                     href={`#${id}`}
@@ -484,6 +492,30 @@ const ProphetMuhammad = () => {
                 ))}
               </nav>
             </div>
+          </div>
+          <div className="lg:hidden fixed bottom-6 right-6">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button className="rounded-full h-10 w-10 shadow-lg bg-black text-white dark:bg-gray-100 dark:text-black">
+                  <Logs size={24} />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-56 p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+                <h3 className="font-semibold mb-2">Contents</h3>
+                <nav className="space-y-2">
+                  {contents.map(({ id, title, icon: Icon }) => (
+                    <Link
+                      key={id}
+                      href={`#${id}`}
+                      className="flex items-center gap-2 p-2 rounded-md transition-colors"
+                    >
+                      <Icon size={16} />
+                      {title}
+                    </Link>
+                  ))}
+                </nav>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>

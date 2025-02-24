@@ -14,9 +14,44 @@ import {
   MessageSquare,
   Lightbulb,
   ArrowRight,
+  Logs,
 } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 
 const NeedForRevelation = () => {
+  const contents = [
+    { id: "introduction", title: "Introduction", icon: Target },
+    {
+      id: "needs-fulfilled",
+      title: "Our Needs",
+      icon: Heart,
+    },
+    {
+      id: "big-questions",
+      title: "Big Questions",
+      icon: HelpCircle,
+    },
+    {
+      id: "divine-explanation",
+      title: "Divine Explanations",
+      icon: Lightbulb,
+    },
+    {
+      id: "gods-communication",
+      title: "God's Communication",
+      icon: MessageCircle,
+    },
+    {
+      id: "prophets",
+      title: "Why Prophets?",
+      icon: MessageSquare,
+    },
+  ];
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -333,34 +368,7 @@ const NeedForRevelation = () => {
             <div className="sticky top-8 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
               <h3 className="font-semibold mb-4">Contents</h3>
               <nav className="space-y-2">
-                {[
-                  { id: "introduction", title: "Introduction", icon: Target },
-                  {
-                    id: "needs-fulfilled",
-                    title: "Our Needs",
-                    icon: Heart,
-                  },
-                  {
-                    id: "big-questions",
-                    title: "Big Questions",
-                    icon: HelpCircle,
-                  },
-                  {
-                    id: "divine-explanation",
-                    title: "Divine Explanations",
-                    icon: Lightbulb,
-                  },
-                  {
-                    id: "gods-communication",
-                    title: "God's Communication",
-                    icon: MessageCircle,
-                  },
-                  {
-                    id: "prophets",
-                    title: "Why Prophets?",
-                    icon: MessageSquare,
-                  },
-                ].map(({ id, title, icon: Icon }) => (
+                {contents.map(({ id, title, icon: Icon }) => (
                   <Link
                     key={id}
                     href={`#${id}`}
@@ -372,6 +380,30 @@ const NeedForRevelation = () => {
                 ))}
               </nav>
             </div>
+          </div>
+          <div className="lg:hidden fixed bottom-6 right-6">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button className="rounded-full h-10 w-10 shadow-lg bg-black text-white dark:bg-gray-100 dark:text-black">
+                  <Logs size={24} />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-56 p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+                <h3 className="font-semibold mb-2">Contents</h3>
+                <nav className="space-y-2">
+                  {contents.map(({ id, title, icon: Icon }) => (
+                    <Link
+                      key={id}
+                      href={`#${id}`}
+                      className="flex items-center gap-2 p-2 rounded-md transition-colors"
+                    >
+                      <Icon size={16} />
+                      {title}
+                    </Link>
+                  ))}
+                </nav>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>

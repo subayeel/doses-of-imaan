@@ -74,15 +74,16 @@ const SidebarComponent = () => {
       url: "/religion/islam",
       icon: TreePalm,
     },
-    {
-      title: "Ihsaan",
-      url: "/religion/ihsaan",
-      icon: HandHeart,
-    },
+
     {
       title: "Imaan",
       url: "/religion/imaan",
       icon: Leaf,
+    },
+    {
+      title: "Ihsaan",
+      url: "/religion/ihsaan",
+      icon: HandHeart,
     },
   ];
 

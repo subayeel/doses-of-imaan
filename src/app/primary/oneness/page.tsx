@@ -11,9 +11,26 @@ import {
   ArrowRight,
   Fingerprint,
   Infinity,
+  User,
+  Logs,
 } from "lucide-react";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+
 const GodsOneness = () => {
+  const contents = [
+    { id: "introduction", title: "Introduction", icon: Target },
+    { id: "creator-nature", title: "Creator vs Creation", icon: Layers },
+    { id: "self-creation", title: "Self-Creation?", icon: AlertCircle },
+    { id: "infinite-regression", title: "Who Created God?", icon: HelpCircle },
+    { id: "uncreated-creator", title: "Uncreated Creator", icon: Infinity },
+    { id: "oneness", title: "God's Oneness", icon: Fingerprint },
+  ];
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -154,27 +171,27 @@ const GodsOneness = () => {
                     do it alone:
                   </p>
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1">
-                        <Users className="text-blue-500 mb-2" />
+                    <div className="flex items-center gap-4 flex-col md:flex-row">
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1 w-full">
+                        <User className="text-blue-500 mb-2" />
                         <p>You ask your friend to help</p>
                       </div>
-                      <ArrowRight className="flex-shrink-0" />
-                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1">
-                        <Users className="text-blue-500 mb-2" />
+                      <ArrowRight className="flex-shrink-0 hidden md:block" />
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1 w-full">
+                        <Users className="text-blue-500 mb-2" size={56} />
                         <p>
                           Your friend says: &quot;I&apos;ll only help if someone
                           else helps me first&quot;
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1">
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1 w-full">
                         <Table className="text-blue-500 mb-2" />
                         <p>If this continues forever...</p>
                       </div>
-                      <ArrowRight className="flex-shrink-0" />
-                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1">
+                      <ArrowRight className="flex-shrink-0 hidden md:block" />
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1 w-full">
                         <AlertCircle className="text-red-500 mb-2" />
                         <p>The table will never be lifted!</p>
                       </div>
@@ -300,30 +317,7 @@ const GodsOneness = () => {
             <div className="sticky top-8 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
               <h3 className="font-semibold mb-4">Contents</h3>
               <nav className="space-y-2">
-                {[
-                  { id: "introduction", title: "Introduction", icon: Target },
-                  {
-                    id: "creator-nature",
-                    title: "Creator vs Creation",
-                    icon: Layers,
-                  },
-                  {
-                    id: "self-creation",
-                    title: "Self-Creation?",
-                    icon: AlertCircle,
-                  },
-                  {
-                    id: "infinite-regression",
-                    title: "Who Created God?",
-                    icon: HelpCircle,
-                  },
-                  {
-                    id: "uncreated-creator",
-                    title: "Uncreated Creator",
-                    icon: Infinity,
-                  },
-                  { id: "oneness", title: "God's Oneness", icon: Fingerprint },
-                ].map(({ id, title, icon: Icon }) => (
+                {contents.map(({ id, title, icon: Icon }) => (
                   <Link
                     key={id}
                     href={`#${id}`}
@@ -335,6 +329,31 @@ const GodsOneness = () => {
                 ))}
               </nav>
             </div>
+          </div>
+          {/* Floating Action Button for mobile screens */}
+          <div className="lg:hidden fixed bottom-6 right-6">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button className="rounded-full h-10 w-10 shadow-lg bg-black text-white dark:bg-gray-400 dark:text-black">
+                  <Logs size={24} />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-56 p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+                <h3 className="font-semibold mb-2">Contents</h3>
+                <nav className="space-y-2">
+                  {contents.map(({ id, title, icon: Icon }) => (
+                    <Link
+                      key={id}
+                      href={`#${id}`}
+                      className="flex items-center gap-2 p-2 rounded-md transition-colors"
+                    >
+                      <Icon size={16} />
+                      {title}
+                    </Link>
+                  ))}
+                </nav>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>

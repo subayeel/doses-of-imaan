@@ -18,6 +18,44 @@ import {
 } from "lucide-react";
 
 const WhyTheQuran = () => {
+  const contents = [
+    { id: "introduction", title: "Introduction", icon: Target },
+    {
+      id: "preservation",
+      title: "Preservation",
+      icon: Shield,
+    },
+    {
+      id: "inimitability",
+      title: "Inimitability",
+      icon: Award,
+    },
+    {
+      id: "clear-message",
+      title: "Clear Message",
+      icon: CheckCircle,
+    },
+    {
+      id: "universal-message",
+      title: "Universal Message",
+      icon: Globe,
+    },
+    {
+      id: "falsification-test",
+      title: "Authenticity Test",
+      icon: Search,
+    },
+    {
+      id: "accuracies",
+      title: "Remarkable Accuracies",
+      icon: Zap,
+    },
+    {
+      id: "conclusion",
+      title: "Conclusion",
+      icon: CheckCircle,
+    },
+  ];
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -450,44 +488,7 @@ const WhyTheQuran = () => {
             <div className="sticky top-8 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
               <h3 className="font-semibold mb-4">Contents</h3>
               <nav className="space-y-2">
-                {[
-                  { id: "introduction", title: "Introduction", icon: Target },
-                  {
-                    id: "preservation",
-                    title: "Preservation",
-                    icon: Shield,
-                  },
-                  {
-                    id: "inimitability",
-                    title: "Inimitability",
-                    icon: Award,
-                  },
-                  {
-                    id: "clear-message",
-                    title: "Clear Message",
-                    icon: CheckCircle,
-                  },
-                  {
-                    id: "universal-message",
-                    title: "Universal Message",
-                    icon: Globe,
-                  },
-                  {
-                    id: "falsification-test",
-                    title: "Authenticity Test",
-                    icon: Search,
-                  },
-                  {
-                    id: "accuracies",
-                    title: "Remarkable Accuracies",
-                    icon: Zap,
-                  },
-                  {
-                    id: "conclusion",
-                    title: "Conclusion",
-                    icon: CheckCircle,
-                  },
-                ].map(({ id, title, icon: Icon }) => (
+                {contents.map(({ id, title, icon: Icon }) => (
                   <Link
                     key={id}
                     href={`#${id}`}

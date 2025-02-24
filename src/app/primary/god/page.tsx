@@ -12,9 +12,35 @@ import {
   Brain,
   Settings,
   X,
+  Logs,
 } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 
 const GodExistence = () => {
+  const contents = [
+    { id: "premise", title: "The Premise", icon: BookOpen },
+    { id: "common-sense", title: "Common Sense", icon: Brain },
+    {
+      id: "design-argument",
+      title: "Design Argument",
+      icon: Phone,
+    },
+    {
+      id: "universe-order",
+      title: "Universal Order",
+      icon: Settings,
+    },
+    {
+      id: "creator-nature",
+      title: "Creator's Nature",
+      icon: Target,
+    },
+  ];
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -255,25 +281,7 @@ const GodExistence = () => {
             <div className="sticky top-8 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
               <h3 className="font-semibold mb-4">Contents</h3>
               <nav className="space-y-2">
-                {[
-                  { id: "premise", title: "The Premise", icon: BookOpen },
-                  { id: "common-sense", title: "Common Sense", icon: Brain },
-                  {
-                    id: "design-argument",
-                    title: "Design Argument",
-                    icon: Phone,
-                  },
-                  {
-                    id: "universe-order",
-                    title: "Universal Order",
-                    icon: Settings,
-                  },
-                  {
-                    id: "creator-nature",
-                    title: "Creator's Nature",
-                    icon: Target,
-                  },
-                ].map(({ id, title, icon: Icon }) => (
+                {contents.map(({ id, title, icon: Icon }) => (
                   <Link
                     key={id}
                     href={`#${id}`}
@@ -285,6 +293,31 @@ const GodExistence = () => {
                 ))}
               </nav>
             </div>
+          </div>
+
+          <div className="lg:hidden fixed bottom-6 right-6">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button className="rounded-full h-10 w-10 shadow-lg bg-black text-white dark:bg-gray-100 dark:text-black">
+                  <Logs size={24} />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-56 p-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+                <h3 className="font-semibold mb-2">Contents</h3>
+                <nav className="space-y-2">
+                  {contents.map(({ id, title, icon: Icon }) => (
+                    <Link
+                      key={id}
+                      href={`#${id}`}
+                      className="flex items-center gap-2 p-2 rounded-md transition-colors"
+                    >
+                      <Icon size={16} />
+                      {title}
+                    </Link>
+                  ))}
+                </nav>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>
