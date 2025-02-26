@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Target,
   BookOpen,
@@ -48,85 +48,87 @@ const UnderstandingIslam = () => {
   const [activeSection, setActiveSection] = useState("introduction");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  const contents = [
-    {
-      id: "introduction",
-      title: "What Islam Really Is",
-      icon: Target,
-      color: "bg-blue-100 dark:bg-blue-900",
-      iconColor: "text-blue-500",
-    },
-    {
-      id: "misconceptions",
-      title: "Clearing Up Misconceptions",
-      icon: AlertCircle,
-      color: "bg-red-100 dark:bg-red-900",
-      iconColor: "text-red-500",
-    },
-    {
-      id: "five-pillars",
-      title: "The Five Pillars",
-      icon: Layers,
-      color: "bg-green-100 dark:bg-green-900",
-      iconColor: "text-green-500",
-    },
-    {
-      id: "pure-monotheism",
-      title: "Pure Monotheism",
-      icon: Star,
-      color: "bg-yellow-100 dark:bg-yellow-900",
-      iconColor: "text-yellow-500",
-    },
-    {
-      id: "core-beliefs",
-      title: "Core Beliefs",
-      icon: Shield,
-      color: "bg-purple-100 dark:bg-purple-900",
-      iconColor: "text-purple-500",
-    },
-    {
-      id: "true-islam",
-      title: "The True Face of Islam",
-      icon: FileText,
-      color: "bg-pink-100 dark:bg-pink-900",
-      iconColor: "text-pink-500",
-    },
-    {
-      id: "prophets",
-      title: "The Line of Prophets",
-      icon: Users,
-      color: "bg-teal-100 dark:bg-teal-900",
-      iconColor: "text-teal-500",
-    },
-    {
-      id: "companions",
-      title: "The Companions",
-      icon: UserPlus,
-      color: "bg-orange-100 dark:bg-orange-900",
-      iconColor: "text-orange-500",
-    },
-    {
-      id: "golden-period",
-      title: "The Golden Age",
-      icon: Award,
-      color: "bg-amber-100 dark:bg-amber-900",
-      iconColor: "text-amber-500",
-    },
-    {
-      id: "caliphates",
-      title: "Islamic Caliphates",
-      icon: Compass,
-      color: "bg-indigo-100 dark:bg-indigo-900",
-      iconColor: "text-indigo-500",
-    },
-    {
-      id: "fastest-growing",
-      title: "Fastest Growing Religion",
-      icon: TrendingUp,
-      color: "bg-cyan-100 dark:bg-cyan-900",
-      iconColor: "text-cyan-500",
-    },
-  ];
+  const contents = useMemo(() => {
+    return [
+      {
+        id: "introduction",
+        title: "What Islam Really Is",
+        icon: Target,
+        color: "bg-blue-100 dark:bg-blue-900",
+        iconColor: "text-blue-500",
+      },
+      {
+        id: "misconceptions",
+        title: "Clearing Up Misconceptions",
+        icon: AlertCircle,
+        color: "bg-red-100 dark:bg-red-900",
+        iconColor: "text-red-500",
+      },
+      {
+        id: "five-pillars",
+        title: "The Five Pillars",
+        icon: Layers,
+        color: "bg-green-100 dark:bg-green-900",
+        iconColor: "text-green-500",
+      },
+      {
+        id: "pure-monotheism",
+        title: "Pure Monotheism",
+        icon: Star,
+        color: "bg-yellow-100 dark:bg-yellow-900",
+        iconColor: "text-yellow-500",
+      },
+      {
+        id: "core-beliefs",
+        title: "Core Beliefs",
+        icon: Shield,
+        color: "bg-purple-100 dark:bg-purple-900",
+        iconColor: "text-purple-500",
+      },
+      {
+        id: "true-islam",
+        title: "The True Face of Islam",
+        icon: FileText,
+        color: "bg-pink-100 dark:bg-pink-900",
+        iconColor: "text-pink-500",
+      },
+      {
+        id: "prophets",
+        title: "The Line of Prophets",
+        icon: Users,
+        color: "bg-teal-100 dark:bg-teal-900",
+        iconColor: "text-teal-500",
+      },
+      {
+        id: "companions",
+        title: "The Companions",
+        icon: UserPlus,
+        color: "bg-orange-100 dark:bg-orange-900",
+        iconColor: "text-orange-500",
+      },
+      {
+        id: "golden-period",
+        title: "The Golden Age",
+        icon: Award,
+        color: "bg-amber-100 dark:bg-amber-900",
+        iconColor: "text-amber-500",
+      },
+      {
+        id: "caliphates",
+        title: "Islamic Caliphates",
+        icon: Compass,
+        color: "bg-indigo-100 dark:bg-indigo-900",
+        iconColor: "text-indigo-500",
+      },
+      {
+        id: "fastest-growing",
+        title: "Fastest Growing Religion",
+        icon: TrendingUp,
+        color: "bg-cyan-100 dark:bg-cyan-900",
+        iconColor: "text-cyan-500",
+      },
+    ];
+  }, []);
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
@@ -161,13 +163,14 @@ const UnderstandingIslam = () => {
 
     return () => {
       contents.forEach(({ id }) => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         const element = sectionRefs.current[id];
         if (element) {
           observer.unobserve(element);
         }
       });
     };
-  }, []);
+  }, [contents]);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">

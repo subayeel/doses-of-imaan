@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   AlertCircle,
@@ -37,57 +37,59 @@ const SweetnessOfIman = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  const contents = [
-    {
-      id: "intro",
-      title: "What is Iman?",
-      icon: BookOpen,
-      color: "bg-blue-100 dark:bg-blue-900",
-      iconColor: "text-blue-500",
-    },
-    {
-      id: "iman-fitan",
-      title: "Iman in Tough Times",
-      icon: Trees,
-      color: "bg-yellow-100 dark:bg-yellow-900",
-      iconColor: "text-yellow-500",
-    },
-    {
-      id: "why-people-leave",
-      title: "Why Faith Fades",
-      icon: X,
-      color: "bg-red-100 dark:bg-red-900",
-      iconColor: "text-red-500",
-    },
-    {
-      id: "sweetness-iman",
-      title: "The Sweet Taste of Faith",
-      icon: Coffee,
-      color: "bg-pink-100 dark:bg-pink-900",
-      iconColor: "text-pink-500",
-    },
-    {
-      id: "sins-barrier",
-      title: "Barriers to Sweetness",
-      icon: ShieldCheck,
-      color: "bg-gray-100 dark:bg-gray-700",
-      iconColor: "text-gray-500",
-    },
-    {
-      id: "how-to-taste",
-      title: "Finding the Sweetness",
-      icon: Lightbulb,
-      color: "bg-amber-100 dark:bg-amber-900",
-      iconColor: "text-amber-500",
-    },
-    {
-      id: "leads-to",
-      title: "The Beautiful Journey",
-      icon: Target,
-      color: "bg-green-100 dark:bg-green-900",
-      iconColor: "text-green-500",
-    },
-  ];
+  const contents = useMemo(() => {
+    return [
+      {
+        id: "intro",
+        title: "What is Iman?",
+        icon: BookOpen,
+        color: "bg-blue-100 dark:bg-blue-900",
+        iconColor: "text-blue-500",
+      },
+      {
+        id: "iman-fitan",
+        title: "Iman in Tough Times",
+        icon: Trees,
+        color: "bg-yellow-100 dark:bg-yellow-900",
+        iconColor: "text-yellow-500",
+      },
+      {
+        id: "why-people-leave",
+        title: "Why Faith Fades",
+        icon: X,
+        color: "bg-red-100 dark:bg-red-900",
+        iconColor: "text-red-500",
+      },
+      {
+        id: "sweetness-iman",
+        title: "The Sweet Taste of Faith",
+        icon: Coffee,
+        color: "bg-pink-100 dark:bg-pink-900",
+        iconColor: "text-pink-500",
+      },
+      {
+        id: "sins-barrier",
+        title: "Barriers to Sweetness",
+        icon: ShieldCheck,
+        color: "bg-gray-100 dark:bg-gray-700",
+        iconColor: "text-gray-500",
+      },
+      {
+        id: "how-to-taste",
+        title: "Finding the Sweetness",
+        icon: Lightbulb,
+        color: "bg-amber-100 dark:bg-amber-900",
+        iconColor: "text-amber-500",
+      },
+      {
+        id: "leads-to",
+        title: "The Beautiful Journey",
+        icon: Target,
+        color: "bg-green-100 dark:bg-green-900",
+        iconColor: "text-green-500",
+      },
+    ];
+  }, []);
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
@@ -125,13 +127,14 @@ const SweetnessOfIman = () => {
     return () => {
       // Clean up observer
       contents.forEach(({ id }) => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         const element = sectionRefs.current[id];
         if (element) {
           observer.unobserve(element);
         }
       });
     };
-  }, []);
+  }, [contents]);
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       {/* Header */}

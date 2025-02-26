@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import {
   BookOpen,
   Trees,
@@ -34,57 +34,59 @@ const ThreeDimensionsOfFaith = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  const contents = [
-    {
-      id: "intro",
-      title: "The Three Dimensions",
-      icon: Layers,
-      color: "bg-blue-100 dark:bg-blue-900",
-      iconColor: "text-blue-500",
-    },
-    {
-      id: "iman",
-      title: "Iman: The Roots",
-      icon: Trees,
-      color: "bg-green-100 dark:bg-green-900",
-      iconColor: "text-green-500",
-    },
-    {
-      id: "islam",
-      title: "Islam: The Trunk",
-      icon: Zap,
-      color: "bg-amber-100 dark:bg-amber-900",
-      iconColor: "text-amber-500",
-    },
-    {
-      id: "ihsan",
-      title: "Ihsan: The Fruit",
-      icon: Gift,
-      color: "bg-pink-100 dark:bg-pink-900",
-      iconColor: "text-pink-500",
-    },
-    {
-      id: "ihsan-meaning",
-      title: "The Meaning of Ihsan",
-      icon: BookOpen,
-      color: "bg-purple-100 dark:bg-purple-900",
-      iconColor: "text-purple-500",
-    },
-    {
-      id: "ihsan-rewards",
-      title: "Rewards of Ihsan",
-      icon: Award,
-      color: "bg-red-100 dark:bg-red-900",
-      iconColor: "text-red-500",
-    },
-    {
-      id: "daily-life",
-      title: "Ihsan in Daily Life",
-      icon: Coffee,
-      color: "bg-yellow-100 dark:bg-yellow-900",
-      iconColor: "text-yellow-500",
-    },
-  ];
+  const contents = useMemo(() => {
+    return [
+      {
+        id: "intro",
+        title: "The Three Dimensions",
+        icon: Layers,
+        color: "bg-blue-100 dark:bg-blue-900",
+        iconColor: "text-blue-500",
+      },
+      {
+        id: "iman",
+        title: "Iman: The Roots",
+        icon: Trees,
+        color: "bg-green-100 dark:bg-green-900",
+        iconColor: "text-green-500",
+      },
+      {
+        id: "islam",
+        title: "Islam: The Trunk",
+        icon: Zap,
+        color: "bg-amber-100 dark:bg-amber-900",
+        iconColor: "text-amber-500",
+      },
+      {
+        id: "ihsan",
+        title: "Ihsan: The Fruit",
+        icon: Gift,
+        color: "bg-pink-100 dark:bg-pink-900",
+        iconColor: "text-pink-500",
+      },
+      {
+        id: "ihsan-meaning",
+        title: "The Meaning of Ihsan",
+        icon: BookOpen,
+        color: "bg-purple-100 dark:bg-purple-900",
+        iconColor: "text-purple-500",
+      },
+      {
+        id: "ihsan-rewards",
+        title: "Rewards of Ihsan",
+        icon: Award,
+        color: "bg-red-100 dark:bg-red-900",
+        iconColor: "text-red-500",
+      },
+      {
+        id: "daily-life",
+        title: "Ihsan in Daily Life",
+        icon: Coffee,
+        color: "bg-yellow-100 dark:bg-yellow-900",
+        iconColor: "text-yellow-500",
+      },
+    ];
+  }, []);
 
   // Set up Intersection Observer to track which section is in view
   useEffect(() => {
@@ -122,7 +124,7 @@ const ThreeDimensionsOfFaith = () => {
         }
       });
     };
-  }, []);
+  }, [contents]);
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
