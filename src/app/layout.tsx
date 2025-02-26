@@ -51,7 +51,7 @@ export default function RootLayout({
                 <div className="w-[28px]"></div>
               </div>
 
-              <div className="z-10 px-3 py-2 md:px-6 md:py-4">{children}</div>
+              <div className="z-10">{children}</div>
             </main>
           </SidebarProvider>
         </body>
