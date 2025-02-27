@@ -130,7 +130,15 @@ const SidebarComponent = () => {
   };
 
   // Custom menu item component with active state highlighting
-  const MenuItemWithActiveState = ({ item }) => {
+  interface MenuItemProps {
+    item: {
+      title: string;
+      url: string;
+      icon: React.ComponentType;
+    };
+  }
+
+  const MenuItemWithActiveState: React.FC<MenuItemProps> = ({ item }) => {
     const active = isActive(item.url);
     return (
       <SidebarMenuItem key={item.title}>
