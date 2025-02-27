@@ -1,3 +1,5 @@
+"use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Sidebar,
@@ -26,6 +28,7 @@ import {
   Settings,
   ChevronUp,
   MessageCircle,
+  Home,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -38,11 +41,18 @@ import { ModeToggle } from "@/components/mode-toggle";
 import Link from "next/link";
 
 const SidebarComponent = () => {
-  // const { setTheme } = useTheme();
+  const [currentPath, setCurrentPath] = useState("");
+  console.log("fircurrentPathst", currentPath);
+
+  // Set the current path when component mounts
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
   // Menu items.
   const primaryDose = [
     {
-      title: "God’s Existence",
+      title: "God's Existence",
       url: "/primary/god",
       icon: Dot,
     },
@@ -74,7 +84,6 @@ const SidebarComponent = () => {
       url: "/religion/islam",
       icon: TreePalm,
     },
-
     {
       title: "Imaan",
       url: "/religion/imaan",
@@ -114,6 +123,34 @@ const SidebarComponent = () => {
       icon: Sparkle,
     },
   ];
+
+  // Function to determine if a link is currently active
+  const isActive = (url: string) => {
+    return currentPath === url;
+  };
+
+  // Custom menu item component with active state highlighting
+  const MenuItemWithActiveState = ({ item }) => {
+    const active = isActive(item.url);
+    return (
+      <SidebarMenuItem key={item.title}>
+        <SidebarMenuButton
+          asChild
+          className={
+            active
+              ? "relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary before:rounded-r-sm bg-primary/10"
+              : ""
+          }
+        >
+          <a href={item.url}>
+            <item.icon />
+            <span>{item.title}</span>
+          </a>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    );
+  };
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -137,18 +174,47 @@ const SidebarComponent = () => {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  className={
+                    isActive("/")
+                      ? "relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary before:rounded-r-sm bg-muted"
+                      : ""
+                  }
+                >
+                  <Link href="/">
+                    <Home size={16} />
+                    <span>Home</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  className={
+                    isActive("/")
+                      ? "before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary before:rounded-r-sm bg-muted relative  overflow-hidden"
+                      : ""
+                  }
+                >
+                  <Link href="/diagnosis">
+                    <ShieldCheck size={16} />
+                    <span>Diagnose your Imaan</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
           <SidebarGroupLabel>Primary Dose</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {primaryDose.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                <MenuItemWithActiveState key={item.title} item={item} />
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -158,14 +224,7 @@ const SidebarComponent = () => {
           <SidebarGroupContent>
             <SidebarMenu>
               {religionDose.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                <MenuItemWithActiveState key={item.title} item={item} />
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -176,14 +235,7 @@ const SidebarComponent = () => {
           <SidebarGroupContent>
             <SidebarMenu>
               {selfHelp.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                <MenuItemWithActiveState key={item.title} item={item} />
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
