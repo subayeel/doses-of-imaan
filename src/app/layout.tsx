@@ -38,8 +38,8 @@ export default function RootLayout({
           <SidebarProvider defaultOpen={true}>
             <SidebarComponent />
             {/* <SidebarTrigger className="ml-2 aspect-square hidden md:block" /> */}
-            <main className="container flex flex-col">
-              <div className="border-b flex justify-between md:hidden py-2 px-3 sticky top-0 z-[20] bg-white dark:bg-gray-700">
+            <main className="flex flex-col m-auto">
+              <div className="border-b flex justify-between xl:hidden py-2 px-3 sticky top-0 z-[20] bg-white dark:bg-gray-700">
                 <SidebarTrigger className="ml-2 aspect-square" />
                 <Image
                   src="/logo.png"

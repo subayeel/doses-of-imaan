@@ -29,6 +29,9 @@ import {
   Layers,
   ChevronRight,
   Logs,
+  ArrowRight,
+  ArrowUp,
+  ArrowLeft,
 } from "lucide-react";
 import {
   Popover,
@@ -191,9 +194,9 @@ const UnderstandingIslam = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
           {/* Navigation Sidebar */}
-          <div className="hidden lg:block col-span-1">
+          <div className="hidden xl:block col-span-1">
             <div className="sticky top-8">
               <Card>
                 <CardHeader>
@@ -228,7 +231,7 @@ const UnderstandingIslam = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-12">
+          <div className="xl:col-span-3 space-y-12">
             {/* Introduction Section */}
             <section id="introduction" className="scroll-mt-20">
               <Card className="border-l-4 border-blue-500">
@@ -1332,6 +1335,43 @@ const UnderstandingIslam = () => {
           </div>
         </div>
       </div>
+      {/* Footer */}
+      <footer className="bg-gray-100 dark:bg-gray-800 py-8 mt-12">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <Feather className="text-blue-600" size={18} />
+            <h3 className="text-lg font-medium">Foundation of Islam</h3>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+            O Allah, guide our hearts to the truth of Islaam, grant us
+            understanding of Your deen, and make us steadfast upon the path that
+            pleases You.
+          </p>
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => (window.location.href = "/primary/god")}
+            >
+              <ArrowLeft size={14} /> Revisit Primary Dose
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Back to Top <ArrowUp size={14} />
+            </Button>
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => (window.location.href = "/religion/imaan")}
+            >
+              Learn about Imaan <ArrowRight size={14} />
+            </Button>
+          </div>
+        </div>
+      </footer>
 
       {/* Mobile Navigation */}
       <div className="lg:hidden fixed bottom-6 right-6 z-50">

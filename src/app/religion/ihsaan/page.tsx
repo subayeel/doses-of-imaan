@@ -12,8 +12,9 @@ import {
   Gift,
   Coffee,
   Feather,
-  ArrowRight,
   Check,
+  ArrowUp,
+  ArrowLeft,
 } from "lucide-react";
 import {
   Popover,
@@ -140,7 +141,7 @@ const ThreeDimensionsOfFaith = () => {
       <div className="bg-gradient-to-r from-teal-600 to-emerald-800 dark:from-teal-700 dark:to-emerald-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-4">
-            <Layers className="text-teal-200" size={32} />
+            <Layers className="text-teal-200 hidden md:block" size={32} />
             <h1 className="text-4xl font-bold">
               The Three Dimensions of Faith
             </h1>
@@ -149,7 +150,7 @@ const ThreeDimensionsOfFaith = () => {
             Discover the beautiful harmony of Iman (Faith), Islam (Submission),
             and Ihsan (Excellence)
           </p>
-          <div className="flex gap-4 mt-8">
+          <div className="flex flex-wrap gap-4 mt-8">
             <Button
               className="bg-white text-teal-700 hover:bg-teal-50"
               onClick={() => scrollToSection("ihsan")}
@@ -168,9 +169,9 @@ const ThreeDimensionsOfFaith = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
           {/* Navigation Sidebar */}
-          <div className="hidden lg:block col-span-1">
+          <div className="hidden xl:block col-span-1">
             <div className="sticky top-8">
               <Card>
                 <CardHeader>
@@ -205,7 +206,7 @@ const ThreeDimensionsOfFaith = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-12">
+          <div className="xl:col-span-3 space-y-12">
             {/* Introduction */}
             <section id="intro" className="scroll-mt-20">
               <Card className={`border-l-4 border-blue-500`}>
@@ -782,13 +783,20 @@ const ThreeDimensionsOfFaith = () => {
             beautiful roots of faith and cultivating a life of meaning and
             purpose.
           </p>
-          <div className="flex justify-center gap-4 mt-6">
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => (window.location.href = "/religion/imaan")}
+            >
+              <ArrowLeft size={14} /> Revisit Imaan
+            </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              Back to Top <ArrowRight size={14} className="ml-2" />
+              Back to Top <ArrowUp size={14} />
             </Button>
           </div>
         </div>

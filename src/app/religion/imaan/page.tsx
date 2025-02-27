@@ -17,6 +17,9 @@ import {
   ArrowRight,
   Coffee,
   Layers,
+  ArrowLeft,
+  Feather,
+  ArrowUp,
 } from "lucide-react";
 import {
   Popover,
@@ -141,7 +144,7 @@ const SweetnessOfIman = () => {
       <div className="bg-gradient-to-r from-teal-600 to-emerald-800 dark:from-teal-700 dark:to-emerald-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-4">
-            <Layers className="text-teal-200" size={32} />
+            <Layers className="text-teal-200 hidden md:block" size={32} />
             <h1 className="text-xl md:text-4xl font-bold">
               The Three Dimensions of Faith
             </h1>
@@ -150,7 +153,7 @@ const SweetnessOfIman = () => {
             Discover the beautiful harmony of Iman (Faith), Islam (Submission),
             and Ihsan (Excellence)
           </p>
-          <div className="flex gap-4 mt-8">
+          <div className="flex flex-wrap gap-4 mt-8">
             <Button
               className="bg-white text-teal-700 hover:bg-teal-50"
               onClick={() => scrollToSection("ihsan")}
@@ -168,9 +171,9 @@ const SweetnessOfIman = () => {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
           {/* Navigation Sidebar */}
-          <div className="hidden lg:block col-span-1">
+          <div className="hidden xl:block col-span-1">
             <div className="sticky top-8">
               <Card>
                 <CardHeader>
@@ -205,7 +208,7 @@ const SweetnessOfIman = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-12">
+          <div className="xl:col-span-3 space-y-12">
             {/* Introduction */}
 
             <section id="intro" className="scroll-mt-20">
@@ -729,6 +732,42 @@ const SweetnessOfIman = () => {
           </div>
         </div>
       </div>
+      {/* Footer */}
+      <footer className="bg-gray-100 dark:bg-gray-800 py-8 mt-12">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <Feather className="text-indigo-600" size={18} />
+            <h3 className="text-lg font-medium">Strength of Imaan</h3>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+            O Allah, strengthen our Imaan, fill our hearts with certainty, and
+            grant us the ability to worship You with sincerity and devotion.
+          </p>
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => (window.location.href = "/religion/islam")}
+            >
+              <ArrowLeft size={14} /> Learn about Islam
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Back to Top <ArrowUp size={14} />
+            </Button>
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => (window.location.href = "/religion/ihsaan")}
+            >
+              Achieve Ihsaan <ArrowRight size={14} />
+            </Button>
+          </div>
+        </div>
+      </footer>
 
       {/* Mobile Navigation */}
       <div className="lg:hidden fixed bottom-6 right-6 z-50">
