@@ -99,12 +99,12 @@ const SidebarComponent = () => {
   const selfHelp = [
     {
       title: "Diagnose your Imaan",
-      url: "/diagnosis",
+      url: "/self-help/diagnosis",
       icon: ShieldCheck,
     },
     {
       title: "Quick Recovery of Imaan",
-      url: "/quick-recovery",
+      url: "/self-help/quick-recovery",
       icon: ChartNoAxesCombined,
     },
     {
@@ -174,7 +174,7 @@ const SidebarComponent = () => {
               />{" "}
             </Link>
             <div className="text-core flex flex-col font-semibold text-lg leading-3">
-              <span className="tracking-wide text-lg m-0">Doses of Imaan</span>
+              <span className="tracking-wide text-lg m-0">Spiritual Doses</span>
             </div>
             <ModeToggle />
           </SidebarMenuItem>
@@ -196,21 +196,6 @@ const SidebarComponent = () => {
                   <Link href="/">
                     <Home size={16} />
                     <span>Home</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  className={
-                    isActive("/")
-                      ? "before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary before:rounded-r-sm bg-muted relative  overflow-hidden"
-                      : ""
-                  }
-                >
-                  <Link href="/diagnosis">
-                    <ShieldCheck size={16} />
-                    <span>Diagnose your Imaan</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
