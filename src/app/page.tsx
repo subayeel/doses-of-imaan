@@ -3,25 +3,13 @@ import React from "react";
 
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  ArrowRight,
-  BookOpen,
-  Compass,
-  MessageCircle,
-  Shield,
-  Sparkle,
-} from "lucide-react";
+import { ArrowRight, Compass, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
-import { cn } from "@/lib/utils";
-
-import { useTheme } from "next-themes";
 
 import { ReligionsGrowth } from "./components/ReligionsGrowth";
 import { Badge } from "@/components/ui/badge";

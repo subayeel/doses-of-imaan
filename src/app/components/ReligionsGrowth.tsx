@@ -10,13 +10,11 @@ import {
   YAxis,
   Legend,
   Line,
-  LineChart,
   ComposedChart,
 } from "recharts";
 
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -213,10 +211,12 @@ const calculateGrowthRate = () => {
   ];
   const projectedData2050 = religionsData[religionsData.length - 1];
 
-  const totalGrowth =
-    ((latestActualData.totalPopulation - previousActualData.totalPopulation) /
-      previousActualData.totalPopulation) *
-    100;
+  const totalGrowth = previousActualData
+    ? (((latestActualData?.totalPopulation ?? 0) -
+        (previousActualData?.totalPopulation ?? 0)) /
+        (previousActualData?.totalPopulation ?? 0)) *
+      100
+    : 0;
 
   const muslimGrowth2020to2050 =
     ((projectedData2050.islam - latestActualData.islam) /
@@ -228,8 +228,14 @@ const calculateGrowthRate = () => {
       if (key === "totalPopulation" || key === "muslimPercentage")
         return { name: config.label, growth: 0 };
       const growth =
-        ((latestActualData[key] - previousActualData[key]) /
-          previousActualData[key]) *
+        ((((latestActualData[key as keyof typeof latestActualData] as number) ||
+          0) -
+          ((previousActualData?.[
+            key as keyof typeof previousActualData
+          ] as number) || 0)) /
+          ((previousActualData[
+            key as keyof typeof previousActualData
+          ] as number) || 0)) *
         100;
       return { name: config.label, growth };
     })
@@ -240,7 +246,8 @@ const calculateGrowthRate = () => {
     fastestGrowing: fastestGrowingReligion,
     muslimGrowth2020to2050: muslimGrowth2020to2050.toFixed(1),
     muslimPercentageGrowth: (
-      projectedData2050.muslimPercentage - latestActualData.muslimPercentage
+      (projectedData2050?.muslimPercentage ?? 0) -
+      (latestActualData?.muslimPercentage ?? 0)
     ).toFixed(1),
   };
 };

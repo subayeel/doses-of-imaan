@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { BorderBeam } from "@/components/magicui/border-beam";
-import { Dot, Pill, Sparkle } from "lucide-react";
+import { Dot, Pill } from "lucide-react";
 
 export default function Home() {
   const [step, setStep] = useState("personal");
