@@ -435,7 +435,7 @@ const NeedForRevelation = () => {
                       Why God would send revelation:
                     </h3>
                     <div className="space-y-4">
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center flex-col md:flex-row gap-4">
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1">
                           <Compass className="text-blue-500 flex-shrink-0" />
                           <p>To explain our purpose - why we&apos;re here</p>
@@ -446,7 +446,7 @@ const NeedForRevelation = () => {
                           <p>To teach us how to have a relationship with Him</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center flex-col md:flex-row gap-4">
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4 flex-1">
                           <Book className="text-purple-500 flex-shrink-0" />
                           <p>

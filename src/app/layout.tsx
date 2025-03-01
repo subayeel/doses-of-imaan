@@ -7,6 +7,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 import { ThemeProvider } from "next-themes";
 import SidebarComponent from "./components/Sidebar";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Spiritual Doses",
@@ -39,15 +40,18 @@ export default function RootLayout({
             <SidebarComponent />
             {/* <SidebarTrigger className="ml-2 aspect-square hidden md:block" /> */}
             <main className="flex flex-col m-auto">
-              <div className="border-b flex justify-between xl:hidden py-2 px-3 sticky top-0 z-[20] bg-white dark:bg-gray-700">
+              <div className="border-b flex justify-between xl:hidden py-2 px-3 sticky top-0 z-[20] bg-white/95 dark:bg-gray-700/95">
                 <SidebarTrigger className="ml-2 aspect-square" />
-                <Image
-                  src="/logo.png"
-                  alt="Brand logo"
-                  width={32}
-                  height={32}
-                  className="object-contain"
-                />
+                <Link href="/">
+                  <Image
+                    src="/logo.png"
+                    alt="Brand logo"
+                    width={32}
+                    height={32}
+                    className="object-contain"
+                  />
+                </Link>
+
                 <div className="w-[28px]"></div>
               </div>
 
