@@ -52,46 +52,10 @@ const Page = () => {
   ];
   return (
     <div className=" w-full px-2 md:px-4 space-y-6">
-      {/* <div className="space-y-4 flex flex-col justify-center">
-        <div
-          className={cn(
-            "m-auto z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit "
-          )}
-        >
-          <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-            <span>✨ Spiritual Journey</span>
-          </AnimatedShinyText>
-        </div>
-      </div> */}
-
       {/* Main Content */}
       <main className="container mx-auto px-4 py-4">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-          {/* Left Column */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
           <div className="md:col-span-3 space-y-6">
-            {/* Welcome Card */}
-            {/* <Card className="bg-gradient-to-r from-emerald-600 to-teal-500 text-white">
-              <CardHeader>
-                <CardTitle className="text-2xl">Hey There!</CardTitle>
-                <CardDescription className="text-emerald-50">
-                  Continue your spiritual journey
-                </CardDescription>
-              </CardHeader>
-              <CardDescription className="px-6 text-emerald-50">
-                Your faith progress is improving. Keep learning and growing in
-                your journey.
-              </CardDescription>
-              <CardFooter>
-                <Button
-                  variant="secondary"
-                  className="bg-white text-emerald-600 hover:bg-emerald-50"
-                >
-                  Today's Lesson
-                </Button>
-              </CardFooter>
-            </Card> */}
-
-            {/* Spiritual Roadmap */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
@@ -118,57 +82,9 @@ const Page = () => {
                 </div>
               </div>
             </Card>
-
-            {/* <div className="flex gap-4">
-              <Card className="bg-gradient-to-br from-blue-50 to-emerald-50 border-none">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <BookOpen className="h-5 w-5 text-emerald-600" />
-                    <span>Read Quran</span>
-                  </CardTitle>
-                  <CardDescription>Engage with the holy text</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Access translations, recitations, and commentaries of the
-                    Quran to deepen your understanding.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    Open Quran
-                  </Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="bg-blue-50 border-none">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <MessageCircle className="h-5 w-5 text-blue-600" />
-                    <span>Quick Recovery of Imaan</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Feel your faith weakening? Access quick spiritual reminders
-                    and practices to strengthen your connection.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    variant="outline"
-                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-100"
-                  >
-                    Get Guidance
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div> */}
           </div>
 
-          {/* Right Column */}
           <div className="space-y-6 md:col-span-2">
-            {/* Diagnose Your Faith */}
             <Card className="bg-white border-l-4 border-l-amber-500">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
@@ -212,30 +128,8 @@ const Page = () => {
             <div>
               <ReligionsGrowth />
             </div>
-
-            {/* Learn Salah */}
-            {/* <Card className="overflow-hidden">
-              <div className="h-40 bg-gray-200 flex items-center justify-center">
-                <Sparkle className="h-20 w-20 text-gray-400" />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-gray-900">Learn Salah</CardTitle>
-                <CardDescription>Understand your prayer</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700">
-                  Discover the meaning and proper method of performing the five
-                  daily prayers.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">
-                  Begin Learning
-                </Button>
-              </CardFooter>
-            </Card> */}
           </div>
-        </div>
+        </div> */}
       </main>
 
       {/* God Card */}

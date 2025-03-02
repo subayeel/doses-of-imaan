@@ -159,6 +159,8 @@ const SidebarComponent = () => {
     );
   };
 
+  console.log(" isActive()", isActive("/"));
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -193,10 +195,10 @@ const SidebarComponent = () => {
                       : ""
                   }
                 >
-                  <Link href="/">
+                  <a href="/">
                     <Home size={16} />
                     <span>Home</span>
-                  </Link>
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
