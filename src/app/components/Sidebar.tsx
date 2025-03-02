@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -42,8 +43,6 @@ import Link from "next/link";
 
 const SidebarComponent = () => {
   const [currentPath, setCurrentPath] = useState("");
-  console.log("fircurrentPathst", currentPath);
-
   // Set the current path when component mounts
   useEffect(() => {
     setCurrentPath(window.location.pathname);
@@ -158,8 +157,6 @@ const SidebarComponent = () => {
       </SidebarMenuItem>
     );
   };
-
-  console.log(" isActive()", isActive("/"));
 
   return (
     <Sidebar>

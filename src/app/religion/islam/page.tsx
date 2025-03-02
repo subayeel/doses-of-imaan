@@ -1105,7 +1105,7 @@ const UnderstandingIslam = () => {
                         <BookOpen className="text-blue-500 flex-shrink-0 mt-1" />
                         <div>
                           <strong>House of Wisdom</strong>: A major intellectual
-                          center in Baghdad where scholars translated and
+                          center in Baghdad where scholars trangrayd and
                           preserved works from Greek, Persian, and Indian
                           traditions.
                         </div>

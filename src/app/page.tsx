@@ -10,8 +10,6 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight, Compass, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-import { ReligionsGrowth } from "./components/ReligionsGrowth";
 import { Badge } from "@/components/ui/badge";
 import StepperItem from "./components/CustomStepper";
 import Link from "next/link";
@@ -54,12 +52,12 @@ const Page = () => {
     <div className=" w-full px-2 md:px-4 space-y-6">
       {/* Main Content */}
       <main className="container mx-auto px-4 py-4">
-        {/* <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
           <div className="md:col-span-3 space-y-6">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Compass className="h-8 w-8 text-emerald-600" />
+                  <Compass className="h-8 w-8 text-emerald-600 hidden md:block" />
                   <span className="text-3xl">Begin Your Spiritual Journey</span>
                 </CardTitle>
                 <CardDescription className="text-xl">
@@ -88,7 +86,7 @@ const Page = () => {
             <Card className="bg-white border-l-4 border-l-amber-500">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Shield className="h-5 w-5 text-amber-500" />
+                  <Shield className="h-5 w-5 text-amber-500 " />
                   <span>Diagnose Your Faith</span>
                 </CardTitle>
                 <CardDescription>
@@ -125,11 +123,9 @@ const Page = () => {
                 </Link>
               </CardFooter>
             </Card>
-            <div>
-              <ReligionsGrowth />
-            </div>
+            <div>{/* <ReligionsGrowth /> */}</div>
           </div>
-        </div> */}
+        </div>
       </main>
 
       {/* God Card */}

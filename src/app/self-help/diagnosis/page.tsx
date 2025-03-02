@@ -22,7 +22,8 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { BorderBeam } from "@/components/magicui/border-beam";
-import { Dot, Pill } from "lucide-react";
+import { Book, Braces, Dot, Pill, SparkleIcon, User } from "lucide-react";
+import ImaanStrengthening from "./ImaanStrenghtening";
 
 export default function Home() {
   const [step, setStep] = useState("personal");
@@ -130,15 +131,15 @@ export default function Home() {
 
     let level;
     let message;
-    if (totalPoints >= 35) {
+    if (totalPoints >= 45) {
       level = "Strong Imaan";
       message =
-        "MashaAllah! Your heart is soft, and you strive to maintain a high level of faith. Keep seeking knowledge and doing good.";
-    } else if (totalPoints >= 20) {
+        "MashaAllah, your Imaan is strong—Allahumma Barik! This is a beautiful blessing from Allah, and with it comes the test of staying humble. Shaytaan may try to whisper arrogance into your heart, but always remind yourself that this level of Imaan is purely a gift from Allah, and it can be taken away at any moment. Keep making du'a for steadfastness, sincerity, and protection from Shaytaan. May Allah keep you firm and increase you in goodness. You're doing great—just stay consistent and trust in Allah's mercy! 🤍";
+    } else if (totalPoints >= 30) {
       level = "Moderate Imaan";
       message =
         "You have faith, but there are areas to improve. Keep making dua and increasing acts of worship.";
-    } else if (totalPoints >= 10) {
+    } else if (totalPoints >= 20) {
       level = "Weak Imaan";
       message =
         "There are signs of heedlessness. You need to work on increasing your connection with Allah.";
@@ -357,18 +358,256 @@ export default function Home() {
     {}
   );
 
-  // Improvement suggestions based on scoring
-  const improvementSuggestions = [
-    "Increase Dhikr & Istighfar – The Prophet ﷺ said: 'The one who repents from sin is like the one who never sinned.' (Ibn Majah 4250)",
-    "Listen to More Quran & Islamic Talks",
-    "Surround Yourself with Righteous Company",
-    "Pray on Time & Increase Voluntary Prayers",
-    "Give Charity Regularly – Even a small amount daily is beloved to Allah",
-    "Be Patient & Trust in Allah's Decree",
-  ];
+  const getScoreColor = (score: number) => {
+    if (score >= 45) {
+      return "text-green-500";
+    } else if (score >= 30) {
+      return "text-amber-400";
+    } else if (score >= 20) {
+      return "text-amber-700";
+    } else {
+      return "text-rose-500";
+    }
+  };
+  const getScoreBGColor = (score: number) => {
+    if (score >= 45) {
+      return "bg-green-50";
+    } else if (score >= 30) {
+      return "bg-amber-50";
+    } else if (score >= 20) {
+      return "bg-amber-50";
+    } else {
+      return "bg-rose-50";
+    }
+  };
+
+  const recommendDose = () => {
+    const totalPoints =
+      results?.totalPoints ?? previousResults?.totalPoints ?? 0;
+
+    if (totalPoints >= 45) {
+      //congratulatte and suggest good Duas to keep you firm in the imaan
+      return <ImaanStrengthening />;
+    } else if (totalPoints >= 35) {
+      return (
+        <Card>
+          <CardHeader>
+            <CardDescription>
+              Based on your responses, we suggest you take a dose of Quick
+              Recovery of Imaan.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() =>
+                (window.location.href = "/self-help/quick-recovery")
+              }
+            >
+              <div className="flex items-center justify-center pl-6">
+                <SparkleIcon size={40} color="purple" className="m-auto" />
+              </div>
+
+              <CardContent className="space-y-2">
+                <CardTitle> Self-help: Quick Recovery</CardTitle>
+                <CardDescription>
+                  Practical, spiritual steps to strengthen your faith and
+                  reconnect with Allah during times of weakness
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={6}
+                size={400}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+          </CardContent>
+        </Card>
+      );
+    } else if (totalPoints >= 20) {
+      //suggest RG1 RG2 RG3 to learn more about Islam
+      return (
+        <Card>
+          <CardHeader>
+            <CardDescription>
+              Based on your responses, You are dire need of the following
+              dosages:.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() => (window.location.href = "/religion/imaan")}
+            >
+              <div className="flex items-center justify-center pl-6">
+                <SparkleIcon size={40} color="purple" className="m-auto" />
+              </div>
+
+              <CardContent className="space-y-2">
+                <CardTitle> Religion Dose: Imaan</CardTitle>
+                <CardDescription>
+                  Imaan is the second level of the Religion of Allah. It means
+                  firm belief and consists of three basic aspects: conviction
+                  with the heart, proclamation with the tongue, and action with
+                  the limbs.
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={6}
+                size={400}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() => (window.location.href = "/religion/islam")}
+            >
+              <div className="flex items-center justify-center pl-6">
+                <SparkleIcon size={40} color="purple" className="m-auto" />
+              </div>
+
+              <CardContent className="space-y-2">
+                <CardTitle> Religion Dose: Islam</CardTitle>
+                <CardDescription>
+                  Discover the core teachings, history, and beauty of Islam
+                  through this comprehensive guide.
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={6}
+                size={400}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() => (window.location.href = "/religion/islam")}
+            >
+              <div className="flex items-center justify-center pl-6">
+                <SparkleIcon size={40} color="purple" className="m-auto" />
+              </div>
+
+              <CardContent className="space-y-2">
+                <CardTitle> Religion Dose: Ihsaan</CardTitle>
+                <CardDescription>
+                  The fruit of our faith - striving for excellence and beauty in
+                  everything we do for Allah.
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={6}
+                size={400}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+          </CardContent>
+        </Card>
+      );
+    } else {
+      //suggest PD1
+      return (
+        <Card>
+          <CardHeader>
+            <CardDescription>
+              Based on your responses, we suggest you revisit the the concept of
+              Spirituality and the need for Religion in One&apos;s life by
+              taking these 4 doses:
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() => (window.location.href = "/primary/god")}
+            >
+              <div className="flex items-center justify-center pl-6">
+                <Dot size={40} className="m-auto text-primary" />
+              </div>
+
+              <CardContent>
+                <CardTitle> Primary Dose: Existence of God</CardTitle>
+                <CardDescription>
+                  Explore the evidence for the Creator through common sense,
+                  design, and universal order.
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={3}
+                size={200}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() => (window.location.href = "/primary/oneness")}
+            >
+              <div className="flex items-center justify-center pl-6">
+                <Braces size={40} className="m-auto text-primary" />
+              </div>
+
+              <CardContent>
+                <CardTitle> Primary Dose: Oneness of God</CardTitle>
+                <CardDescription>
+                  Explore why there can only be One Creator and why this Creator
+                  must be different from everything in our universe.
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={8}
+                size={300}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() => (window.location.href = "/primary/revelation")}
+            >
+              <div className="flex items-center justify-center pl-6">
+                <Book size={40} className="m-auto text-primary" />
+              </div>
+
+              <CardContent>
+                <CardTitle> Primary Dose: Why Revelation</CardTitle>
+                <CardDescription>
+                  Exploring the necessity of revelation and why the Creator
+                  would communicate with us
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={5}
+                size={200}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+            <Card
+              className="border rounded-md overflow-hidden relative flex items-center gap-4 hover:bg-gray-200 hover:cursor-pointer"
+              onClick={() => (window.location.href = "/primary/prophethood")}
+            >
+              <div className="flex items-center justify-center pl-6">
+                <User size={40} className="m-auto text-primary" />
+              </div>
+
+              <CardContent>
+                <CardTitle> Primary Dose: Why Prophet?</CardTitle>
+                <CardDescription>
+                  Explore the logical analysis of Prophet Muhammad&apos;s claim
+                  to prophethood
+                </CardDescription>
+              </CardContent>
+              <BorderBeam
+                duration={4}
+                size={350}
+                className="from-transparent via-red-500 to-transparent"
+              />
+            </Card>
+          </CardContent>
+        </Card>
+      );
+    }
+  };
 
   return (
-    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 text-gre">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-bold text-start text-gray-900 dark:text-gray-50 mb-8">
           Spirituality Diagnosis
@@ -781,11 +1020,21 @@ export default function Home() {
               {(results || previousResults) && (
                 <>
                   <div className="text-center py-4">
-                    <div className="inline-flex items-center justify-center p-4 bg-blue-50 rounded-full mb-4">
-                      <span className="text-4xl font-bold text-blue-600">
+                    <div
+                      className={`inline-flex items-center justify-center p-4 ${getScoreBGColor(
+                        results?.totalPoints ??
+                          previousResults?.totalPoints ??
+                          0
+                      )} rounded-full mb-4 ${getScoreColor(
+                        results?.totalPoints ??
+                          previousResults?.totalPoints ??
+                          0
+                      )}`}
+                    >
+                      <span className="text-4xl font-bold ">
                         {results?.totalPoints || previousResults?.totalPoints}
                       </span>
-                      <span className="text-lg text-blue-500 ml-1">
+                      <span className="text-lg ml-1">
                         / {results?.maxPossible || previousResults?.maxPossible}
                       </span>
                     </div>
@@ -796,21 +1045,7 @@ export default function Home() {
                       {(results || previousResults)?.message}
                     </p>
                   </div>
-                  <div className="mt-4">
-                    <h4 className="font-medium text-lg mb-4">
-                      Recommendations for Improvement
-                    </h4>
-                    <ul className="space-y-2">
-                      {improvementSuggestions.map((suggestion, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-blue-600 text-sm mr-3 mt-0.5">
-                            {index + 1}
-                          </span>
-                          <span className="text-gray-700">{suggestion}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <div>{recommendDose()}</div>
                 </>
               )}
             </CardContent>
