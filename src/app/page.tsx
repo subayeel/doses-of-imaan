@@ -1,57 +1,190 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React from "react";
 
+import { cn } from "@/lib/utils";
+import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
+import Image from "next/image";
+import { ArrowUpRight, Brain, Heart } from "lucide-react";
 import {
   Card,
+  CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, Compass, Shield } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import StepperItem from "./components/CustomStepper";
-import Link from "next/link";
+import LifeScale from "./components/LifeScale";
 
 const Page = () => {
-  const spiritualSteps = [
-    {
-      title: "God's Existence",
-      description:
-        "Understanding God's existence through Reasons, Common Sense and Logic",
-      link: "/primary/god",
-      status: "completed",
-    },
-    {
-      title: "Oneness of God",
-      description: "Exploring the concept of One God through reasoning",
-      link: "/primary/oneness",
-      status: "completed",
-    },
-    {
-      title: "Revelation from God",
-      description: "How God communicates with humanity",
-      link: "/primary/revelation",
-      status: "active",
-    },
-    {
-      title: "Quran",
-      description: "Studying the divine book",
-      link: "/primary/quran",
-      status: "upcoming",
-    },
-    {
-      title: "Prophethood",
-      description: "Learning about the messengers of God",
-      link: "/primary/prophethood",
-      status: "upcoming",
-    },
-  ];
+  // const spiritualSteps = [
+  //   {
+  //     title: "God's Existence",
+  //     description:
+  //       "Understanding God's existence through Reasons, Common Sense and Logic",
+  //     link: "/primary/god",
+  //     status: "completed",
+  //   },
+  //   {
+  //     title: "Oneness of God",
+  //     description: "Exploring the concept of One God through reasoning",
+  //     link: "/primary/oneness",
+  //     status: "completed",
+  //   },
+  //   {
+  //     title: "Revelation from God",
+  //     description: "How God communicates with humanity",
+  //     link: "/primary/revelation",
+  //     status: "active",
+  //   },
+  //   {
+  //     title: "Quran",
+  //     description: "Studying the divine book",
+  //     link: "/primary/quran",
+  //     status: "upcoming",
+  //   },
+  //   {
+  //     title: "Prophethood",
+  //     description: "Learning about the messengers of God",
+  //     link: "/primary/prophethood",
+  //     status: "upcoming",
+  //   },
+  // ];
   return (
-    <div className=" w-full px-2 md:px-4 space-y-6">
+    <div className="relative flex flex-col items-center justify-start w-full h-screen">
+      <div
+        className={cn(
+          "my-4 mx-auto z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit "
+        )}
+      >
+        <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+          <span>✨ Your Spiritual Journey</span>
+        </AnimatedShinyText>
+      </div>
+
+      <div className="grid md:grid-cols-5 px-4">
+        <div className="relative hidden md:flex justify-center md:col-span-1 ">
+          <div className=" flex items-center absolute top-0 right-[50%] left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md">
+            <Brain size={14} /> Brain
+          </div>
+          <div className=" flex items-center absolute top-[20%] right-[30%] left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md">
+            <Heart size={14} /> Heart
+          </div>
+          <Image
+            src="/human.png"
+            alt="Human"
+            height={800}
+            width={300}
+            objectFit="contain h-[100px]"
+          ></Image>
+        </div>
+
+        <div className="flex flex-col gap-2 md:col-span-4">
+          <div className="flex gap-2 flex-wrap md:flex-nowrap">
+            <Card className="border shadow-none">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Mental Health <ArrowUpRight />
+                </CardTitle>
+
+                <CardDescription>
+                  Understanding how mental health influences emotions and
+                  behavior is crucial for personal well-being. Would you like to
+                  explore ways to cultivate emotional balance and improve mental
+                  resilience?
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-none ">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Mental Clarity <ArrowUpRight />
+                </CardTitle>
+                <CardDescription>
+                  Mental clarity is the ability to think clearly, focus, and
+                  make decisions without feeling distracted. It can impact your
+                  productivity, relationships, and overall well-being.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="flex gap-2 flex-wrap md:flex-nowrap">
+            <Card className="border shadow-none">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Diseases of the Heart <ArrowUpRight />
+                </CardTitle>
+                <CardDescription className="flex flex-wrap gap-1">
+                  <Badge>Desires and Greed</Badge>
+                  <Badge>Negative Verbal and Physical Behaviors</Badge>
+                  <Badge>Negative Emotions</Badge>
+                  <Badge>Negative Character</Badge>
+                  <Badge>Negative Spirituality</Badge>
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-none">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Physical Health <ArrowUpRight />
+                </CardTitle>
+                <CardDescription>
+                  Physical health can be defined as the normal functioning of
+                  the body. Representing one dimension of total well-being, it's
+                  about how your body grows, feels and moves, how you care for
+                  it, and what you put into it.
+                </CardDescription>
+                <div className="flex flex-wrap gap-1 mt-2">
+                  <Badge>Exercise</Badge>
+                  <Badge>Nutrition</Badge>
+                  <Badge>Sleep</Badge>
+                  <Badge>Manage stress</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="flex gap-2 flex-wrap md:flex-nowrap">
+            <Card className="border shadow-none">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Spirituality <ArrowUpRight />
+                </CardTitle>
+                <CardDescription>
+                  Spirituality is not "Self-Actualization" or "Transcendence" ,
+                  it is finding the true purpose of Life by using your own
+                  intellect and following your Heart with 0 biases.
+                  <br />
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    <Badge>Existence of Higher Power</Badge>
+                    <Badge>Attribute of the Higher Power</Badge>
+                  </div>
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="border shadow-none">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Religion <ArrowUpRight />
+                </CardTitle>
+                <CardDescription>
+                  The need for religion and the challenge of choosing one can
+                  feel overwhelming, but your own common sense is enough to
+                  guide you.
+                  <br />
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    <Badge>Oneness of Higher Power</Badge>
+                    <Badge>Revelation</Badge>
+                  </div>
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-4">
+      {/* <main className="container mx-auto px-4 py-4">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
           <div className="md:col-span-3 space-y-6">
             <Card>
@@ -123,10 +256,12 @@ const Page = () => {
                 </Link>
               </CardFooter>
             </Card>
-            <div>{/* <ReligionsGrowth /> */}</div>
+            <div>
+              <ReligionsGrowth />
+            </div>
           </div>
         </div>
-      </main>
+      </main> */}
 
       {/* God Card */}
       {/* <div className="grid md:grid-cols-2 gap-6 items-stretch relative overflow-hidden w-full">
@@ -327,6 +462,10 @@ const Page = () => {
         Religion Dose
       </div>
       <IslamicGuidance /> */}
+
+      <div className="absolute bottom-0 right-0 left-0">
+        <LifeScale />
+      </div>
     </div>
   );
 };

@@ -39,7 +39,7 @@ export default function RootLayout({
           <SidebarProvider defaultOpen={true}>
             <SidebarComponent />
             {/* <SidebarTrigger className="ml-2 aspect-square hidden md:block" /> */}
-            <main className="flex flex-col m-auto">
+            <main className="flex flex-col w-full">
               <div className="border-b flex justify-between xl:hidden py-2 px-3 sticky top-0 z-[20] bg-white/95 dark:bg-gray-700/95">
                 <SidebarTrigger className="ml-2 aspect-square" />
                 <Link href="/">
