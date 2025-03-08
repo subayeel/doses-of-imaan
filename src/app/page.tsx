@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import Image from "next/image";
-import { ArrowUpRight, Brain, Heart } from "lucide-react";
+import { ArrowUpRight, Brain, Heart, Lightbulb, Pill } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -14,8 +14,22 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import LifeScale from "./components/LifeScale";
+import { Separator } from "@/components/ui/separator";
+import { Particles } from "@/components/magicui/particles";
+import { useTheme } from "next-themes";
+import { Meteors } from "@/components/magicui/meteors";
 
 const Page = () => {
+  const { resolvedTheme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+  const [onHeart, setOnHeart] = useState(false);
+  const [onMind, setOnMind] = useState(false);
+  const [onHealth, setOnHealth] = useState(false);
+  const [onReasoning, setOnReasoning] = useState(false);
+
+  useEffect(() => {
+    setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
+  }, [resolvedTheme]);
   // const spiritualSteps = [
   //   {
   //     title: "God's Existence",
@@ -50,40 +64,238 @@ const Page = () => {
   //   },
   // ];
   return (
-    <div className="relative flex flex-col items-center justify-start w-full h-screen">
-      <div
-        className={cn(
-          "my-4 mx-auto z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit "
-        )}
-      >
-        <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-          <span>✨ Your Spiritual Journey</span>
-        </AnimatedShinyText>
-      </div>
+    <div className="relative flex flex-col items-center justify-start w-full pb-24">
+      <div className="relative flex flex-col items-center justify-start">
+        {/* <div
+          className={cn(
+            "my-4 mx-auto z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit "
+          )}
+        >
+          <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+            <span>✨ Your Spiritual Journey</span>
+          </AnimatedShinyText>
+        </div> */}
 
-      <div className="grid md:grid-cols-5 px-4">
-        <div className="relative hidden md:flex justify-center md:col-span-1 ">
-          <div className=" flex items-center absolute top-0 right-[50%] left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md">
-            <Brain size={14} /> Brain
+        <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-7xl mt-8 font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 z-10">
+          Spiritual Journey
+        </span>
+
+        <div className="grid md:grid-cols-5 px-4">
+          <div className="relative hidden md:flex justify-center md:col-span-1 ">
+            <div
+              onMouseOver={() => setOnMind(true)}
+              onMouseOut={() => setOnMind(false)}
+              className=" flex items-center absolute top-0 right-[50%] left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white dark:bg-gray-500 shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md z-10 scale-90"
+            >
+              <Brain size={14} /> Brain
+            </div>
+            <div
+              onMouseOver={() => setOnReasoning(true)}
+              onMouseOut={() => setOnReasoning(false)}
+              className=" flex items-center absolute top-0 right-0 left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white dark:bg-gray-500 shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md z-10 scale-90"
+            >
+              <Lightbulb size={14} /> Reasoning
+            </div>
+            <div
+              onMouseOver={() => setOnHeart(true)}
+              onMouseOut={() => setOnHeart(false)}
+              className=" flex items-center absolute top-[20%] right-[30%] left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white dark:bg-gray-500 shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md z-10 scale-90"
+            >
+              <Heart size={14} /> Heart
+            </div>
+            <div
+              onMouseOver={() => setOnHealth(true)}
+              onMouseOut={() => setOnHealth(false)}
+              className=" flex items-center absolute top-[35%] right-[30%] left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white dark:bg-gray-500 shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md z-10 scale-90"
+            >
+              <Pill size={14} /> Health
+            </div>
+            <Image
+              src="/human.png"
+              alt="Human"
+              height={800}
+              width={300}
+              objectFit="contain"
+              className="dark:invert dark:brightness-0"
+            ></Image>
           </div>
-          <div className=" flex items-center absolute top-[20%] right-[30%] left-auto p-2 gap-2 text-xs font-bold rounded-full border bg-white shadow-md hover:cursor-pointer hover:bg-black hover:text-white hover:shadow-md">
-            <Heart size={14} /> Heart
+
+          <div className="flex flex-col gap-6 md:col-span-4 scale-90 z-10">
+            <div className="flex gap-6 flex-wrap md:flex-nowrap">
+              <Card
+                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
+                style={{
+                  background: onReasoning ? "#f9ffd9" : "#fff",
+                }}
+              >
+                <CardContent>
+                  <CardTitle className="mb-2 flex justify-between">
+                    Spirituality <ArrowUpRight />
+                  </CardTitle>
+                  <CardDescription>
+                    Spirituality is not "Self-Actualization" or "Transcendence"
+                    , it is finding the true purpose of Life by using your own
+                    intellect and following your Heart with 0 biases.
+                    <br />
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      <Badge variant="secondary">
+                        Existence of Higher Power
+                      </Badge>
+                      <Badge variant="secondary">
+                        Attribute of the Higher Power
+                      </Badge>
+                    </div>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+              <Card
+                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
+                style={{
+                  background: onReasoning ? "#f9ffd9" : "#fff",
+                }}
+              >
+                <CardContent>
+                  <CardTitle className="mb-2 flex justify-between">
+                    Religion <ArrowUpRight />
+                  </CardTitle>
+                  <CardDescription>
+                    The need for religion and the challenge of choosing one can
+                    feel overwhelming, but your own common sense is enough to
+                    guide you.
+                    <br />
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      <Badge variant="secondary">Oneness of Higher Power</Badge>
+                      <Badge variant="secondary">Revelation</Badge>
+                    </div>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="flex gap-6 flex-wrap md:flex-nowrap">
+              <Card
+                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
+                style={{
+                  background: onMind ? "#dce3f9" : "#fff",
+                }}
+              >
+                <CardContent>
+                  <CardTitle className="mb-2 flex justify-between">
+                    Mental Health <ArrowUpRight />
+                  </CardTitle>
+
+                  <CardDescription>
+                    Understanding how mental health influences emotions and
+                    behavior is crucial for personal well-being. Would you like
+                    to explore ways to cultivate emotional balance and improve
+                    mental resilience?
+                  </CardDescription>
+                </CardContent>
+              </Card>
+              <Card
+                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
+                style={{
+                  background: onMind ? "#dce3f9" : "#fff",
+                }}
+              >
+                <CardContent>
+                  <CardTitle className="mb-2 flex justify-between">
+                    Mental Clarity <ArrowUpRight />
+                  </CardTitle>
+                  <CardDescription>
+                    Mental clarity is the ability to think clearly, focus, and
+                    make decisions without feeling distracted. It can impact
+                    your productivity, relationships, and overall well-being.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="flex gap-6 flex-wrap md:flex-nowrap">
+              <Card
+                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
+                style={{
+                  background: onHeart ? "#ffd1d1" : "#fff",
+                }}
+              >
+                <CardContent>
+                  <CardTitle className="mb-2 flex justify-between">
+                    Diseases of the Heart <ArrowUpRight />
+                  </CardTitle>
+                  <CardDescription className="flex flex-wrap gap-1">
+                    <Badge variant="secondary">Desires and Greed</Badge>
+                    <Badge variant="secondary">
+                      Negative Verbal and Physical Behaviors
+                    </Badge>
+                    <Badge variant="secondary">Negative Emotions</Badge>
+                    <Badge variant="secondary">Negative Character</Badge>
+                    <Badge variant="secondary">Negative Spirituality</Badge>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+              <Card
+                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
+                style={{
+                  background: onHealth ? "#f7d5e8" : "#fff",
+                }}
+              >
+                <CardContent>
+                  <CardTitle className="mb-2 flex justify-between">
+                    Physical Health <ArrowUpRight />
+                  </CardTitle>
+                  <CardDescription>
+                    Physical health can be defined as the normal functioning of
+                    the body. Representing one dimension of total well-being,
+                    it's about how your body grows, feels and moves, how you
+                    care for it, and what you put into it.
+                  </CardDescription>
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    <Badge variant="secondary">Exercise</Badge>
+                    <Badge variant="secondary">Nutrition</Badge>
+                    <Badge variant="secondary">Sleep</Badge>
+                    <Badge variant="secondary">Manage stress</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
-          <Image
-            src="/human.png"
-            alt="Human"
-            height={800}
-            width={300}
-            objectFit="contain h-[100px]"
-          ></Image>
         </div>
 
-        <div className="flex flex-col gap-2 md:col-span-4">
-          <div className="flex gap-2 flex-wrap md:flex-nowrap">
-            <Card className="border shadow-none">
+        <Particles
+          className="absolute inset-0 z-0"
+          quantity={700}
+          ease={80}
+          color={color}
+          refresh
+        />
+      </div>
+
+      <Separator className="my-12" />
+      <div className="relative overflow-hidden flex flex-col items-center justify-start">
+        <Meteors number={50} />
+        <Image
+          src="/house.png"
+          alt="House"
+          height={500}
+          width={400}
+          objectFit="contain"
+          className="z-10"
+        ></Image>
+        <div
+          className={cn(
+            "my-4 mx-auto z-10 group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800 h-fit "
+          )}
+        >
+          <AnimatedShinyText className="inline-flex items-center justify-between px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+            <span>✨ You & Your family</span>
+          </AnimatedShinyText>
+        </div>
+
+        <div className=" flex flex-col gap-6 md:col-span-3 px-4 scale-90">
+          <div className="flex flex-wrap md:flex-nowrap gap-6">
+            <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
               <CardContent>
-                <CardTitle className="mb-2 flex justify-between">
-                  Mental Health <ArrowUpRight />
+                <CardTitle className="mb-2 flex justify-between ">
+                  Parents <ArrowUpRight />
                 </CardTitle>
 
                 <CardDescription>
@@ -94,94 +306,63 @@ const Page = () => {
                 </CardDescription>
               </CardContent>
             </Card>
-            <Card className="border shadow-none ">
+            <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
               <CardContent>
                 <CardTitle className="mb-2 flex justify-between">
-                  Mental Clarity <ArrowUpRight />
+                  Spouse & Children <ArrowUpRight />
                 </CardTitle>
+
                 <CardDescription>
-                  Mental clarity is the ability to think clearly, focus, and
-                  make decisions without feeling distracted. It can impact your
-                  productivity, relationships, and overall well-being.
+                  Understanding how mental health influences emotions and
+                  behavior is crucial for personal well-being. Would you like to
+                  explore ways to cultivate emotional balance and improve mental
+                  resilience?
                 </CardDescription>
               </CardContent>
             </Card>
           </div>
+          <div className="flex flex-wrap md:flex-nowrap gap-6">
+            <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Relatives <ArrowUpRight />
+                </CardTitle>
 
-          <div className="flex gap-2 flex-wrap md:flex-nowrap">
-            <Card className="border shadow-none">
-              <CardContent>
-                <CardTitle className="mb-2 flex justify-between">
-                  Diseases of the Heart <ArrowUpRight />
-                </CardTitle>
-                <CardDescription className="flex flex-wrap gap-1">
-                  <Badge>Desires and Greed</Badge>
-                  <Badge>Negative Verbal and Physical Behaviors</Badge>
-                  <Badge>Negative Emotions</Badge>
-                  <Badge>Negative Character</Badge>
-                  <Badge>Negative Spirituality</Badge>
-                </CardDescription>
-              </CardContent>
-            </Card>
-            <Card className="border shadow-none">
-              <CardContent>
-                <CardTitle className="mb-2 flex justify-between">
-                  Physical Health <ArrowUpRight />
-                </CardTitle>
                 <CardDescription>
-                  Physical health can be defined as the normal functioning of
-                  the body. Representing one dimension of total well-being, it's
-                  about how your body grows, feels and moves, how you care for
-                  it, and what you put into it.
+                  Understanding how mental health influences emotions and
+                  behavior is crucial for personal well-being. Would you like to
+                  explore ways to cultivate emotional balance and improve mental
+                  resilience?
                 </CardDescription>
-                <div className="flex flex-wrap gap-1 mt-2">
-                  <Badge>Exercise</Badge>
-                  <Badge>Nutrition</Badge>
-                  <Badge>Sleep</Badge>
-                  <Badge>Manage stress</Badge>
-                </div>
               </CardContent>
             </Card>
-          </div>
+            <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
+              <CardContent>
+                <CardTitle className="mb-2 flex justify-between">
+                  Neighbors <ArrowUpRight />
+                </CardTitle>
 
-          <div className="flex gap-2 flex-wrap md:flex-nowrap">
-            <Card className="border shadow-none">
-              <CardContent>
-                <CardTitle className="mb-2 flex justify-between">
-                  Spirituality <ArrowUpRight />
-                </CardTitle>
                 <CardDescription>
-                  Spirituality is not "Self-Actualization" or "Transcendence" ,
-                  it is finding the true purpose of Life by using your own
-                  intellect and following your Heart with 0 biases.
-                  <br />
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    <Badge>Existence of Higher Power</Badge>
-                    <Badge>Attribute of the Higher Power</Badge>
-                  </div>
-                </CardDescription>
-              </CardContent>
-            </Card>
-            <Card className="border shadow-none">
-              <CardContent>
-                <CardTitle className="mb-2 flex justify-between">
-                  Religion <ArrowUpRight />
-                </CardTitle>
-                <CardDescription>
-                  The need for religion and the challenge of choosing one can
-                  feel overwhelming, but your own common sense is enough to
-                  guide you.
-                  <br />
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    <Badge>Oneness of Higher Power</Badge>
-                    <Badge>Revelation</Badge>
-                  </div>
+                  Understanding how mental health influences emotions and
+                  behavior is crucial for personal well-being. Would you like to
+                  explore ways to cultivate emotional balance and improve mental
+                  resilience?
                 </CardDescription>
               </CardContent>
             </Card>
           </div>
         </div>
       </div>
+
+      {/* <div className="md:col-span-2  grid items-center  justify-center ">
+          <Image
+            src="/house.jpg"
+            alt="House"
+            height={500}
+            width={400}
+            objectFit="contain"
+          ></Image>
+        </div> */}
 
       {/* Main Content */}
       {/* <main className="container mx-auto px-4 py-4">
@@ -367,7 +548,7 @@ const Page = () => {
       {/* Revelation & Prophethood */}
       {/* <div className="grid md:grid-cols-2 gap-6 items-stretch relative overflow-hidden w-ful">
         <MagicCard
-          className="relative overflow-hidden shadow-none z-10 border flex flex-col w-full"
+          className="relative overflow-hidden shadow-none z-10 z-10 border flex flex-col w-full"
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
         >
           <div className="flex justify-between p-6 w-full">
@@ -412,7 +593,7 @@ const Page = () => {
         </MagicCard>
 
         <MagicCard
-          className=" relative overflow-hidden shadow-none border flex flex-col w-full"
+          className=" relative overflow-hidden shadow-none z-10 border flex flex-col w-full"
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
         >
           <div className="flex justify-between p-6 w-full">

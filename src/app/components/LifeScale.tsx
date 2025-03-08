@@ -64,7 +64,10 @@ const LifeTimeline = () => {
                 <XAxis dataKey="year" hide={true} />
                 <YAxis hide={true} />
                 <Tooltip
-                  formatter={(value, name) => [`${value}%`, name]}
+                  formatter={(value, name) => [
+                    `${Number(value).toFixed(0)}%`,
+                    name,
+                  ]}
                   labelFormatter={(year) =>
                     `Year: ${year} (Age: ${year - birthYear})`
                   }

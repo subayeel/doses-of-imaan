@@ -249,8 +249,8 @@ const UnderstandingIslam = () => {
                     bring to mind all sorts of images and ideas. But what is
                     Islam really about at its core? The word itself gives us a
                     clue - it comes from the Arabic word &quot;salam,&quot;
-                    which means peace. Islam means &quot;submission to God that
-                    brings peace.&quot;
+                    which means peace. Islam means &quot;submission to
+                    God.&quot;
                   </p>
                   <p className="text-lg leading-relaxed">
                     Islam isn&apos;t just a set of rituals or rules - it&apos;s
