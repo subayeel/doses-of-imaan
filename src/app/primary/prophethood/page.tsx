@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import {
@@ -136,7 +137,7 @@ const ProphetMuhammad = () => {
             </h1>
           </div>
           <p className="text-xl max-w-2xl text-purple-100">
-            Explore the logical analysis of Prophet Muhammad&apos;s claim to
+            Explore the logical analysis of Prophet Muhammad's claim to
             prophethood
           </p>
           <div className="flex flex-wrap gap-4 mt-8">
@@ -204,31 +205,29 @@ const ProphetMuhammad = () => {
                     <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900">
                       <User className="text-purple-500" size={24} />
                     </div>
-                    <CardTitle>
-                      Understanding the Prophet&apos;s Claim
-                    </CardTitle>
+                    <CardTitle>Understanding the Prophet's Claim</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    Let&apos;s explore something really important - how we can
-                    know if Prophet Muhammad ﷺ was truly sent by God. If
-                    you&apos;ve already seen how the Quran is divine, this
-                    becomes simpler, because the Quran clearly states:
+                    Let's explore something really important - how we can know
+                    if Prophet Muhammad ﷺ was truly sent by God. If you've
+                    already seen how the Quran is divine, this becomes simpler,
+                    because the Quran clearly states:
                   </p>
 
                   <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg my-6">
                     <p className="italic text-center text-xl mb-2">
-                      &quot;Say, [O Muhammad], &apos;O mankind, indeed I am the
-                      Messenger of Allah to you all.&apos;&quot;
+                      &quot;Say, [O Muhammad], 'O mankind, indeed I am the
+                      Messenger of Allah to you all.'&quot;
                     </p>
                     <p className="text-right">— Quran 7:158</p>
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    But let&apos;s take a different approach too. When someone
-                    makes a big claim like being a prophet, there are really
-                    only three possibilities to consider:
+                    But let's take a different approach too. When someone makes
+                    a big claim like being a prophet, there are really only
+                    three possibilities to consider:
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
@@ -237,8 +236,7 @@ const ProphetMuhammad = () => {
                         <X className="text-red-500" size={16} /> He was lying
                       </h3>
                       <p>
-                        He knew he wasn&apos;t a prophet but claimed to be one
-                        anyway
+                        He knew he wasn't a prophet but claimed to be one anyway
                       </p>
                     </div>
                     <div className="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-lg">
@@ -261,8 +259,8 @@ const ProphetMuhammad = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    Let&apos;s examine each possibility logically and see which
-                    one makes the most sense. This approach helps us think
+                    Let's examine each possibility logically and see which one
+                    makes the most sense. This approach helps us think
                     critically about this important question!
                   </p>
                 </CardContent>
@@ -282,8 +280,8 @@ const ProphetMuhammad = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    Let&apos;s look at what we know about Muhammad&apos;s
-                    character ﷺ, especially before he claimed to be a prophet:
+                    Let's look at what we know about Muhammad's character ﷺ,
+                    especially before he claimed to be a prophet:
                   </p>
 
                   <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg my-6">
@@ -366,7 +364,7 @@ const ProphetMuhammad = () => {
                   </Card>
 
                   <p className="text-lg leading-relaxed">
-                    Let&apos;s also consider what people typically lie for:
+                    Let's also consider what people typically lie for:
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
@@ -439,7 +437,7 @@ const ProphetMuhammad = () => {
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
                     Could Muhammad ﷺ have sincerely but mistakenly believed he
-                    was a prophet? Let&apos;s think about what this would mean:
+                    was a prophet? Let's think about what this would mean:
                   </p>
 
                   <div className="bg-orange-50 dark:bg-orange-900/30 p-6 rounded-lg my-6">
@@ -483,8 +481,8 @@ const ProphetMuhammad = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    Let&apos;s also consider a specific incident that reveals
-                    his character:
+                    Let's also consider a specific incident that reveals his
+                    character:
                   </p>
 
                   <Card className="my-6 border-blue-500">
@@ -500,10 +498,10 @@ const ProphetMuhammad = () => {
                     </CardHeader>
                     <CardContent className="pt-4">
                       <p className="text-lg">
-                        When Muhammad&apos;s ﷺ young son Ibrahim died, there
-                        happened to be a solar eclipse on the same day. Many
-                        people thought this was a divine sign mourning the death
-                        of the Prophet&apos;s son.
+                        When Muhammad's ﷺ young son Ibrahim died, there happened
+                        to be a solar eclipse on the same day. Many people
+                        thought this was a divine sign mourning the death of the
+                        Prophet's son.
                       </p>
                       <p className="text-lg mt-4">
                         If Muhammad ﷺ was deluded or dishonest, this would have
@@ -551,15 +549,14 @@ const ProphetMuhammad = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    When we&apos;ve carefully examined the first two
-                    possibilities and found them inadequate to explain the
-                    historical facts, we&apos;re left with the third option -
-                    that Muhammad ﷺ was indeed telling the truth about being
-                    God&apos;s messenger.
+                    When we've carefully examined the first two possibilities
+                    and found them inadequate to explain the historical facts,
+                    we're left with the third option - that Muhammad ﷺ was
+                    indeed telling the truth about being God's messenger.
                   </p>
 
                   <p className="text-lg leading-relaxed">
-                    Consider all we&apos;ve discussed:
+                    Consider all we've discussed:
                   </p>
 
                   <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg my-6">
@@ -638,15 +635,14 @@ const ProphetMuhammad = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    When we look at Muhammad&apos;s life ﷺ, his character, his
-                    message, and the impact he&apos;s had on history, the
-                    evidence points to the truth of his claim to be God&apos;s
-                    messenger.
+                    When we look at Muhammad's life ﷺ, his character, his
+                    message, and the impact he's had on history, the evidence
+                    points to the truth of his claim to be God's messenger.
                   </p>
 
                   <p className="text-lg leading-relaxed">
-                    His message wasn&apos;t just for people of his time or
-                    region - it was meant for all of humanity. The Quran states:
+                    His message wasn't just for people of his time or region -
+                    it was meant for all of humanity. The Quran states:
                   </p>
 
                   <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg my-6">
@@ -658,7 +654,7 @@ const ProphetMuhammad = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    By recognizing Muhammad ﷺ as God&apos;s messenger, we open
+                    By recognizing Muhammad ﷺ as God's messenger, we open
                     ourselves to learning from his teachings and example -
                     guidance that has positively transformed countless lives
                     throughout history and continues to do so today.
@@ -666,8 +662,8 @@ const ProphetMuhammad = () => {
 
                   <p className="text-lg leading-relaxed">
                     His life and character stand as a practical demonstration of
-                    the Quran&apos;s teachings in action, showing us how to
-                    implement divine guidance in our daily lives.
+                    the Quran's teachings in action, showing us how to implement
+                    divine guidance in our daily lives.
                   </p>
                 </CardContent>
               </Card>

@@ -24,6 +24,10 @@ import { Input } from "@/components/ui/input";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { Book, Braces, Dot, Pill, SparkleIcon, User } from "lucide-react";
 import ImaanStrengthening from "./ImaanStrenghtening";
+import HinduismDose from "./HinduismDose";
+import AtheismDose from "./AtheismDose";
+import JudaismDose from "./JudaismDose";
+import ChristianityDose from "./ChristianityDose";
 
 export default function Home() {
   const [step, setStep] = useState("personal");
@@ -95,7 +99,18 @@ export default function Home() {
     } else if (step === "belief") {
       if (beliefInfo.believesInGod === false) {
         // If doesn't believe in God, suggest PD1
-        setStep("suggestPD1");
+        setStep("atheism");
+      } else if (beliefInfo.whichReligion === "hinduism") {
+        setStep("hinduism");
+      } else if (
+        beliefInfo.whichReligion === "atheist" ||
+        beliefInfo.whichReligion === "agnostic"
+      ) {
+        setStep("atheism");
+      } else if (beliefInfo.whichReligion === "judaism") {
+        setStep("judaism");
+      } else if (beliefInfo.whichReligion === "christianity") {
+        setStep("christianity");
       } else if (beliefInfo.howMany === "many") {
         // If believes in many gods, suggest PD2
         setStep("suggestPD2");
@@ -386,7 +401,7 @@ export default function Home() {
       results?.totalPoints ?? previousResults?.totalPoints ?? 0;
 
     if (totalPoints >= 45) {
-      //congratulatte and suggest good Duas to keep you firm in the imaan
+      //congratulate and suggest good Duas to keep you firm in the imaan
       return <ImaanStrengthening />;
     } else if (totalPoints >= 35) {
       return (
@@ -606,6 +621,22 @@ export default function Home() {
     }
   };
 
+  const renderDosesOnResults = (stepType: string) => {
+    switch (stepType) {
+      case "hinduism":
+        return <HinduismDose setStep={setStep} resetSurvey={resetSurvey} />;
+
+      case "atheism":
+        return <AtheismDose setStep={setStep} resetSurvey={resetSurvey} />;
+      case "judaism":
+        return <JudaismDose setStep={setStep} resetSurvey={resetSurvey} />;
+      case "christianity":
+        return <ChristianityDose setStep={setStep} resetSurvey={resetSurvey} />;
+      default:
+        return <div>No dose found</div>;
+    }
+  };
+
   return (
     <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 text-gre">
       <div className="max-w-3xl mx-auto">
@@ -780,7 +811,8 @@ export default function Home() {
                 </div>
               )}
 
-              {beliefInfo.howMany === "one" && (
+              {(beliefInfo.howMany === "one" ||
+                beliefInfo.howMany === "many") && (
                 <div className="space-y-2">
                   <Label htmlFor="religion">
                     Which religion do you follow?
@@ -1001,6 +1033,10 @@ export default function Home() {
             </CardFooter>
           </Card>
         )}
+        {step === "hinduism" && renderDosesOnResults("hinduism")}
+        {step === "atheism" && renderDosesOnResults("atheism")}
+        {step === "judaism" && renderDosesOnResults("judaism")}
+        {step === "christianity" && renderDosesOnResults("christianity")}
 
         {step === "results" && (
           <Card>

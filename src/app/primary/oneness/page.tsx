@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import {
@@ -140,9 +141,7 @@ const GodsOneness = () => {
               className="text-purple-200 hidden md:block"
               size={32}
             />
-            <h1 className="text-4xl font-bold">
-              Understanding God&apos;s Oneness
-            </h1>
+            <h1 className="text-4xl font-bold">Understanding God's Oneness</h1>
           </div>
           <p className="text-xl max-w-2xl text-purple-100">
             Explore why there can only be One Creator and why this Creator must

@@ -24,12 +24,11 @@ import {
   Leaf,
   ChartNoAxesCombined,
   ShieldCheck,
-  Egg,
-  Sparkle,
   Settings,
   ChevronUp,
   MessageCircle,
   Home,
+  Feather,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -106,21 +105,28 @@ const SidebarComponent = () => {
       url: "/self-help/quick-recovery",
       icon: ChartNoAxesCombined,
     },
+
     {
-      title: "Learn Salah",
-      url: "/learn-salah",
-      icon: Egg,
+      title: "Stories of Reverts",
+      url: "/revert-stories",
+      icon: Feather,
     },
-    {
-      title: "Learn Quran",
-      url: "/learn-quran",
-      icon: Book,
-    },
-    {
-      title: "Learn Arabic",
-      url: "/learn-arabic",
-      icon: Sparkle,
-    },
+
+    // {
+    //   title: "Learn Salah",
+    //   url: "/learn-salah",
+    //   icon: Egg,
+    // },
+    // {
+    //   title: "Learn Quran",
+    //   url: "/learn-quran",
+    //   icon: Book,
+    // },
+    // {
+    //   title: "Learn Arabic",
+    //   url: "/learn-arabic",
+    //   icon: Sparkle,
+    // },
   ];
 
   // Function to determine if a link is currently active
