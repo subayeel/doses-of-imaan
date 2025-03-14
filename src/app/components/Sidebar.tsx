@@ -29,6 +29,7 @@ import {
   MessageCircle,
   Home,
   Feather,
+  Brain,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -110,6 +111,12 @@ const SidebarComponent = () => {
       title: "Stories of Reverts",
       url: "/revert-stories",
       icon: Feather,
+    },
+
+    {
+      title: "Dissolve your Bias",
+      url: "/dissolving-bias",
+      icon: Brain,
     },
 
     // {
@@ -253,14 +260,14 @@ const SidebarComponent = () => {
                 side="top"
                 className="w-[--radix-popper-anchor-width]"
               >
-                <DropdownMenuItem>
-                  <span>Privacy & Policy</span>
+                <DropdownMenuItem className="cursor-pointer" asChild>
+                  <Link href="/privacy-policy">Privacy & Policy</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>About Us</span>
+                <DropdownMenuItem className="cursor-pointer" asChild>
+                  <Link href="/about-us">About Us</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Contact Us</span>
+                <DropdownMenuItem className="cursor-pointer" asChild>
+                  <Link href="/contact-us">Contact Us</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
