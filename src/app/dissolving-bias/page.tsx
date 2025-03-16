@@ -2,7 +2,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import {
-  Layers,
   Check,
   Brain,
   ArrowRight,
@@ -31,15 +30,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-interface DissolvingBiasesProps {
-  userCountry: string;
-  userReligion: string;
-}
+// interface DissolvingBiasesProps {
+//   userCountry: string;
+//   userReligion: string;
+// }
 
-const DissolvingBiases = ({
-  userCountry,
-  userReligion,
-}: DissolvingBiasesProps) => {
+const DissolvingBiases = () => {
   const [activeSection, setActiveSection] = useState("introduction");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -52,13 +48,13 @@ const DissolvingBiases = ({
         color: "bg-blue-100 dark:bg-blue-900",
         iconColor: "text-blue-500",
       },
-      {
-        id: "causes-of-bias",
-        title: "Causes of Bias",
-        icon: Layers,
-        color: "bg-orange-100 dark:bg-orange-900",
-        iconColor: "text-orange-500",
-      },
+      // {
+      //   id: "causes-of-bias",
+      //   title: "Causes of Bias",
+      //   icon: Layers,
+      //   color: "bg-orange-100 dark:bg-orange-900",
+      //   iconColor: "text-orange-500",
+      // },
       {
         id: "types-of-bias",
         title: "Common Biases",
@@ -270,61 +266,6 @@ const DissolvingBiases = ({
                     psychology shows that simply understanding that biases exist
                     begins the process of reducing their impact on our thinking
                     and decision-making.
-                  </p>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* Causes of Bias Section - Dynamic based on user's location/background */}
-            <section id="causes-of-bias" className="scroll-mt-20">
-              <Card className="border-l-4 border-orange-500">
-                <CardHeader className="pb-2">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-orange-100 dark:bg-orange-900">
-                      <Layers className="text-orange-500" size={24} />
-                    </div>
-                    <CardTitle>
-                      Causes of Bias - The {userCountry} Context
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-4 space-y-4">
-                  <p className="text-lg leading-relaxed">
-                    Biases have specific historical, cultural, and social roots
-                    that vary across different regions and contexts. In{" "}
-                    {userCountry}, these factors create unique patterns that
-                    influence how people perceive different groups and ideas.
-                  </p>
-
-                  <div className="bg-orange-50 dark:bg-orange-900/30 p-6 rounded-lg my-6">
-                    <h3 className="text-xl font-semibold mb-4">
-                      Factors Contributing to Bias in {userCountry}:
-                    </h3>
-
-                    {/* This section would be populated from a JSON file with country-specific content */}
-                    <div className="italic text-gray-600 dark:text-gray-400 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                      [Dynamic content about specific causes of bias in the
-                      user's country will be loaded here from external data]
-                    </div>
-
-                    <div className="mt-6">
-                      <h4 className="font-medium mb-2">
-                        For those coming from a {userReligion} background:
-                      </h4>
-                      <div className="italic text-gray-600 dark:text-gray-400 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                        [Dynamic content about how the user's religious
-                        background might influence perceptions of Islam will be
-                        loaded here]
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-lg leading-relaxed">
-                    Understanding these contextual influences helps us recognize
-                    that biases aren't simply personal failings but are shaped
-                    by broader societal forces. This environmental perspective
-                    allows for more effective strategies to address and overcome
-                    prejudice.
                   </p>
                 </CardContent>
               </Card>
@@ -806,3 +747,58 @@ const DissolvingBiases = ({
 };
 
 export default DissolvingBiases;
+
+//    {/* Causes of Bias Section - Dynamic based on user's location/background */}
+//    <section id="causes-of-bias" className="scroll-mt-20">
+//    <Card className="border-l-4 border-orange-500">
+//      <CardHeader className="pb-2">
+//        <div className="flex items-center gap-3">
+//          <div className="p-2 rounded-lg bg-orange-100 dark:bg-orange-900">
+//            <Layers className="text-orange-500" size={24} />
+//          </div>
+//          <CardTitle>
+//            Causes of Bias - The {userCountry} Context
+//          </CardTitle>
+//        </div>
+//      </CardHeader>
+//      <CardContent className="pt-4 space-y-4">
+//        <p className="text-lg leading-relaxed">
+//          Biases have specific historical, cultural, and social roots
+//          that vary across different regions and contexts. In{" "}
+//          {userCountry}, these factors create unique patterns that
+//          influence how people perceive different groups and ideas.
+//        </p>
+
+//        <div className="bg-orange-50 dark:bg-orange-900/30 p-6 rounded-lg my-6">
+//          <h3 className="text-xl font-semibold mb-4">
+//            Factors Contributing to Bias in {userCountry}:
+//          </h3>
+
+//          {/* This section would be populated from a JSON file with country-specific content */}
+//          <div className="italic text-gray-600 dark:text-gray-400 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+//            [Dynamic content about specific causes of bias in the
+//            user's country will be loaded here from external data]
+//          </div>
+
+//          <div className="mt-6">
+//            <h4 className="font-medium mb-2">
+//              For those coming from a {userReligion} background:
+//            </h4>
+//            <div className="italic text-gray-600 dark:text-gray-400 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+//              [Dynamic content about how the user's religious
+//              background might influence perceptions of Islam will be
+//              loaded here]
+//            </div>
+//          </div>
+//        </div>
+
+//        <p className="text-lg leading-relaxed">
+//          Understanding these contextual influences helps us recognize
+//          that biases aren't simply personal failings but are shaped
+//          by broader societal forces. This environmental perspective
+//          allows for more effective strategies to address and overcome
+//          prejudice.
+//        </p>
+//      </CardContent>
+//    </Card>
+//  </section>

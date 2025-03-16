@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import {
@@ -17,6 +18,8 @@ import {
   ArrowUp,
   Feather,
   ArrowRight,
+  Info,
+  Sparkles,
 } from "lucide-react";
 import {
   Popover,
@@ -447,6 +450,94 @@ const GodExistence = () => {
                       </li>
                     </ul>
                   </div>
+                </CardContent>
+              </Card>
+            </section>
+
+            <div className="flex justify-center items-center gap-4 w-full m-auto">
+              <Info />
+              <p className="text-sm text-gray-500">
+                This reasoning is enough to understand the need for a Higher
+                Power, but some have confirmation bias due to their knowledge of
+                philosophy. If you don't, skip to the next section:
+                <a href="/primary/oneness">Oneness of God</a>.
+              </p>
+            </div>
+
+            {/* Summary Section */}
+            <section id="summary" className="scroll-mt-20">
+              <Card className="border-l-4 border-violet-500">
+                <CardHeader className="pb-2 flex flex-row justify-between w-full">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-violet-100 dark:bg-violet-900">
+                      <Sparkles className="text-violet-500" size={24} />
+                    </div>
+                    <CardTitle>Philosophical Perspective</CardTitle>
+                  </div>
+                  <a href="/primary/god/philosophy">
+                    <Button className="bg-primary">View Details</Button>
+                  </a>
+                </CardHeader>
+                <CardContent className="pt-4 space-y-4">
+                  <p className="text-lg leading-relaxed">
+                    The logical proofs and arguments presented lead us to the
+                    conclusion that there must be a unique, necessary, and
+                    independent Creator behind the universe. Here's a summary of
+                    the key points:
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                    <div className="bg-violet-50 dark:bg-violet-900/30 p-6 rounded-lg">
+                      <h3 className="text-xl font-semibold mb-4">
+                        Five Logical Proofs
+                      </h3>
+                      <ul className="mt-4 space-y-2">
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Dependence on an Independent Cause</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Necessary Facts Presuppose Existence</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Arrangement Indicates a Choosing Agent</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Fine-Tuning of the Universe</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Causation of Composite Things</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="bg-violet-50 dark:bg-violet-900/30 p-6 rounded-lg">
+                      <h3 className="text-xl font-semibold mb-4">
+                        Three Arguments for Oneness
+                      </h3>
+                      <ul className="mt-4 space-y-2">
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Uniqueness by Definition</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Ultimate Capacity</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" />
+                          <span>Natural Order</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="text-lg leading-relaxed">
+                    These proofs and arguments collectively point to the
+                    existence of a single, necessary, and independent Creator
+                    who is the foundation of all existence.
+                  </p>
                 </CardContent>
               </Card>
             </section>

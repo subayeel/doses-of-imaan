@@ -2,19 +2,24 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Brain, Heart, Lightbulb, Pill } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Brain, Heart, Lightbulb, Pill } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
 import { Particles } from "@/components/magicui/particles";
 import { useTheme } from "next-themes";
 import { Meteors } from "@/components/magicui/meteors";
+import SpiritualityDrawer from "./components/Dashboard Drawers/SpiritualityDrawer";
+import ReligionDrawer from "./components/Dashboard Drawers/ReligionDrawer";
+import MentalHealthDrawer from "./components/Dashboard Drawers/MentalHealthDrawer";
+import MentalClarityDrawer from "./components/Dashboard Drawers/MentalClarityDrawer";
+import HeartDiseaseDrawer from "./components/Dashboard Drawers/HeartDiseaseDrawer";
+import PhysicalHealthDrawer from "./components/Dashboard Drawers/PhysicalHealthDrawer";
+import ParentsDrawer from "./components/Dashboard Drawers/FamilyDrawer";
+import SpouseChildrenDrawer from "./components/Dashboard Drawers/SpouseChildrenDrawer";
+import RelativesDrawer from "./components/Dashboard Drawers/RelativesDrawer";
+import NeighborDrawer from "./components/Dashboard Drawers/NeighborDrawer";
+import FriendsDrawer from "./components/Dashboard Drawers/FriendsDrawer";
+import LawDrawer from "./components/Dashboard Drawers/LawDrawer";
 
 const Page = () => {
   const { resolvedTheme } = useTheme();
@@ -119,172 +124,37 @@ const Page = () => {
 
           <div className="flex flex-col gap-4 md:col-span-4 scale-90 z-10">
             <div className="flex gap-4 flex-wrap md:flex-nowrap">
-              <Card
-                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
-                style={{
-                  background: onReasoning
-                    ? resolvedTheme === "dark"
-                      ? "#1a2e1a"
-                      : "#f9ffd9"
-                    : "",
-                }}
-              >
-                <CardContent>
-                  <CardTitle className="mb-2 flex justify-between">
-                    Spirituality <ArrowUpRight />
-                  </CardTitle>
-                  <CardDescription>
-                    Have you ever gazed at the stars and wondered who created
-                    all this? Using pure logic and reasoning, we'll explore how
-                    the intricate design of our universe points to the existence
-                    of Allah. No blind faith required—just your intellect and an
-                    open heart to discover the Creator's unmistakable signs.
-                    <br />
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      <Badge variant="secondary">Evidence of Creator</Badge>
-                      <Badge variant="secondary">Divine Attributes</Badge>
-                    </div>
-                  </CardDescription>
-                </CardContent>
-              </Card>
-              <Card
-                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
-                style={{
-                  background: onReasoning
-                    ? resolvedTheme === "dark"
-                      ? "#1a2e1a"
-                      : "#f9ffd9"
-                    : "",
-                }}
-              >
-                <CardContent>
-                  <CardTitle className="mb-2 flex justify-between">
-                    Religion <ArrowUpRight />
-                  </CardTitle>
-                  <CardDescription>
-                    With so many religions claiming truth, how can you find the
-                    right path? We'll examine how Islam's pure monotheism,
-                    preserved scripture, and logical framework provide clear
-                    guidance from Allah. Discover why the message of Tawhid
-                    (Divine Oneness) resonates with your natural intuition and
-                    rational mind.
-                    <br />
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      <Badge variant="secondary">Tawhid (Divine Oneness)</Badge>
-                      <Badge variant="secondary">Divine Revelation</Badge>
-                    </div>
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <SpiritualityDrawer
+                resolvedTheme={resolvedTheme}
+                state={onReasoning}
+              />
+              <ReligionDrawer
+                resolvedTheme={resolvedTheme}
+                state={onReasoning}
+              />
             </div>
             <div className="flex gap-4 flex-wrap md:flex-nowrap">
-              <Card
-                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
-                style={{
-                  background: onMind
-                    ? resolvedTheme === "dark"
-                      ? "#1a2742"
-                      : "#dce3f9"
-                    : "",
-                }}
-              >
-                <CardContent>
-                  <CardTitle className="mb-2 flex justify-between">
-                    Mental Health <ArrowUpRight />
-                  </CardTitle>
+              <MentalHealthDrawer
+                resolvedTheme={resolvedTheme}
+                state={onMind}
+              />
 
-                  <CardDescription>
-                    True peace of mind comes through connecting with Allah.
-                    Explore how Islamic practices like prayer, dhikr
-                    (remembrance), and mindfulness create mental tranquility
-                    beyond what modern psychology alone can offer. When your
-                    thoughts align with your Creator's guidance, anxiety
-                    diminishes and clarity emerges.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-              <Card
-                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
-                style={{
-                  background: onMind
-                    ? resolvedTheme === "dark"
-                      ? "#1a2742"
-                      : "#dce3f9"
-                    : "",
-                }}
-              >
-                <CardContent>
-                  <CardTitle className="mb-2 flex justify-between">
-                    Mental Clarity <ArrowUpRight />
-                  </CardTitle>
-                  <CardDescription>
-                    In a world of endless distractions, the Qur'an offers a
-                    framework for crystal-clear thinking. Discover how regular
-                    contemplation of Allah's signs, structured daily prayers,
-                    and Qur'anic wisdom train your mind to focus on what truly
-                    matters, helping you make decisions aligned with your
-                    purpose of worshipping the Creator.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <MentalClarityDrawer
+                resolvedTheme={resolvedTheme}
+                state={onMind}
+              />
             </div>
 
             <div className="flex gap-4 flex-wrap md:flex-nowrap">
-              <Card
-                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer md:min-w-[350px]"
-                style={{
-                  background: onHeart
-                    ? resolvedTheme === "dark"
-                      ? "#3d1a1a"
-                      : "#ffd1d1"
-                    : "",
-                }}
-              >
-                <CardContent>
-                  <CardTitle className="mb-2 flex justify-between">
-                    Diseases of the Heart <ArrowUpRight />
-                  </CardTitle>
-                  <CardDescription className="flex flex-wrap gap-1">
-                    <Badge variant="secondary">Desires and Greed</Badge>
-                    <Badge variant="secondary">
-                      Negative Verbal and Physical Behaviors
-                    </Badge>
-                    <Badge variant="secondary">Negative Emotions</Badge>
-                    <Badge variant="secondary">Negative Character</Badge>
-                    <Badge variant="secondary">Negative Spirituality</Badge>
-                  </CardDescription>
-                </CardContent>
-              </Card>
-              <Card
-                className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
-                style={{
-                  background: onHealth
-                    ? resolvedTheme === "dark"
-                      ? "#2e1a29"
-                      : "#f7d5e8"
-                    : "",
-                }}
-              >
-                <CardContent>
-                  <CardTitle className="mb-2 flex justify-between">
-                    Physical Health <ArrowUpRight />
-                  </CardTitle>
-                  <CardDescription>
-                    Islam's holistic approach to physical wellbeing preceded
-                    modern medicine by centuries. Explore how the Prophet
-                    Muhammad's (peace be upon him) teachings on diet, hygiene,
-                    fasting, and moderation create a divinely-guided blueprint
-                    for physical health that honors your body as an amanah
-                    (trust) from Allah.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    <Badge variant="secondary">Exercise</Badge>
-                    <Badge variant="secondary">Nutrition</Badge>
-                    <Badge variant="secondary">Sleep</Badge>
-                    <Badge variant="secondary">Manage stress</Badge>
-                  </div>
-                </CardContent>
-              </Card>
+              <HeartDiseaseDrawer
+                resolvedTheme={resolvedTheme}
+                state={onHeart}
+              />
+
+              <PhysicalHealthDrawer
+                resolvedTheme={resolvedTheme}
+                state={onHealth}
+              />
             </div>
           </div>
         </div>
@@ -308,54 +178,11 @@ const Page = () => {
 
         <div className="flex md:grid md:grid-cols-3 gap-6 scale-90 items-center flex-col-reverse">
           <div className="flex flex-col gap-6 md:col-span-2">
-            <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
-              <CardContent>
-                <CardTitle className="mb-2 flex justify-between ">
-                  Parents <ArrowUpRight />
-                </CardTitle>
+            <ParentsDrawer />
 
-                <CardDescription>
-                  Allah elevates honoring parents just below worship of Him
-                  alone. Discover the profound spiritual rewards of treating
-                  parents with excellence (ihsan), even when challenging. The
-                  Prophet Muhammad (peace be upon him) taught that Paradise lies
-                  at the feet of mothers—learn practical ways to earn Allah's
-                  pleasure through fulfilling these sacred relationships.
-                </CardDescription>
-              </CardContent>
-            </Card>
-            <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
-              <CardContent>
-                <CardTitle className="mb-2 flex justify-between">
-                  Spouse & Children <ArrowUpRight />
-                </CardTitle>
+            <SpouseChildrenDrawer />
 
-                <CardDescription>
-                  Islamic marriage is a profound spiritual bond described in the
-                  Qur'an as a source of tranquility and mercy. Explore how
-                  Allah's guidance transforms marriage into an act of worship
-                  and child-raising into a sacred trust. Learn practical wisdom
-                  from the Prophet's example of nurturing a family centered on
-                  remembrance of Allah and mutual compassion.
-                </CardDescription>
-              </CardContent>
-            </Card>
-            <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
-              <CardContent>
-                <CardTitle className="mb-2 flex justify-between">
-                  Relatives <ArrowUpRight />
-                </CardTitle>
-
-                <CardDescription>
-                  The concept of silat al-rahim (maintaining family ties) is so
-                  significant in Islam that Allah links it to His mercy.
-                  Discover how nurturing extended family relationships, even
-                  with differences, becomes an act of worship that brings baraka
-                  (divine blessing) into your life and lengthens your provision,
-                  as the Prophet Muhammad (peace be upon him) taught.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <RelativesDrawer />
           </div>
 
           <div className="md:col-span-1">
@@ -389,40 +216,9 @@ const Page = () => {
         </div>
 
         <div className="flex flex-col gap-6 md:col-span-2 max-w-2xl">
-          <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
-            <CardContent>
-              <CardTitle className="mb-2 flex justify-between ">
-                Neighbors <ArrowUpRight />
-              </CardTitle>
+          <NeighborDrawer />
 
-              <CardDescription>
-                Did you know the Prophet Muhammad (peace be upon him) emphasized
-                neighbors' rights so strongly that early Muslims thought they
-                might inherit from their neighbors? Explore how Islam elevates
-                neighborly relations beyond mere courtesy to a spiritual
-                obligation. Learn practical ways to revive this forgotten Sunnah
-                and earn Allah's pleasure through kindness that transcends
-                differences.
-              </CardDescription>
-            </CardContent>
-          </Card>
-          <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
-            <CardContent>
-              <CardTitle className="mb-2 flex justify-between">
-                Friends <ArrowUpRight />
-              </CardTitle>
-
-              <CardDescription>
-                "A person follows the religion of his close friend, so let each
-                of you look at whom he befriends." This profound hadith reveals
-                how friendships shape our spiritual journey. Discover Allah's
-                guidance on nurturing friendships that strengthen your faith,
-                encourage righteousness, and help you remember your Creator.
-                Learn to balance genuine care with boundaries that protect your
-                worship.
-              </CardDescription>
-            </CardContent>
-          </Card>
+          <FriendsDrawer />
         </div>
       </div>
 
@@ -433,23 +229,7 @@ const Page = () => {
       </span>
       <div className="relative overflow-hidden flex flex-col-reverse md:grid md:grid-cols-2 gap-8 items-center justify-start py-12 px-4">
         <div className="flex flex-col gap-6 md:col-span-1 max-w-2xl">
-          <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
-            <CardContent>
-              <CardTitle className="mb-2 flex justify-between ">
-                Law & Order <ArrowUpRight />
-              </CardTitle>
-
-              <CardDescription>
-                Islam teaches that following just laws is an extension of
-                worshipping Allah. Explore how the Qur'anic principles of
-                justice, public welfare (maslaha), and respect for authority
-                create a framework for being an exemplary citizen while
-                maintaining your primary identity as a servant of Allah. Learn
-                how the early Muslims modeled civic responsibility while never
-                compromising their faith.
-              </CardDescription>
-            </CardContent>
-          </Card>
+          <LawDrawer />
         </div>
         <div className="md:col-span-1">
           <Image
