@@ -454,13 +454,20 @@ const GodExistence = () => {
               </Card>
             </section>
 
-            <div className="flex justify-center items-center gap-4 w-full m-auto">
-              <Info />
+            <div className="flex justify-center items-start gap-4 w-full m-auto max-w-[400px]">
+              <Info size={42} />
               <p className="text-sm text-gray-500">
-                This reasoning is enough to understand the need for a Higher
-                Power, but some have confirmation bias due to their knowledge of
-                philosophy. If you don't, skip to the next section:
-                <a href="/primary/oneness">Oneness of God</a>.
+                Reasoning given above are enough to understand the need for a
+                Higher Power, but some have confirmation bias due to their
+                knowledge of philosophy.<br></br> If you don't, skip to the next
+                section:{" "}
+                <a
+                  href="/primary/oneness"
+                  className="text-primary italic underline"
+                >
+                  Oneness of God
+                </a>
+                .
               </p>
             </div>
 
