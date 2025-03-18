@@ -28,6 +28,7 @@ import HinduismDose from "./HinduismDose";
 import AtheismDose from "./AtheismDose";
 import JudaismDose from "./JudaismDose";
 import ChristianityDose from "./ChristianityDose";
+import ChatSurvey from "./ChatSurvey";
 
 export default function Home() {
   const [step, setStep] = useState("personal");
@@ -638,8 +639,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 text-gre">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen dark:bg-gray-700 bg-gray-200">
+      <ChatSurvey />
+      {/* <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-bold text-start text-gray-900 dark:text-gray-50 mb-8">
           Spirituality Diagnosis
         </h1>
@@ -1090,7 +1092,7 @@ export default function Home() {
             </CardFooter>
           </Card>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
