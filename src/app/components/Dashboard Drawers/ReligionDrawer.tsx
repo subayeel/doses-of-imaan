@@ -2,16 +2,13 @@
 import React from "react";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -61,14 +58,27 @@ function ReligionDrawer({ state, resolvedTheme }: ReligionDrawerProps) {
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Religion</SheetTitle>
-          <SheetDescription>This action cannot be undone.</SheetDescription>
+          <SheetDescription>
+            With so many religions claiming truth, how can you find the right
+            path? We'll examine how Islam's pure monotheism, preserved
+            scripture, and logical framework provide clear guidance from Allah.
+            Discover why the message of Tawhid (Divine Oneness) resonates with
+            your natural intuition and rational mind.
+          </SheetDescription>
         </SheetHeader>
-        <SheetFooter>
-          <Button>Submit</Button>
-          <SheetClose>
-            <Button variant="outline">Cancel</Button>
-          </SheetClose>
-        </SheetFooter>
+
+        <p>
+          While choosing a religion one must use his rationale and come to a
+          proper conclusion
+        </p>
+
+        <p className="text-xl font-semibold">Premise</p>
+        <ul>
+          <li>Universe Exist</li>
+          <li>It is made of Parts</li>
+          <li>Parts are arranged</li>
+          <li>Properties of parts are fine tuned</li>
+        </ul>
       </SheetContent>
     </Sheet>
   );

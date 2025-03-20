@@ -36,3 +36,11 @@ export interface RevertStory {
   realizations?: string;
   conversion?: string;
 }
+
+export interface ResultsType {
+  level: string;
+  message: string;
+  percentage: number;
+  totalPoints: number;
+  maxPossible: number;
+}

@@ -2,12 +2,34 @@ import React, { useRef, useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
+import { ResultsType } from "@/utils/types";
 
-const ChatUI = ({ messages, results, showInput, renderInput }) => {
-  const messagesEndRef = useRef(null);
+interface MessageType {
+  id: string | number;
+  role: "user" | "assistant";
+  content: string;
+  question?: string;
+}
+
+interface ChatUIProps {
+  messages: MessageType[];
+  results?: ResultsType;
+  showInput: boolean;
+  renderInput: () => React.ReactNode;
+}
+
+const ChatUI: React.FC<ChatUIProps> = ({
+  messages,
+  results,
+  showInput,
+  renderInput,
+}) => {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // For typing effect
-  const [typingTexts, setTypingTexts] = useState({});
+  const [typingTexts, setTypingTexts] = useState<
+    Record<string | number, string>
+  >({});
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -23,7 +45,7 @@ const ChatUI = ({ messages, results, showInput, renderInput }) => {
     });
   }, [messages]);
 
-  const animateTyping = (id, fullText) => {
+  const animateTyping = (id: string | number, fullText: string) => {
     setTypingTexts((prev) => ({ ...prev, [id]: "" }));
 
     let i = 0;
@@ -44,7 +66,7 @@ const ChatUI = ({ messages, results, showInput, renderInput }) => {
   };
 
   return (
-    <div className="flex flex-col h-screen ">
+    <div className="flex flex-col h-screen">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 p-4 flex items-center">
         <Avatar className="h-8 w-8 mr-2">

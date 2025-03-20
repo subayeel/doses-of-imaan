@@ -2,7 +2,6 @@
 import React from "react";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -11,7 +10,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -61,14 +59,42 @@ function SpiritualityDrawer({ state, resolvedTheme }: SpiritualityDrawerProps) {
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Spirituality</SheetTitle>
-          <SheetDescription>This action cannot be undone.</SheetDescription>
+          <SheetDescription></SheetDescription>
         </SheetHeader>
-        <SheetFooter>
-          <Button>Submit</Button>
-          <SheetClose>
-            <Button variant="outline">Cancel</Button>
-          </SheetClose>
-        </SheetFooter>
+        <p className="italic text-gray-600">
+          Definition: Spirituality, in general, is an individual's search for
+          ultimate or sacred meaning and purpose in life, encompassing personal
+          growth, religious experience, belief in a supernatural realm, and
+          making sense of one's inner dimension
+        </p>
+
+        <p className="text-xl my-2 text-center">
+          It begins with belief in a higher power
+        </p>
+
+        <p className="text-xl my-2 text-center">
+          Every Human has innate desire to believe in God
+        </p>
+
+        <p className="text-xl my-2 text-center">Universe Exists</p>
+
+        <p className="text-xl my-2 text-center">
+          Existence of anything proves the Existence of its Creator
+        </p>
+
+        <p className="text-xl my-2 text-center">
+          creator of a creator and creator of that creator...Infinite Chain?🤔
+        </p>
+
+        <p className="text-xl my-2 text-center">
+          With infinite regress, Universe wouldn't exist, but it does exist.
+        </p>
+
+        <p className="text-xl my-2 text-center">
+          Hence, Entity which is eternal must exist.
+        </p>
+
+        <SheetFooter></SheetFooter>
       </SheetContent>
     </Sheet>
   );

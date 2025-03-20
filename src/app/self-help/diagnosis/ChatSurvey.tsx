@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import {
@@ -13,8 +13,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ChatUI from "./ChatUI";
+import { ResultsType } from "@/utils/types";
 
 interface Message {
   id: string;
@@ -58,7 +58,7 @@ interface Question {
 
 interface QuestionSequence {
   [key: string]: {
-    next: string | ((responses: any) => string);
+    next: string | ((responses: any) => string) | null;
     type: string;
     condition?: (responses: any) => boolean;
   };
@@ -88,8 +88,8 @@ export default function ChatSurvey() {
   });
 
   const [imaanAnswers, setImaanAnswers] = useState<ImaanAnswers>({});
-  const [results, setResults] = useState<Results | null>(null);
-  const [previousResults, setPreviousResults] = useState<Results | null>(null);
+  const [results, setResults] = useState<ResultsType | undefined>();
+  const [, setPreviousResults] = useState<ResultsType | undefined>();
   const [currentQuestion, setCurrentQuestion] = useState<string>("gender");
   const [showInput, setShowInput] = useState<boolean>(true);
 
@@ -396,14 +396,15 @@ export default function ChatSurvey() {
         ? nextQuestion({ personalInfo, beliefInfo, imaanAnswers })
         : nextQuestion;
 
-    setCurrentQuestion(nextQuestionId);
+    setCurrentQuestion(nextQuestionId || "default-question");
 
     // Add assistant message for the next question
     addMessage({
       role: "assistant",
-      content:
-        questions[nextQuestionId]?.content || "Thank you for your response.",
-      question: nextQuestionId,
+      content: nextQuestionId
+        ? questions[nextQuestionId]?.content || "Thank you for your response."
+        : "Thank you for your response.",
+      question: nextQuestionId ?? "",
     });
 
     setShowInput(true);
@@ -542,14 +543,15 @@ export default function ChatSurvey() {
           setShowInput(true);
         }, 1000);
       } else {
-        setCurrentQuestion(nextQuestion);
+        setCurrentQuestion(nextQuestion ?? "");
 
         // Add assistant message for the next question
         addMessage({
           role: "assistant",
-          content:
-            questions[nextQuestion]?.content || "Thank you for your response.",
-          question: nextQuestion,
+          content: nextQuestion
+            ? questions[nextQuestion]?.content || "Thank you for your response."
+            : "Thank you for your response.",
+          question: nextQuestion ?? undefined,
         });
 
         // Show input for next question
@@ -650,7 +652,7 @@ export default function ChatSurvey() {
     });
     setImaanAnswers({});
     setPreviousResults(results);
-    setResults(null);
+    setResults(undefined);
     setMessages([
       {
         id: "welcome",

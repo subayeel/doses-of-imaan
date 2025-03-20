@@ -28,7 +28,7 @@ const LifeTimeline = () => {
         Financial: age < 30 ? 30 : age < 50 ? 70 : 90,
       };
     });
-  }, [birthYear, deathYear]);
+  }, [birthYear, lifespan]);
 
   const getWidth = () => {
     const diffPercentage = ((deathYear - birthYear) * 100) / 150;
