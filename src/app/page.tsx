@@ -145,7 +145,7 @@ const Page = () => {
               />
             </div>
 
-            <div className="flex gap-4 flex-wrap md:flex-nowrap">
+            <div className="flex gap-4 items-start flex-wrap md:flex-nowrap">
               <HeartDiseaseDrawer
                 resolvedTheme={resolvedTheme}
                 state={onHeart}

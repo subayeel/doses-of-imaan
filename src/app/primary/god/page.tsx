@@ -20,6 +20,7 @@ import {
   ArrowRight,
   Info,
   Sparkles,
+  Lightbulb,
 } from "lucide-react";
 import {
   Popover,
@@ -31,6 +32,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -70,8 +72,8 @@ const GodExistence = () => {
         iconColor: "text-amber-500",
       },
       {
-        id: "creator-nature",
-        title: "Creator's Nature",
+        id: "philosophical-perspective",
+        title: "Philosophical Perspective",
         icon: Target,
         color: "bg-red-100 dark:bg-red-900",
         iconColor: "text-red-500",
@@ -256,6 +258,63 @@ const GodExistence = () => {
               </Card>
             </section>
 
+            {/* Natural Disposition Section */}
+            <section id="common-sense" className="scroll-mt-20">
+              <Card className="border-l-4 border-amber-500">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-green-100 dark:bg-amber-900">
+                      <Lightbulb className="text-amber-500" size={24} />
+                    </div>
+                    <CardTitle>Natural Predisposition to Belief</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-4 space-y-4">
+                  <p className="text-lg leading-relaxed">
+                    Children have a natural predisposition to believe in a
+                    supreme being, according to Dr. Justin Barrett from Oxford's
+                    Centre for Anthropology and Mind. His research suggests that
+                    even without religious teaching, children instinctively see
+                    the world as purposefully designed, making belief in God
+                    intuitive for young minds.
+                  </p>
+                  <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold mb-4">
+                      Research Evidence
+                    </h3>
+                    <p className="text-lg leading-relaxed">
+                      Dr. Barrett's claims are based on psychological
+                      experiments that show children's innate tendency to
+                      attribute purpose and design to natural phenomena:
+                    </p>
+                    <ul className="mt-4 space-y-2">
+                      <li className="flex items-center gap-2">
+                        <Check className="text-green-500" />
+                        Six and seven-year-olds believed birds existed "to make
+                        nice music" or "because it makes the world look nice"
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="text-green-500" />
+                        12-month-old babies showed surprise when watching a ball
+                        apparently creating order from chaos
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="text-green-500" />
+                        By age four, children understand the difference between
+                        human-made objects and the natural world
+                      </li>
+                    </ul>
+                    <p className="mt-4 text-lg leading-relaxed">
+                      According to Barrett, this innate tendency makes children
+                      "more likely to believe in creationism rather than
+                      evolution," as evolutionary concepts are "unnatural for
+                      human minds; relatively difficult to believe."
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
             {/* Common Sense Section */}
             <section id="common-sense" className="scroll-mt-20">
               <Card className="border-l-4 border-green-500">
@@ -402,6 +461,16 @@ const GodExistence = () => {
                     </div>
                   </div>
                 </CardContent>
+
+                <CardFooter>
+                  <p className="text-lg leading-relaxed">
+                    If you observe carefully, you will find order and
+                    fine-tuning in many aspects of your day-to-day life. For
+                    example, the air you breathe contains the right amount of
+                    oxygen and nitrogen for humans to survive and for plants to
+                    thrive.
+                  </p>
+                </CardFooter>
               </Card>
             </section>
 
@@ -409,11 +478,18 @@ const GodExistence = () => {
             <section id="creator-nature" className="scroll-mt-20">
               <Card className="border-l-4 border-red-500">
                 <CardHeader className="pb-2">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-red-100 dark:bg-red-900">
-                      <Target className="text-red-500" size={24} />
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-red-100 dark:bg-red-900">
+                        <Target className="text-red-500" size={24} />
+                      </div>
+                      <CardTitle>The Nature of the Creator</CardTitle>
                     </div>
-                    <CardTitle>The Nature of the Creator</CardTitle>
+                    <a href="/primary/oneness">
+                      <Button className="bg-red-500">
+                        Next Session <ArrowRight />
+                      </Button>
+                    </a>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
@@ -472,7 +548,7 @@ const GodExistence = () => {
             </div>
 
             {/* Summary Section */}
-            <section id="summary" className="scroll-mt-20">
+            <section id="philosophical-perspective" className="scroll-mt-20">
               <Card className="border-l-4 border-violet-500">
                 <CardHeader className="pb-2 flex flex-row justify-between w-full">
                   <div className="flex items-center gap-3">
@@ -482,7 +558,9 @@ const GodExistence = () => {
                     <CardTitle>Philosophical Perspective</CardTitle>
                   </div>
                   <a href="/primary/god/philosophy">
-                    <Button className="bg-primary">View Details</Button>
+                    <Button className="bg-violet-500">
+                      View Details <ArrowRight />
+                    </Button>
                   </a>
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">

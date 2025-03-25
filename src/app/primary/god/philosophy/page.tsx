@@ -291,16 +291,17 @@ const ProofsForGod = () => {
                       <Layers className="text-blue-500" size={24} />
                     </div>
                     <CardTitle>
-                      Proof 1: Dependence on an Independent Cause
+                      Proof 1: Dependence on an Independent Existence
                     </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    Look around you. Everything you see—from trees to buildings,
-                    from smartphones to stars—is made up of parts. These
-                    composite things cannot exist on their own without something
-                    holding them together.
+                    Everything that exists is either dependent or independent.
+                    Dependent things rely on something else for their existence
+                    and cannot sustain themselves indefinitely. If everything
+                    were dependent, there would be no foundation for existence,
+                    making the presence of an independent existence necessary.
                   </p>
 
                   <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg my-6">
@@ -311,25 +312,25 @@ const ProofsForGod = () => {
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Premise:</strong> All things made of parts
-                          (like a smartphone or even the universe) require
-                          something to hold them together.
+                          <strong>Premise:</strong> Everything composed of parts
+                          is dependent, as its existence relies on the
+                          arrangement and interaction of its components.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Reasoning:</strong> Parts cannot create or
-                          sustain themselves indefinitely. They need an
-                          underlying cause.
+                          <strong>Logical Extension:</strong> The universe,
+                          being composed of countless interacting parts, must
+                          also be dependent.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Conclusion:</strong> The existence of our
-                          universe implies there must be one self-sufficient
-                          entity that underpins everything else.
+                          <strong>Conclusion:</strong> A dependent universe or
+                          even an infinite multiverse requires an independent
+                          existence to serve as its foundation.
                         </span>
                       </li>
                     </ul>
@@ -338,12 +339,13 @@ const ProofsForGod = () => {
                   <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-blue-200 dark:border-blue-900">
                     <h4 className="font-medium mb-2">Key Terms:</h4>
                     <p>
-                      <strong>Self-sufficient:</strong> Capable of existing
-                      without relying on anything else.
+                      <strong>Dependent Existence:</strong> An entity that
+                      requires something else to sustain its existence.
                     </p>
                     <p>
-                      <strong>Independent being:</strong> An existence that
-                      doesn't depend on anything else; the foundational cause.
+                      <strong>Independent Existence:</strong> A necessary,
+                      self-sufficient existence that underlies all dependent
+                      entities.
                     </p>
                   </div>
                 </CardContent>
@@ -365,10 +367,12 @@ const ProofsForGod = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    Think about simple mathematical truths like "2 + 2 = 4."
-                    These are necessary truths—they're always true regardless of
-                    time, place, or circumstance. Yet these truths presuppose
-                    that something exists to make them meaningful.
+                    The most fundamental reality is that existence is
+                    undeniable—there is no doubt that something exists. This
+                    foundational truth is more basic than any fact, including
+                    necessary facts such as mathematical truths. Even statements
+                    like "2 + 2 = 4" presuppose the existence of something that
+                    allows these truths to hold meaning.
                   </p>
 
                   <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg my-6">
@@ -379,25 +383,25 @@ const ProofsForGod = () => {
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Premise:</strong> For any truth to be
-                          meaningful, there must be an underlying reality that
-                          makes those truths "real."
+                          <strong>Premise:</strong> Existence is presupposed in
+                          everything real, including necessary facts.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Reasoning:</strong> Since necessary truths are
-                          unchangeable, they indicate a fundamental reality that
-                          doesn't rely on anything else.
+                          <strong>Reasoning:</strong> Necessary facts are
+                          unchangeable and absolute, yet their truth depends on
+                          the existence of reality itself.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Conclusion:</strong> The existence of
-                          necessary truths implies there is a fundamental,
-                          independent being that is the basis for all existence.
+                          <strong>Conclusion:</strong> Since necessary facts
+                          presuppose existence, they ultimately depend on it,
+                          affirming that existence is the most fundamental
+                          category.
                         </span>
                       </li>
                     </ul>
@@ -406,14 +410,13 @@ const ProofsForGod = () => {
                   <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-green-200 dark:border-green-900">
                     <h4 className="font-medium mb-2">Key Terms:</h4>
                     <p>
-                      <strong>Necessary truths:</strong> Statements that are
-                      true in every possible circumstance, like mathematical
-                      facts.
+                      <strong>Existence:</strong> The most fundamental reality,
+                      which is undeniable and independent of any fact.
                     </p>
                     <p>
-                      <strong>Necessary:</strong> Something that must be the
-                      case and cannot be otherwise—it exists in all possible
-                      scenarios.
+                      <strong>Necessary truths:</strong> Facts that are true in
+                      every possible circumstance but presuppose the existence
+                      of reality.
                     </p>
                   </div>
                 </CardContent>
@@ -435,10 +438,13 @@ const ProofsForGod = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    If you walk into a room and find furniture arranged in a
-                    particular way, you naturally assume someone arranged it
-                    that way. Similarly, the specific arrangement of our
-                    universe suggests a deliberate choice.
+                    If something could have been arranged differently in an
+                    abstract sense, then its current arrangement must be the
+                    result of some external factor rather than necessity. The
+                    universe, as we observe it, could have been arranged in
+                    countless other ways. Therefore, its specific configuration
+                    must be attributed to an external arranger, rather than
+                    being necessary in itself.
                   </p>
 
                   <div className="bg-orange-50 dark:bg-orange-900/30 p-6 rounded-lg my-6">
@@ -449,39 +455,40 @@ const ProofsForGod = () => {
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Premise:</strong> If something could be
-                          arranged in different ways, its current arrangement
-                          suggests a deliberate choice.
+                          <strong>Premise:</strong> Anything that could be
+                          conceived in a different way must have been arranged
+                          by something external to it.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
                           <strong>Reasoning:</strong> Since the universe could
-                          have been different, its specific arrangement
-                          indicates a choosing agent must have made that
+                          have had an alternate structure, its current
+                          arrangement must be due to a deliberate act of
                           arrangement.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <span>
-                          <strong>Conclusion:</strong> This external arranger
-                          must be an independent being whose own nature is
-                          necessary—not dependent on anything else.
+                          <strong>Conclusion:</strong> This arranger must be
+                          independent and necessary in itself, meaning it is not
+                          contingent on anything else.
                         </span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-orange-200 dark:border-orange-900">
-                    <h4 className="font-medium mb-2">Real-World Example:</h4>
+                    <h4 className="font-medium mb-2">Illustrative Analogy:</h4>
                     <p>
-                      Think about your home. The furniture and decorations are
-                      arranged in a specific way because someone chose that
-                      arrangement. They could have been arranged differently,
-                      but they weren't. Similarly, the universe's specific
-                      arrangement indicates a choosing agent.
+                      Imagine a set of letters—A, B, and C—that can be
+                      rearranged in different ways. If one specific order
+                      exists, it must have been chosen by something. Likewise,
+                      the universe’s specific structure, which could have been
+                      different, suggests it was arranged by an external,
+                      independent being.
                     </p>
                   </div>
                 </CardContent>
