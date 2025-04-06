@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -32,6 +33,9 @@ import {
   ArrowRight,
   ArrowUp,
   ArrowLeft,
+  Book,
+  Scale,
+  Brain,
 } from "lucide-react";
 import {
   Popover,
@@ -60,6 +64,21 @@ const UnderstandingIslam = () => {
         color: "bg-blue-100 dark:bg-blue-900",
         iconColor: "text-blue-500",
       },
+      {
+        id: "shia",
+        title: "Shia & Sunni",
+        icon: Target,
+        color: "bg-red-100 dark:bg-red-900",
+        iconColor: "text-red-500",
+      },
+      {
+        id: "islamic-madhhabs",
+        title: "Madhabs",
+        icon: Target,
+        color: "bg-blue-100 dark:bg-blue-900",
+        iconColor: "text-blue-500",
+      },
+
       {
         id: "misconceptions",
         title: "Clearing Up Misconceptions",
@@ -245,30 +264,204 @@ const UnderstandingIslam = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    When we hear the word &quot;Islam&quot; today, it might
-                    bring to mind all sorts of images and ideas. But what is
-                    Islam really about at its core? The word itself gives us a
-                    clue - it comes from the Arabic word &quot;salam,&quot;
-                    which means peace. Islam means &quot;submission to
-                    God.&quot;
+                    If you refer to Arabic language dictionaries, you will find
+                    that the meaning of the word Islam is: <b>submission</b> ,
+                    <b>humbling oneself</b>, and <b>obeying commands</b> and{" "}
+                    <b> heeding prohibitions without objection</b> , sincerely
+                    worshipping Allah alone, believing what He tells us and
+                    having faith in Him.
                   </p>
                   <p className="text-lg leading-relaxed">
-                    Islam isn&apos;t just a set of rituals or rules - it&apos;s
-                    a complete way of life centered around a relationship with
-                    God. It&apos;s about finding your purpose, connecting with
-                    your Creator, and living in a way that brings peace to
-                    yourself and those around you.
+                    All the religions on earth are called by various names,
+                    either the name of a specific man or a specific nation. So
+                    Christianity takes its name from Christ; Buddhism takes its
+                    name from its founder, the Buddha; the Zoroastrians became
+                    well known by this name because their founder and
+                    standard-bearer was Zoroaster.
+                    <br></br>
+                    <br></br>
+                    Similarly, Judaism took its name from a tribe known as
+                    Yehudah (Judah), so it became known as Judaism. And so on.
+                    <br></br>
+                    <br></br>
+                    Except for Islam ; for it is not attributed to any specific
+                    man or to any specific nation, rather its name refers to the
+                    meaning of the word Islam . What this name indicates is that
+                    the establishment and founding of this religion was not the
+                    work of one particular man and that it is not only for one
+                    particular nation to the exclusion of all others. Rather its
+                    aim is to give the attribute implied by the word Islam to
+                    all the peoples of the earth. So everyone who acquires this
+                    attribute, whether he is from the past or the present, is a
+                    Muslim, and everyone who acquires this attribute in the
+                    future will also be a Muslim.
                   </p>
                   <p className="text-lg leading-relaxed">
-                    Let&apos;s explore what Islam truly teaches, beyond
-                    headlines and misconceptions, and discover why it continues
-                    to resonate with billions of people worldwide as a source of
-                    guidance, comfort, and meaning.
+                    Let's explore what Islam truly teaches, beyond headlines and
+                    misconceptions, and discover why it continues to resonate
+                    with billions of people worldwide as a source of guidance,
+                    comfort, and meaning.
                   </p>
                 </CardContent>
               </Card>
             </section>
+            {/* Sunni & Shia */}
+            <section id="shia">
+              <Card className="border-l-4 border-red-500">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-red-100 dark:bg-red-900">
+                      <AlertCircle className="text-red-500" size={24} />
+                    </div>
+                    <CardTitle>Why there are Sunnis and Shias?</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-4 space-y-4">
+                  <p className="text-lg leading-relaxed">
+                    If a child asks about the Shi’ah, they can be informed in a
+                    simple manner that these are people who commit wrong actions
+                    and slander the noble companions and wives of the Prophet
+                    (peace and blessings be upon him). Since these companions
+                    were the best of people after the Prophets, we do not
+                    approve of such behavior.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    If the child has seen Shi’ah practices, such as touching
+                    graves or celebrating ‘Ashoora’, they should be taught that
+                    these acts are not permissible in Islam. We worship Allah
+                    alone, without associating partners, and do not prostrate to
+                    graves or harm ourselves and others. This will help the
+                    child understand that such actions are deviations from the
+                    correct path.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    To ensure clarity, the child should be reminded that we are
+                    Sunnis who follow the Sunnah of the Prophet (peace and
+                    blessings be upon him) without introducing innovations into
+                    our religion. If they watch any Shi’ah practices, it is
+                    important to accompany this with clear warnings and
+                    explanations.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    For further understanding, one can refer to trustworthy
+                    sources that explain the deviations of the Shi’ah and why
+                    their beliefs and practices are misguided.
+                  </p>
+                </CardContent>
+              </Card>
+            </section>
+            {/* Madhabs */}
+            <section id="islamic-madhhabs" className="scroll-mt-20">
+              <Card className="border-l-4 border-blue-500">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900">
+                      <Book className="text-blue-500" size={24} />
+                    </div>
+                    <CardTitle>
+                      Understanding Islamic Schools of Thought (Madhhabs)
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-4 space-y-4">
+                  <p className="text-lg leading-relaxed">
+                    Throughout Islamic history, different approaches to
+                    understanding Islamic law developed, resulting in schools of
+                    thought known as "madhhabs." These schools aren't different
+                    religions but different ways of interpreting the same
+                    sources:
+                  </p>
 
+                  <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold mb-4">
+                      Key Points About Islamic Madhhabs:
+                    </h3>
+                    <div className="space-y-6">
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <h4 className="text-lg font-semibold flex items-center gap-2">
+                          <FileText className="text-purple-500" />
+                          1. The Foundation: Quran and Sunnah
+                        </h4>
+                        <p className="mt-2">
+                          All Muslims follow the Quran and authentic teachings
+                          of Prophet Muhammad (Sunnah).
+                        </p>
+                        <p className="mt-2">
+                          Differences between scholars emerged based on which
+                          teachings they had access to and how they understood
+                          them.
+                        </p>
+                      </div>
+
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <h4 className="text-lg font-semibold flex items-center gap-2">
+                          <Users className="text-green-500" />
+                          2. The Famous Four Schools
+                        </h4>
+                        <p className="mt-2">
+                          While many schools of thought existed, four became
+                          most widely known: Hanafi, Maliki, Shafi'i, and
+                          Hanbali.
+                        </p>
+                        <p className="mt-2">
+                          These are named after their founding scholars who were
+                          respected for their knowledge and devotion to Islam.
+                        </p>
+                      </div>
+
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <h4 className="text-lg font-semibold flex items-center gap-2">
+                          <Brain className="text-yellow-500" />
+                          3. Why Differences Exist
+                        </h4>
+                        <p className="mt-2">
+                          Scholars had access to different collections of hadith
+                          (Prophet's sayings).
+                        </p>
+                        <p className="mt-2">
+                          They sometimes understood the same texts differently.
+                        </p>
+                        <p className="mt-2">
+                          They used different methods to determine which
+                          evidence was strongest.
+                        </p>
+                      </div>
+
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <h4 className="text-lg font-semibold flex items-center gap-2">
+                          <Scale className="text-red-500" />
+                          4. Following a Madhhab
+                        </h4>
+                        <p className="mt-2">
+                          It's acceptable for Muslims to follow a particular
+                          school of thought.
+                        </p>
+                        <p className="mt-2">
+                          However, when clear evidence from Quran or Sunnah
+                          shows another view is correct, that should be followed
+                          instead.
+                        </p>
+                        <p className="mt-2">
+                          The imams themselves advised their followers: "If you
+                          find authentic evidence contradicting my opinion,
+                          follow the evidence."
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-lg leading-relaxed">
+                    People follow different madhhabs based on their background,
+                    education, and local community. These differences in
+                    understanding are considered a mercy in Islam, providing
+                    flexibility while maintaining core principles. What's most
+                    important is following the Quran and authentic Sunnah,
+                    regardless of which scholarly method helps you understand
+                    them.
+                  </p>
+                </CardContent>
+              </Card>
+            </section>
             {/* Misconceptions Section */}
             <section id="misconceptions" className="scroll-mt-20">
               <Card className="border-l-4 border-red-500">
@@ -282,8 +475,8 @@ const UnderstandingIslam = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    Before diving into what Islam is, let&apos;s address some
-                    common misunderstandings that might be clouding our view:
+                    Before diving into what Islam is, let's address some common
+                    misunderstandings that might be clouding our view:
                   </p>
 
                   <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg">
@@ -296,15 +489,15 @@ const UnderstandingIslam = () => {
                           <AlertCircle className="text-red-500 flex-shrink-0 mt-1" />
                           <div>
                             <strong>
-                              Misconception: &quot;Islam promotes violence&quot;
+                              Misconception: Islam promotes violence
                             </strong>
                             <p className="mt-2">
                               Reality: Islam places enormous emphasis on peace,
                               compassion, and the sanctity of life. The Quran
-                              states: &quot;Whoever kills a person... it is as
-                              if he has killed all of mankind, and whoever saves
-                              a life, it is as if he has saved all of
-                              mankind.&quot; (5:32)
+                              states: Whoever kills a person... it is as if he
+                              has killed all of mankind, and whoever saves a
+                              life, it is as if he has saved all of mankind.
+                              (5:32)
                             </p>
                           </div>
                         </div>
@@ -314,11 +507,11 @@ const UnderstandingIslam = () => {
                           <AlertCircle className="text-red-500 flex-shrink-0 mt-1" />
                           <div>
                             <strong>
-                              Misconception: &quot;Islam oppresses women&quot;
+                              Misconception: Islam oppresses women
                             </strong>
                             <p className="mt-2">
-                              Reality: Islam elevated women&apos;s status in the
-                              7th century by giving them the right to education,
+                              Reality: Islam elevated women's status in the 7th
+                              century by giving them the right to education,
                               property ownership, inheritance, divorce, and
                               participation in public life. The current
                               situation in some Muslim-majority countries often
@@ -333,16 +526,15 @@ const UnderstandingIslam = () => {
                           <AlertCircle className="text-red-500 flex-shrink-0 mt-1" />
                           <div>
                             <strong>
-                              Misconception: &quot;Islam is just for Arabs&quot;
+                              Misconception: Islam is just for Arabs
                             </strong>
                             <p className="mt-2">
                               Reality: Only about 20% of Muslims worldwide are
                               Arabs. The largest Muslim populations are in
                               Indonesia, Pakistan, India, and Bangladesh. Islam
                               embraces all ethnicities and backgrounds - the
-                              Quran states: &quot;We have made you into nations
-                              and tribes so that you may know one another&quot;
-                              (49:13).
+                              Quran states: We have made you into nations and
+                              tribes so that you may know one another (49:13).
                             </p>
                           </div>
                         </div>
@@ -352,16 +544,15 @@ const UnderstandingIslam = () => {
                           <AlertCircle className="text-red-500 flex-shrink-0 mt-1" />
                           <div>
                             <strong>
-                              Misconception: &quot;Islam is rigid and
-                              unchanging&quot;
+                              Misconception: Islam is rigid and unchanging
                             </strong>
                             <p className="mt-2">
                               Reality: While core beliefs remain constant,
                               Islamic scholarship has a rich tradition of
                               interpretation and adaptation to different times
-                              and places. The concept of &quot;ijtihad&quot;
-                              (reasoned interpretation) allows for flexibility
-                              in applying principles to new situations.
+                              and places. The concept of ijtihad (reasoned
+                              interpretation) allows for flexibility in applying
+                              principles to new situations.
                             </p>
                           </div>
                         </div>
@@ -370,17 +561,15 @@ const UnderstandingIslam = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    It&apos;s important to distinguish between the teachings of
-                    Islam and the actions of some individuals or cultural
-                    practices that may contradict those teachings. Just as we
-                    wouldn&apos;t judge any faith by its worst examples, we
-                    should approach Islam by examining its actual principles and
-                    teachings.
+                    It's important to distinguish between the teachings of Islam
+                    and the actions of some individuals or cultural practices
+                    that may contradict those teachings. Just as we wouldn't
+                    judge any faith by its worst examples, we should approach
+                    Islam by examining its actual principles and teachings.
                   </p>
                 </CardContent>
               </Card>
             </section>
-
             {/* Five Pillars Section */}
             <section id="five-pillars" className="scroll-mt-20">
               <Card className="border-l-4 border-green-500">
@@ -389,18 +578,15 @@ const UnderstandingIslam = () => {
                     <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900">
                       <Layers className="text-green-500" size={24} />
                     </div>
-                    <CardTitle>
-                      The Five Pillars: Islam&apos;s Foundation
-                    </CardTitle>
+                    <CardTitle>The Five Pillars: Islam's Foundation</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
                     Like any building needs a strong foundation, Islam is built
-                    on five core practices that shape a Muslim&apos;s life.
-                    These &quot;Five Pillars&quot; provide the structure that
-                    helps Muslims maintain their faith and live out its
-                    principles:
+                    on five core practices that shape a Muslim's life. These
+                    Five Pillars provide the structure that helps Muslims
+                    maintain their faith and live out its principles:
                   </p>
 
                   <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg">
@@ -414,14 +600,14 @@ const UnderstandingIslam = () => {
                           1. Shahada (Declaration of Faith)
                         </h4>
                         <p className="mt-2">
-                          The testimony: &quot;There is no god but God, and
-                          Muhammad is the messenger of God.&quot;
+                          The testimony: There is no god but God, and Muhammad
+                          is the messenger of God.
                         </p>
                         <p className="mt-2">
                           This simple statement is the foundation of Islamic
                           belief - acknowledging One God and accepting Muhammad
-                          as His prophet. It&apos;s not just words though -
-                          it&apos;s a commitment to live by these beliefs.
+                          as His prophet. It's not just words though - it's a
+                          commitment to live by these beliefs.
                         </p>
                       </div>
 
@@ -439,8 +625,8 @@ const UnderstandingIslam = () => {
                           helps Muslims stay mindful and connected throughout
                           their day. Each prayer takes just a few minutes and
                           involves physical postures that engage the body, mind,
-                          and spirit. It&apos;s like pressing a reset button
-                          five times a day!
+                          and spirit. It's like pressing a reset button five
+                          times a day!
                         </p>
                       </div>
 
@@ -450,16 +636,16 @@ const UnderstandingIslam = () => {
                           3. Zakat (Charitable Giving)
                         </h4>
                         <p className="mt-2">
-                          Annual donation of 2.5% of one&apos;s savings to those
-                          in need.
+                          Annual donation of 2.5% of one's savings to those in
+                          need.
                         </p>
                         <p className="mt-2">
-                          Zakat isn&apos;t just charity - it&apos;s a
-                          recognition that wealth is a blessing from God that
-                          comes with responsibility. By giving a portion to
-                          those in need, Muslims purify their wealth and help
-                          create a more equitable society where everyone&apos;s
-                          basic needs are met.
+                          Zakat isn't just charity - it's a recognition that
+                          wealth is a blessing from God that comes with
+                          responsibility. By giving a portion to those in need,
+                          Muslims purify their wealth and help create a more
+                          equitable society where everyone's basic needs are
+                          met.
                         </p>
                       </div>
 
@@ -475,11 +661,10 @@ const UnderstandingIslam = () => {
                         </p>
                         <p className="mt-2">
                           Fasting teaches self-discipline and empathy for those
-                          less fortunate. It&apos;s also a time of increased
-                          prayer, charity, and community. Many Muslims describe
-                          Ramadan as a spiritual &quot;tune-up&quot; that helps
-                          them reset their priorities and strengthen their
-                          connection with God.
+                          less fortunate. It's also a time of increased prayer,
+                          charity, and community. Many Muslims describe Ramadan
+                          as a spiritual tune-up that helps them reset their
+                          priorities and strengthen their connection with God.
                         </p>
                       </div>
 
@@ -505,7 +690,7 @@ const UnderstandingIslam = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    These pillars aren&apos;t meant to be burdensome rituals but
+                    These pillars aren't meant to be burdensome rituals but
                     practices that enrich life and foster a continuous
                     connection with God. They balance personal spiritual growth
                     with social responsibility, helping Muslims develop both as
@@ -515,7 +700,6 @@ const UnderstandingIslam = () => {
                 </CardContent>
               </Card>
             </section>
-
             {/* Pure Monotheism Section */}
             <section id="pure-monotheism" className="scroll-mt-20">
               <Card className="border-l-4 border-yellow-500">
@@ -530,23 +714,22 @@ const UnderstandingIslam = () => {
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
                     At the very heart of Islam is a crystal-clear concept of God
-                    - a pure monotheism that&apos;s often described as the most
+                    - a pure monotheism that's often described as the most
                     uncompromising form of belief in One God.
                   </p>
 
                   <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg">
                     <p className="italic text-center text-xl mb-2">
-                      &quot;Say: He is Allah, the One and Only; Allah, the
-                      Eternal, Absolute; He begets not, nor is He begotten; And
-                      there is none like unto Him.&quot;
+                      Say: He is Allah, the One and Only; Allah, the Eternal,
+                      Absolute; He begets not, nor is He begotten; And there is
+                      none like unto Him.
                     </p>
                     <p className="text-right">— Quran 112:1-4</p>
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    This concept of God, known in Arabic as &quot;Tawhid,&quot;
-                    is what sets Islam apart from other religious traditions. It
-                    means:
+                    This concept of God, known in Arabic as Tawhid, is what sets
+                    Islam apart from other religious traditions. It means:
                   </p>
 
                   <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg">
@@ -559,26 +742,26 @@ const UnderstandingIslam = () => {
                         <div>
                           <strong>Absolute Oneness:</strong> God is One without
                           partners, associates, or equals. Nothing shares in
-                          God&apos;s nature or attributes.
+                          God's nature or attributes.
                         </div>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <div>
                           <strong>No physical form:</strong> God is not material
-                          and cannot be represented by images or idols.
-                          &quot;Vision cannot grasp Him, but He grasps all
-                          vision.&quot; (Quran 6:103)
+                          and cannot be represented by images or idols. Vision
+                          cannot grasp Him, but He grasps all vision. (Quran
+                          6:103)
                         </div>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <div>
                           <strong>Direct relationship:</strong> Every person has
-                          direct access to God without intermediaries.
-                          &quot;When My servants ask you about Me, indeed I am
-                          near. I respond to the call of the caller when they
-                          call upon Me.&quot; (Quran 2:186)
+                          direct access to God without intermediaries. When My
+                          servants ask you about Me, indeed I am near. I respond
+                          to the call of the caller when they call upon Me.
+                          (Quran 2:186)
                         </div>
                       </li>
                       <li className="flex items-start gap-2">
@@ -593,7 +776,7 @@ const UnderstandingIslam = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    This understanding of God isn&apos;t abstract theology - it
+                    This understanding of God isn't abstract theology - it
                     shapes how Muslims approach life. When you believe that
                     there is only One Ultimate Reality worthy of worship, your
                     focus and priorities become clearer. You seek to please this
@@ -611,7 +794,6 @@ const UnderstandingIslam = () => {
                 </CardContent>
               </Card>
             </section>
-
             {/* Core Beliefs Section */}
             <section id="core-beliefs" className="scroll-mt-20">
               <Card className="border-l-4 border-purple-500">
@@ -627,8 +809,8 @@ const UnderstandingIslam = () => {
                   <p className="text-lg leading-relaxed">
                     Beyond the Five Pillars that shape daily practice, Islam has
                     six fundamental beliefs that form its theological
-                    foundation. These &quot;Articles of Faith&quot; provide the
-                    worldview through which Muslims understand existence:
+                    foundation. These Articles of Faith provide the worldview
+                    through which Muslims understand existence:
                   </p>
 
                   <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg">
@@ -654,8 +836,8 @@ const UnderstandingIslam = () => {
                         </h4>
                         <p className="mt-2">
                           Muslims believe in beings created from light who carry
-                          out God&apos;s commands and never disobey Him. Angels
-                          like Gabriel delivered revelations to prophets, while
+                          out God's commands and never disobey Him. Angels like
+                          Gabriel delivered revelations to prophets, while
                           others record our deeds, etc.
                         </p>
                       </div>
@@ -708,8 +890,8 @@ const UnderstandingIslam = () => {
                           Muslims believe God has knowledge of everything and
                           has decreed all things. However, humans have free will
                           and are responsible for their choices. This balanced
-                          view acknowledges both God&apos;s sovereignty and
-                          human accountability.
+                          view acknowledges both God's sovereignty and human
+                          accountability.
                         </p>
                       </div>
                     </div>
@@ -720,12 +902,11 @@ const UnderstandingIslam = () => {
                     big questions about existence: Where did we come from? Why
                     are we here? What happens after death? They provide Muslims
                     with a sense of purpose and a framework for understanding
-                    life&apos;s challenges and opportunities.
+                    life's challenges and opportunities.
                   </p>
                 </CardContent>
               </Card>
             </section>
-
             {/* True Islam vs Political Image */}
             <section id="true-islam" className="scroll-mt-20">
               <Card className="border-l-4 border-pink-500">
@@ -739,11 +920,10 @@ const UnderstandingIslam = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    There&apos;s often a significant gap between what Islam
-                    actually teaches and how it&apos;s sometimes portrayed or
-                    practiced. Let&apos;s distinguish between Islam&apos;s
-                    authentic teachings and problematic interpretations or
-                    cultural practices:
+                    There's often a significant gap between what Islam actually
+                    teaches and how it's sometimes portrayed or practiced. Let's
+                    distinguish between Islam's authentic teachings and
+                    problematic interpretations or cultural practices:
                   </p>
 
                   <div className="bg-pink-50 dark:bg-pink-900/30 p-6 rounded-lg">
@@ -757,9 +937,8 @@ const UnderstandingIslam = () => {
                             Authentic Islamic Teaching
                           </h4>
                           <p className="mt-2">
-                            &quot;There is no compulsion in religion.&quot;
-                            (Quran 2:256) - Faith must be freely chosen, not
-                            forced.
+                            There is no compulsion in religion. (Quran 2:256) -
+                            Faith must be freely chosen, not forced.
                           </p>
                         </div>
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
@@ -778,9 +957,9 @@ const UnderstandingIslam = () => {
                             Authentic Islamic Teaching
                           </h4>
                           <p className="mt-2">
-                            &quot;The believers, men and women, are protectors
-                            of one another.&quot; (Quran 9:71) - Gender equity
-                            and mutual support.
+                            The believers, men and women, are protectors of one
+                            another. (Quran 9:71) - Gender equity and mutual
+                            support.
                           </p>
                         </div>
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
@@ -799,9 +978,9 @@ const UnderstandingIslam = () => {
                             Authentic Islamic Teaching
                           </h4>
                           <p className="mt-2">
-                            &quot;If anyone killed a person... it would be as if
-                            he killed all mankind.&quot; (Quran 5:32) - Sanctity
-                            of human life.
+                            If anyone killed a person... it would be as if he
+                            killed all mankind. (Quran 5:32) - Sanctity of human
+                            life.
                           </p>
                         </div>
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
@@ -820,9 +999,9 @@ const UnderstandingIslam = () => {
                             Authentic Islamic Teaching
                           </h4>
                           <p className="mt-2">
-                            &quot;The most excellent jihad is for a person to
-                            strive against his own self.&quot; (Hadith) - Inner
-                            spiritual struggle.
+                            The most excellent jihad is for a person to strive
+                            against his own self. (Hadith) - Inner spiritual
+                            struggle.
                           </p>
                         </div>
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
@@ -830,9 +1009,9 @@ const UnderstandingIslam = () => {
                             Misconception/Misapplication
                           </h4>
                           <p className="mt-2">
-                            Misrepresentation of &quot;jihad&quot; primarily as
-                            warfare rather than its broader meaning of striving
-                            in God&apos;s path.
+                            Misrepresentation of jihad primarily as warfare
+                            rather than its broader meaning of striving in God's
+                            path.
                           </p>
                         </div>
                       </div>
@@ -842,8 +1021,8 @@ const UnderstandingIslam = () => {
                   <p className="text-lg leading-relaxed">
                     The Prophet Muhammad emphasized character and compassion
                     throughout his life. When asked about his mission, he simply
-                    stated: &quot;I have only been sent to perfect good moral
-                    character.&quot; His example shows that true Islam is about
+                    stated: I have only been sent to perfect good moral
+                    character. His example shows that true Islam is about
                     developing inner qualities like honesty, kindness, and
                     integrity.
                   </p>
@@ -851,7 +1030,7 @@ const UnderstandingIslam = () => {
                   <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                       <Heart className="text-red-500" />
-                      The Prophet&apos;s Example of Character:
+                      The Prophet's Example of Character:
                     </h3>
                     <div className="space-y-4">
                       <div className="flex items-start gap-2">
@@ -859,8 +1038,8 @@ const UnderstandingIslam = () => {
                         <div>
                           <strong>Mercy to enemies:</strong> When he returned to
                           Mecca victorious over those who had persecuted him for
-                          years, he declared general amnesty saying, &quot;Go,
-                          for you are free.&quot;
+                          years, he declared general amnesty saying, Go, for you
+                          are free.
                         </div>
                       </div>
                       <div className="flex items-start gap-2">
@@ -875,9 +1054,9 @@ const UnderstandingIslam = () => {
                       <div className="flex items-start gap-2">
                         <Check className="text-green-500 mt-1 flex-shrink-0" />
                         <div>
-                          <strong>Kindness to all:</strong> He taught, &quot;He
-                          who is not merciful to others, will not be treated
-                          mercifully.&quot;
+                          <strong>Kindness to all:</strong> He taught, He who is
+                          not merciful to others, will not be treated
+                          mercifully.
                         </div>
                       </div>
                     </div>
@@ -885,7 +1064,6 @@ const UnderstandingIslam = () => {
                 </CardContent>
               </Card>
             </section>
-
             {/* Line of Prophets */}
             <section id="prophets" className="scroll-mt-20">
               <Card className="border-l-4 border-teal-500">
@@ -902,10 +1080,10 @@ const UnderstandingIslam = () => {
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
                     A unique aspect of Islamic belief is its view that God sent
-                    prophets to all peoples throughout history. Muslims
-                    don&apos;t see Islam as a new religion started in the 7th
-                    century but as the continuation and completion of the same
-                    message brought by all prophets.
+                    prophets to all peoples throughout history. Muslims don't
+                    see Islam as a new religion started in the 7th century but
+                    as the continuation and completion of the same message
+                    brought by all prophets.
                   </p>
 
                   <div className="bg-teal-50 dark:bg-teal-900/30 p-6 rounded-lg">
@@ -953,7 +1131,7 @@ const UnderstandingIslam = () => {
                         <div>
                           <strong>Jesus (Isa)</strong>: Born miraculously to the
                           Virgin Mary, he was a mighty messenger who performed
-                          miracles by God&apos;s permission. Muslims honor him
+                          miracles by God's permission. Muslims honor him
                           greatly but believe he was a prophet, not divine.
                         </div>
                       </div>
@@ -970,7 +1148,7 @@ const UnderstandingIslam = () => {
                     </div>
 
                     <p className="text-lg leading-relaxed">
-                      This line of prophets shows that Islam isn&apos;t a new or
+                      This line of prophets shows that Islam isn't a new or
                       isolated message but part of a long tradition of divine
                       guidance. Each prophet came with the same core message of
                       monotheism, tailored to the needs of their time and
@@ -981,7 +1159,6 @@ const UnderstandingIslam = () => {
                 </CardContent>
               </Card>
             </section>
-
             {/* Companions of the Prophet Section */}
             <section id="companions" className="scroll-mt-20">
               <Card className="border-l-4 border-orange-500">
@@ -1022,8 +1199,8 @@ const UnderstandingIslam = () => {
                         <div>
                           <strong>Umar ibn Al-Khattab</strong>: A strong leader
                           who expanded the Islamic state with justice and
-                          fairness, earning the title &quot;Al-Farooq&quot; (the
-                          one who distinguishes between right and wrong).
+                          fairness, earning the title Al-Farooq (the one who
+                          distinguishes between right and wrong).
                         </div>
                       </div>
                       <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4">
@@ -1038,10 +1215,10 @@ const UnderstandingIslam = () => {
                       <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4">
                         <UserPlus className="text-red-500 flex-shrink-0 mt-1" />
                         <div>
-                          <strong>Ali ibn Abi Talib</strong>: Muhammad&apos;s
-                          cousin and son-in-law, known for his deep knowledge
-                          and bravery. His teachings on justice and wisdom
-                          continue to inspire.
+                          <strong>Ali ibn Abi Talib</strong>: Muhammad's cousin
+                          and son-in-law, known for his deep knowledge and
+                          bravery. His teachings on justice and wisdom continue
+                          to inspire.
                         </div>
                       </div>
                       <div className="bg-white dark:bg-gray-800 p-4 rounded-lg flex gap-4">
@@ -1057,7 +1234,7 @@ const UnderstandingIslam = () => {
                         <div>
                           <strong>Aisha</strong>: A scholar and teacher, she
                           narrated many hadiths and played a key role in
-                          educating the Muslim community after Muhammad&apos;s
+                          educating the Muslim community after Muhammad's
                           passing.
                         </div>
                       </div>
@@ -1065,15 +1242,14 @@ const UnderstandingIslam = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    These companions weren&apos;t perfect, but their dedication
-                    to living out Islamic principles in their daily lives makes
+                    These companions weren't perfect, but their dedication to
+                    living out Islamic principles in their daily lives makes
                     them role models for Muslims today. Their stories remind us
                     that faith is about action, not just belief.
                   </p>
                 </CardContent>
               </Card>
             </section>
-
             {/* Golden Period of Islam Section */}
             <section id="golden-period" className="scroll-mt-20">
               <Card className="border-l-4 border-amber-500">
@@ -1091,9 +1267,8 @@ const UnderstandingIslam = () => {
                   <p className="text-lg leading-relaxed">
                     Did you know that for centuries, the Islamic world was at
                     the forefront of science, art, and culture? This period,
-                    often called the &quot;Golden Age of Islam,&quot; shows how
-                    faith and reason can work together to create a thriving
-                    civilization.
+                    often called the Golden Age of Islam, shows how faith and
+                    reason can work together to create a thriving civilization.
                   </p>
 
                   <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg">
@@ -1141,16 +1316,15 @@ const UnderstandingIslam = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    This era wasn&apos;t just about achievements; it was about a
+                    This era wasn't just about achievements; it was about a
                     mindset. Muslims saw learning as a form of worship and
                     believed that understanding the world brought them closer to
-                    God. It&apos;s a legacy that continues to inspire Muslims to
-                    seek knowledge and contribute to humanity.
+                    God. It's a legacy that continues to inspire Muslims to seek
+                    knowledge and contribute to humanity.
                   </p>
                 </CardContent>
               </Card>
             </section>
-
             {/* Islamic Caliphates Section */}
             <section id="caliphates" className="scroll-mt-20">
               <Card className="border-l-4 border-indigo-500">
@@ -1166,11 +1340,10 @@ const UnderstandingIslam = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    After the Prophet Muhammad&apos;s passing, the Muslim
-                    community was led by a series of caliphates. These
-                    weren&apos;t just political entities but also centers of
-                    learning, culture, and governance that shaped the Islamic
-                    world.
+                    After the Prophet Muhammad's passing, the Muslim community
+                    was led by a series of caliphates. These weren't just
+                    political entities but also centers of learning, culture,
+                    and governance that shaped the Islamic world.
                   </p>
 
                   <div className="bg-indigo-50 dark:bg-indigo-900/30 p-6 rounded-lg">
@@ -1216,15 +1389,14 @@ const UnderstandingIslam = () => {
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    These caliphates weren&apos;t perfect, but they show how
-                    Islam can adapt to different times and places while
-                    maintaining its core values. They remind us that unity in
-                    faith doesn&apos;t mean uniformity in culture or governance.
+                    These caliphates weren't perfect, but they show how Islam
+                    can adapt to different times and places while maintaining
+                    its core values. They remind us that unity in faith doesn't
+                    mean uniformity in culture or governance.
                   </p>
                 </CardContent>
               </Card>
             </section>
-
             {/* Fastest Growing Religion Section */}
             <section id="fastest-growing" className="scroll-mt-20">
               <Card className="border-l-4 border-cyan-500">
@@ -1239,9 +1411,8 @@ const UnderstandingIslam = () => {
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
                     Did you know that Islam is the fastest-growing religion in
-                    the world? This isn&apos;t just about numbers; it&apos;s
-                    about people finding meaning, purpose, and peace in its
-                    teachings.
+                    the world? This isn't just about numbers; it's about people
+                    finding meaning, purpose, and peace in its teachings.
                   </p>
 
                   <div className="bg-cyan-50 dark:bg-cyan-900/30 p-6 rounded-lg">
@@ -1287,13 +1458,12 @@ const UnderstandingIslam = () => {
                   <p className="text-lg leading-relaxed">
                     Whether through personal reflection, the example of Muslim
                     friends, or simply reading the Quran, millions are
-                    discovering the beauty of Islam every year. It&apos;s a
-                    testament to the timeless relevance of its message.
+                    discovering the beauty of Islam every year. It's a testament
+                    to the timeless relevance of its message.
                   </p>
                 </CardContent>
               </Card>
             </section>
-
             {/* Conclusion Section */}
             <section id="conclusion" className="scroll-mt-20">
               <Card className="border-l-4 border-green-500">
@@ -1309,25 +1479,23 @@ const UnderstandingIslam = () => {
                 </CardHeader>
                 <CardContent className="pt-4 space-y-4">
                   <p className="text-lg leading-relaxed">
-                    We&apos;ve covered a lot, but this is just the beginning.
-                    Islam is a vast ocean of wisdom, and the best way to
-                    understand it is to dive in yourself. Whether you&apos;re
-                    curious about its teachings, inspired by its history, or
-                    seeking answers to life&apos;s big questions, Islam has
-                    something to offer.
+                    We've covered a lot, but this is just the beginning. Islam
+                    is a vast ocean of wisdom, and the best way to understand it
+                    is to dive in yourself. Whether you're curious about its
+                    teachings, inspired by its history, or seeking answers to
+                    life's big questions, Islam has something to offer.
                   </p>
                   <p className="text-lg leading-relaxed">
-                    Remember, Islam isn&apos;t about blind faith—it&apos;s about
-                    seeking truth with an open heart and mind. As the Quran
-                    says: &quot;So have they not traveled through the earth and
-                    have hearts by which to reason and ears by which to
-                    hear?&quot; (22:46)
+                    Remember, Islam isn't about blind faith—it's about seeking
+                    truth with an open heart and mind. As the Quran says: So
+                    have they not traveled through the earth and have hearts by
+                    which to reason and ears by which to hear? (22:46)
                   </p>
                   <p className="text-lg leading-relaxed">
-                    If you&apos;re interested in learning more, start by reading
-                    the Quran, visiting a local mosque, or talking to Muslims in
+                    If you're interested in learning more, start by reading the
+                    Quran, visiting a local mosque, or talking to Muslims in
                     your community. You might just find the peace and purpose
-                    you&apos;ve been looking for.
+                    you've been looking for.
                   </p>
                 </CardContent>
               </Card>

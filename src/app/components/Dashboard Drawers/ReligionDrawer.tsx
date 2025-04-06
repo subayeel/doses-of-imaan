@@ -17,6 +17,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
+  ArrowRight,
   ArrowUpRight,
   BookOpen,
   ExternalLink,
@@ -293,6 +294,28 @@ function ReligionDrawer({ state, resolvedTheme }: ReligionDrawerProps) {
                 spiritual growth and social harmony.
               </p>
             </div>
+
+            <a
+              className="flex p-3 rounded-md border justify-between items-center border-blue-600 text-blue-700 bg-blue-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-blue-100"
+              href="/religion/islam"
+            >
+              <span className="font-medium">Explore the Islam</span>{" "}
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <a
+              className="flex p-3 rounded-md border justify-between items-center border-pink-600 text-pink-700 bg-pink-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-pink-100"
+              href="/religion/imaan"
+            >
+              <span className="font-medium">Enhance your Faith</span>{" "}
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <a
+              className="flex p-3 rounded-md border justify-between items-center border-pink-600 text-pink-700 bg-pink-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-pink-100"
+              href="/religion/ihsaan"
+            >
+              <span className="font-medium">Achieve Excellence in Worship</span>{" "}
+              <ArrowRight className="h-5 w-5" />
+            </a>
           </div>
         </div>
 

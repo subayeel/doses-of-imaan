@@ -2,16 +2,13 @@
 import React from "react";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetFooter,
 } from "@/components/ui/sheet";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -190,20 +187,6 @@ function MentalHealthDrawer({ state, resolvedTheme }: MentalHealthDrawerProps) {
             </p>
           </div>
         </div>
-
-        <SheetFooter className="mt-4 border-t pt-4">
-          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-            Learn More
-          </Button>
-          <SheetClose>
-            <Button
-              variant="outline"
-              className="border-purple-300 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/40"
-            >
-              Close
-            </Button>
-          </SheetClose>
-        </SheetFooter>
       </SheetContent>
     </Sheet>
   );

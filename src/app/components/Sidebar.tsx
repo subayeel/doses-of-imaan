@@ -30,6 +30,8 @@ import {
   Home,
   Feather,
   Brain,
+  Egg,
+  Sparkle,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -119,21 +121,26 @@ const SidebarComponent = () => {
       icon: Brain,
     },
 
-    // {
-    //   title: "Learn Salah",
-    //   url: "/learn-salah",
-    //   icon: Egg,
-    // },
-    // {
-    //   title: "Learn Quran",
-    //   url: "/learn-quran",
-    //   icon: Book,
-    // },
-    // {
-    //   title: "Learn Arabic",
-    //   url: "/learn-arabic",
-    //   icon: Sparkle,
-    // },
+    {
+      title: "Learn Salah",
+      url: "/self-help/learn-salah",
+      icon: Egg,
+    },
+    {
+      title: "Learn Quran",
+      url: "/self-help/learn-quran",
+      icon: Book,
+    },
+    {
+      title: "Hifz Quran Guide",
+      url: "/self-help/hifz",
+      icon: Book,
+    },
+    {
+      title: "Learn Arabic",
+      url: "/self-help/learn-arabic",
+      icon: Sparkle,
+    },
   ];
 
   // Function to determine if a link is currently active

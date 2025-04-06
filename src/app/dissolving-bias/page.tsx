@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import {
   Check,
   Brain,
-  ArrowRight,
   Globe,
   EyeOff,
   Logs,
@@ -132,13 +131,11 @@ const DissolvingBiases = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-4">
             <EyeOff className="text-teal-200 hidden md:block" size={32} />
-            <h1 className="text-4xl font-bold">
-              Dissolving Biases Against Muslims
-            </h1>
+            <h1 className="text-4xl font-bold">Dissolving Biases</h1>
           </div>
           <p className="text-xl max-w-2xl text-teal-100">
             A journey toward understanding and overcoming prejudices that affect
-            our perception of Muslims across different nationalities and
+            our perception of a community across different nationalities and
             ethnicities.
           </p>
           <div className="flex flex-wrap gap-4 mt-8">
@@ -721,7 +718,7 @@ const DissolvingBiases = () => {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => (window.location.href = "/spiritual-journey")}
+              onClick={() => (window.location.href = "/")}
             >
               <ArrowLeft size={14} /> Back to Journey
             </Button>
@@ -731,13 +728,6 @@ const DissolvingBiases = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               Back to Top <ArrowUp size={14} />
-            </Button>
-            <Button
-              variant="default"
-              size="sm"
-              onClick={() => (window.location.href = "/connect-with-muslims")}
-            >
-              Connect with Muslims <ArrowRight size={14} />
             </Button>
           </div>
         </div>

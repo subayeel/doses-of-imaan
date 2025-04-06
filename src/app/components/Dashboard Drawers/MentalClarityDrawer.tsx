@@ -1,17 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import React from "react";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetFooter,
 } from "@/components/ui/sheet";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -24,17 +21,11 @@ import {
   AlertTriangle,
   CheckCircle2,
   Zap,
-  Lightbulb,
   Compass,
   BrainCircuit,
   Scale,
+  ArrowRight,
 } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 interface MentalClarityDrawerProps {
   state: boolean;
@@ -45,8 +36,6 @@ function MentalClarityDrawer({
   state,
   resolvedTheme,
 }: MentalClarityDrawerProps) {
-  const [showBiasInfo, setShowBiasInfo] = useState(false);
-
   return (
     <Sheet>
       <SheetTrigger>
@@ -126,51 +115,46 @@ function MentalClarityDrawer({
             <h3 className="text-lg font-medium text-red-700 dark:text-red-300 flex items-center gap-2 mb-2">
               <Compass className="h-5 w-5" /> Signs You're Struggling
             </h3>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger className="text-gray-700 dark:text-gray-300">
-                  Common Signs of Poor Mental Clarity
-                </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="text-gray-700 dark:text-gray-300 space-y-2 pl-2">
-                    <li>
-                      <span className="font-medium">
-                        Difficulty concentrating:
-                      </span>{" "}
-                      Mind wandering even during important tasks
-                    </li>
-                    <li>
-                      <span className="font-medium">Trouble at work:</span>{" "}
-                      Making unusual mistakes or feeling overwhelmed
-                    </li>
-                    <li>
-                      <span className="font-medium">Forgetfulness:</span>{" "}
-                      Misplacing items or missing appointments
-                    </li>
-                    <li>
-                      <span className="font-medium">Mental sluggishness:</span>{" "}
-                      Thinking feels slower than usual
-                    </li>
-                    <li>
-                      <span className="font-medium">Decision paralysis:</span>{" "}
-                      Simple choices become difficult
-                    </li>
-                    <li>
-                      <span className="font-medium">Social withdrawal:</span>{" "}
-                      Avoiding interaction because it feels too demanding
-                    </li>
-                    <li>
-                      <span className="font-medium">Poor sleep:</span> Trouble
-                      falling asleep or waking up tired
-                    </li>
-                    <li>
-                      <span className="font-medium">Constant fatigue:</span>{" "}
-                      Persistent tiredness regardless of rest
-                    </li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+
+            <p className="text-gray-700 dark:text-gray-300 text-sm font-semibold mb-2">
+              Common Signs of Poor Mental Clarity
+            </p>
+            <div>
+              <ul className="text-gray-700 dark:text-gray-300 space-y-2 pl-2 text-xs">
+                <li>
+                  <span className="font-medium">Difficulty concentrating:</span>{" "}
+                  Mind wandering even during important tasks
+                </li>
+                <li>
+                  <span className="font-medium">Trouble at work:</span> Making
+                  unusual mistakes or feeling overwhelmed
+                </li>
+                <li>
+                  <span className="font-medium">Forgetfulness:</span> Misplacing
+                  items or missing appointments
+                </li>
+                <li>
+                  <span className="font-medium">Mental sluggishness:</span>{" "}
+                  Thinking feels slower than usual
+                </li>
+                <li>
+                  <span className="font-medium">Decision paralysis:</span>{" "}
+                  Simple choices become difficult
+                </li>
+                <li>
+                  <span className="font-medium">Social withdrawal:</span>{" "}
+                  Avoiding interaction because it feels too demanding
+                </li>
+                <li>
+                  <span className="font-medium">Poor sleep:</span> Trouble
+                  falling asleep or waking up tired
+                </li>
+                <li>
+                  <span className="font-medium">Constant fatigue:</span>{" "}
+                  Persistent tiredness regardless of rest
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Strategies to Improve */}
@@ -178,186 +162,174 @@ function MentalClarityDrawer({
             <h3 className="text-lg font-medium text-green-700 dark:text-green-300 flex items-center gap-2 mb-2">
               <CheckCircle2 className="h-5 w-5" /> Strategies to Improve
             </h3>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger className="text-gray-700 dark:text-gray-300">
-                  11 Ways to Boost Mental Clarity
-                </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="text-gray-700 dark:text-gray-300 space-y-2 pl-2">
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Prioritize sleep:
-                      </span>{" "}
-                      Give your brain the "deep clean" it needs
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Manage stress:
-                      </span>{" "}
-                      Reduce the fight-or-flight response
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Limit screen time:
-                      </span>{" "}
-                      Prevent digital overwhelm
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Exercise regularly:
-                      </span>{" "}
-                      Boost circulation to the brain
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Eat mindfully:
-                      </span>{" "}
-                      Choose foods that fuel your mind
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Challenge your brain:
-                      </span>{" "}
-                      Puzzles, reading, learning new skills
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Practice mindfulness:
-                      </span>{" "}
-                      Close mental "tabs" through meditation
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Balance work-life:
-                      </span>{" "}
-                      Prevent burnout
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Reduce clutter:
-                      </span>{" "}
-                      Simplify your physical and digital spaces
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Stay hydrated:
-                      </span>{" "}
-                      Your brain is 75% water
-                    </li>
-                    <li>
-                      <span className="font-medium text-green-600 dark:text-green-300">
-                        Consult healthcare:
-                      </span>{" "}
-                      Seek help for persistent fog
-                    </li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+
+            <p className="text-gray-700 dark:text-gray-300 text-sm font-semibold mb-2">
+              11 Ways to Boost Mental Clarity
+            </p>
+            <div>
+              <ul className="text-gray-700 dark:text-gray-300 space-y-2 pl-2 text-xs">
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Prioritize sleep:
+                  </span>{" "}
+                  Give your brain the "deep clean" it needs
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Manage stress:
+                  </span>{" "}
+                  Reduce the fight-or-flight response
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Limit screen time:
+                  </span>{" "}
+                  Prevent digital overwhelm
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Exercise regularly:
+                  </span>{" "}
+                  Boost circulation to the brain
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Eat mindfully:
+                  </span>{" "}
+                  Choose foods that fuel your mind
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Challenge your brain:
+                  </span>{" "}
+                  Puzzles, reading, learning new skills
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Practice mindfulness:
+                  </span>{" "}
+                  Close mental "tabs" through meditation
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Balance work-life:
+                  </span>{" "}
+                  Prevent burnout
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Reduce clutter:
+                  </span>{" "}
+                  Simplify your physical and digital spaces
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Stay hydrated:
+                  </span>{" "}
+                  Your brain is 75% water
+                </li>
+                <li>
+                  <span className="font-medium text-green-600 dark:text-green-300">
+                    Consult healthcare:
+                  </span>{" "}
+                  Seek help for persistent fog
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Mental Bias Section */}
-          {!showBiasInfo ? (
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-100 dark:from-indigo-900/40 dark:to-purple-800/40 p-4 rounded-lg">
-              <h3 className="text-lg font-medium text-indigo-700 dark:text-indigo-300 flex items-center gap-2 mb-2">
-                <Scale className="h-5 w-5" /> Mental Bias
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-3">
-                Mental biases are systematic errors in thinking that affect our
-                decisions and judgments. Even with mental clarity, we can fall
-                prey to these cognitive shortcuts.
+
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-100 dark:from-indigo-900/40 dark:to-purple-800/40 p-4 rounded-lg">
+            <h3 className="text-lg font-medium text-indigo-700 dark:text-indigo-300 flex items-center gap-2 mb-2">
+              <Scale className="h-5 w-5" /> Mental Bias
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Mental biases are systematic errors in thinking that affect our
+              decisions and judgments. Even with mental clarity, we can fall
+              prey to these cognitive shortcuts.
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-100 dark:from-indigo-900/40 dark:to-purple-800/40 p-4 rounded-lg">
+            <h3 className="text-lg font-medium text-indigo-700 dark:text-indigo-300 flex items-center gap-2 mb-2">
+              <Scale className="h-5 w-5" /> Overcoming Mental Bias
+            </h3>
+
+            <div className="space-y-3 text-gray-700 dark:text-gray-300">
+              <p className="font-medium text-indigo-600 dark:text-indigo-300">
+                Common Mental Biases:
               </p>
-              <Button
-                onClick={() => setShowBiasInfo(true)}
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium"
-              >
-                <Lightbulb className="h-4 w-4 mr-2" /> Discover How to Overcome
-                Mental Bias
-              </Button>
+              <ul className="pl-2 space-y-1">
+                <li>
+                  • <span className="font-medium">Confirmation bias:</span>{" "}
+                  Seeking information that confirms existing beliefs
+                </li>
+                <li>
+                  • <span className="font-medium">Availability bias:</span>{" "}
+                  Overestimating the likelihood of things we recall easily
+                </li>
+                <li>
+                  • <span className="font-medium">Anchoring bias:</span> Relying
+                  too heavily on the first piece of information
+                </li>
+                <li>
+                  • <span className="font-medium">Negativity bias:</span> Giving
+                  more weight to negative experiences
+                </li>
+              </ul>
+
+              <p className="font-medium text-indigo-600 dark:text-indigo-300 mt-4">
+                Strategies to Overcome Bias:
+              </p>
+              <ul className="pl-2 space-y-2">
+                <li>
+                  <span className="font-medium">Practice self-awareness:</span>
+                  <p className="text-sm mt-1">
+                    Recognize when you might be falling into biased thinking
+                    patterns. Regular mindfulness meditation helps develop this
+                    awareness.
+                  </p>
+                </li>
+                <li>
+                  <span className="font-medium">
+                    Seek diverse perspectives:
+                  </span>
+                  <p className="text-sm mt-1">
+                    Actively look for viewpoints that challenge your existing
+                    beliefs and assumptions.
+                  </p>
+                </li>
+                <li>
+                  <span className="font-medium">
+                    Use decision-making frameworks:
+                  </span>
+                  <p className="text-sm mt-1">
+                    Structured approaches help ensure you consider multiple
+                    factors before reaching conclusions.
+                  </p>
+                </li>
+                <li>
+                  <span className="font-medium">Slow down your thinking:</span>
+                  <p className="text-sm mt-1">
+                    Take time to deliberately process information rather than
+                    relying on quick judgments.
+                  </p>
+                </li>
+              </ul>
             </div>
-          ) : (
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-100 dark:from-indigo-900/40 dark:to-purple-800/40 p-4 rounded-lg">
-              <h3 className="text-lg font-medium text-indigo-700 dark:text-indigo-300 flex items-center gap-2 mb-2">
-                <Scale className="h-5 w-5" /> Overcoming Mental Bias
-              </h3>
-
-              <div className="space-y-3 text-gray-700 dark:text-gray-300">
-                <p className="font-medium text-indigo-600 dark:text-indigo-300">
-                  Common Mental Biases:
-                </p>
-                <ul className="pl-2 space-y-1">
-                  <li>
-                    • <span className="font-medium">Confirmation bias:</span>{" "}
-                    Seeking information that confirms existing beliefs
-                  </li>
-                  <li>
-                    • <span className="font-medium">Availability bias:</span>{" "}
-                    Overestimating the likelihood of things we recall easily
-                  </li>
-                  <li>
-                    • <span className="font-medium">Anchoring bias:</span>{" "}
-                    Relying too heavily on the first piece of information
-                  </li>
-                  <li>
-                    • <span className="font-medium">Negativity bias:</span>{" "}
-                    Giving more weight to negative experiences
-                  </li>
-                </ul>
-
-                <p className="font-medium text-indigo-600 dark:text-indigo-300 mt-4">
-                  Strategies to Overcome Bias:
-                </p>
-                <ul className="pl-2 space-y-2">
-                  <li>
-                    <span className="font-medium">
-                      Practice self-awareness:
-                    </span>
-                    <p className="text-sm mt-1">
-                      Recognize when you might be falling into biased thinking
-                      patterns. Regular mindfulness meditation helps develop
-                      this awareness.
-                    </p>
-                  </li>
-                  <li>
-                    <span className="font-medium">
-                      Seek diverse perspectives:
-                    </span>
-                    <p className="text-sm mt-1">
-                      Actively look for viewpoints that challenge your existing
-                      beliefs and assumptions.
-                    </p>
-                  </li>
-                  <li>
-                    <span className="font-medium">
-                      Use decision-making frameworks:
-                    </span>
-                    <p className="text-sm mt-1">
-                      Structured approaches help ensure you consider multiple
-                      factors before reaching conclusions.
-                    </p>
-                  </li>
-                  <li>
-                    <span className="font-medium">
-                      Slow down your thinking:
-                    </span>
-                    <p className="text-sm mt-1">
-                      Take time to deliberately process information rather than
-                      relying on quick judgments.
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              <Button
-                onClick={() => setShowBiasInfo(false)}
-                variant="outline"
-                className="mt-3 border-indigo-300 text-indigo-700 hover:bg-indigo-50 dark:border-indigo-800 dark:text-indigo-300 dark:hover:bg-indigo-900/40"
-              >
-                Show Less
-              </Button>
-            </div>
-          )}
+            <br />
+            <a
+              className="flex p-3 rounded-md border justify-between items-center border-pink-600 text-pink-700 bg-pink-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-pink-100"
+              href="/dissolving-bias"
+            >
+              <span className="font-medium">
+                {" "}
+                Discover How to Overcome Mental Bias
+              </span>
+              <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
 
           {/* Brain-Body Connection */}
           <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 p-4 rounded-lg">
@@ -377,20 +349,6 @@ function MentalClarityDrawer({
             </p>
           </div>
         </div>
-
-        <SheetFooter className="mt-4 border-t pt-4">
-          <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700">
-            Practice Mindfulness
-          </Button>
-          <SheetClose>
-            <Button
-              variant="outline"
-              className="border-teal-300 text-teal-700 hover:bg-teal-50 dark:border-teal-800 dark:text-teal-300 dark:hover:bg-teal-900/40"
-            >
-              Close
-            </Button>
-          </SheetClose>
-        </SheetFooter>
       </SheetContent>
     </Sheet>
   );

@@ -39,7 +39,7 @@ const PhysicalHealthDrawer = ({
       icon: <HeartPulse className="text-red-500" />,
       title: "Embrace Movement",
       description:
-        "Any movement counts! Dancing, walking, gardening - find joy in staying active.",
+        "Any movement counts! Working, Jogging, walking, gardening - find joy in staying active.",
       color: "bg-red-50",
     },
     {
@@ -98,7 +98,7 @@ const PhysicalHealthDrawer = ({
           <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-pink-300 opacity-20"></div>
           <CardHeader>
             <CardTitle className="flex items-center justify-between gap-2">
-              <span>
+              <span className="flex gap-2">
                 <HeartPulse className="text-pink-600" />
                 Physical Wellbeing Guide
               </span>
