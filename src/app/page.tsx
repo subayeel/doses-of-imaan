@@ -14,12 +14,13 @@ import MentalHealthDrawer from "./components/Dashboard Drawers/MentalHealthDrawe
 import MentalClarityDrawer from "./components/Dashboard Drawers/MentalClarityDrawer";
 import HeartDiseaseDrawer from "./components/Dashboard Drawers/HeartDiseaseDrawer";
 import PhysicalHealthDrawer from "./components/Dashboard Drawers/PhysicalHealthDrawer";
-import ParentsDrawer from "./components/Dashboard Drawers/FamilyDrawer";
-import SpouseChildrenDrawer from "./components/Dashboard Drawers/SpouseChildrenDrawer";
+import ParentsDrawer from "./components/Dashboard Drawers/ParentsDrawer";
+import ChildrenDrawer from "./components/Dashboard Drawers/ChildrenDrawer";
 import RelativesDrawer from "./components/Dashboard Drawers/RelativesDrawer";
 import NeighborDrawer from "./components/Dashboard Drawers/NeighborDrawer";
 import FriendsDrawer from "./components/Dashboard Drawers/FriendsDrawer";
 import LawDrawer from "./components/Dashboard Drawers/LawDrawer";
+import SpouseDrawer from "./components/Dashboard Drawers/SpouseDrawer";
 
 const Page = () => {
   const { resolvedTheme } = useTheme();
@@ -180,7 +181,8 @@ const Page = () => {
           <div className="flex flex-col gap-6 md:col-span-2">
             <ParentsDrawer />
 
-            <SpouseChildrenDrawer />
+            <SpouseDrawer />
+            <ChildrenDrawer />
 
             <RelativesDrawer />
           </div>
