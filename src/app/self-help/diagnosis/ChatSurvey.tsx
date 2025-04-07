@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -15,6 +15,8 @@ import {
 import { Input } from "@/components/ui/input";
 import ChatUI from "./ChatUI";
 import { ResultsType } from "@/utils/types";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Message {
   id: string;
@@ -44,6 +46,7 @@ interface Results {
   maxPossible: number;
   percentage: number;
   level: string;
+  suggestedLinks: ReactNode;
   message: string;
   date: string;
   answers: ImaanAnswers;
@@ -51,7 +54,7 @@ interface Results {
 
 interface Question {
   content: string;
-  options?: { value: string; label: string }[];
+  options?: { value: string; label: string; god?: string }[];
   category?: string;
   quranReference?: string;
 }
@@ -70,7 +73,7 @@ export default function ChatSurvey() {
       id: "welcome",
       role: "assistant",
       content:
-        "Welcome to the Spirituality Diagnosis survey. Let's start with some personal information.",
+        "Salaam! 🌟 Welcome to your Spiritual Wellness Check. This is a safe space to reflect on your faith journey. Ready to begin?",
       question: "personal-intro",
     },
   ]);
@@ -89,11 +92,35 @@ export default function ChatSurvey() {
 
   const [imaanAnswers, setImaanAnswers] = useState<ImaanAnswers>({});
   const [results, setResults] = useState<ResultsType | undefined>();
+  const [suggestedLinks, setSuggestedLinks] = useState<ReactNode | undefined>();
   const [, setPreviousResults] = useState<ResultsType | undefined>();
   const [currentQuestion, setCurrentQuestion] = useState<string>("gender");
   const [showInput, setShowInput] = useState<boolean>(true);
+  const [isTyping, setIsTyping] = useState<boolean>(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const religion = [
+    // { value: "agnostic", label: "Agnostic", god: "none" },
+    // { value: "atheist", label: "Atheist", god: "none" },
+    { value: "buddhism", label: "Buddhism", god: "one" },
+    { value: "christianity", label: "Christianity", god: "one" },
+    { value: "hinduism", label: "Hinduism", god: "many" },
+    { value: "islam", label: "Islam", god: "one" },
+    { value: "jainism", label: "Jainism", god: "one" },
+    { value: "judaism", label: "Judaism", god: "one" },
+    { value: "paganism", label: "Paganism", god: "many" },
+    { value: "shinto", label: "Shinto", god: "one" },
+    { value: "sikhism", label: "Sikhism", god: "one" },
+    { value: "taoism", label: "Taoism", god: "one" },
+    // {
+    //   value: "spiritual",
+    //   label: "Spiritual But Not Religious",
+    //   god: "one",
+    // },
+    // { value: "none", label: "None", god: "one" },
+    // { value: "other", label: "Other", god: "one" },
+  ];
 
   const questionSequence: QuestionSequence = {
     "personal-intro": { next: "gender", type: "message" },
@@ -112,19 +139,122 @@ export default function ChatSurvey() {
     },
     whichReligion: {
       next: (responses) => {
-        console.log("responses", responses);
         if (responses.beliefInfo.whichReligion === "islam") {
           return "imaanIntro";
         } else if (responses.beliefInfo.whichReligion === "hinduism") {
+          const suggestedLinks = (
+            <div className="space-y-2">
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex p-3 rounded-md border justify-between items-center border-red-600 text-red-700 bg-red-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-red-100"
+                href="/primary/god"
+              >
+                <span className="font-medium">Consider Primary Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex p-3 rounded-md border justify-between items-center border-purple-600 text-purple-700 bg-purple-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-purple-100"
+                href="/religion/islam"
+              >
+                <span className="font-medium">Take Religion Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+            </div>
+          );
+          setSuggestedLinks(suggestedLinks);
           return "hinduismDose";
         } else if (
           responses.beliefInfo.whichReligion === "atheist" ||
           responses.beliefInfo.whichReligion === "agnostic"
         ) {
+          const suggestedLinks = (
+            <div className="space-y-2">
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex p-3 rounded-md border justify-between items-center border-red-600 text-red-700 bg-red-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-red-100"
+                href="/primary/god"
+              >
+                <span className="font-medium">Take Primary Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex p-3 rounded-md border justify-between items-center border-purple-600 text-purple-700 bg-purple-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-purple-100"
+                href="/religion/islam"
+              >
+                <span className="font-medium">Visit Religion Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+            </div>
+          );
+          setSuggestedLinks(suggestedLinks);
           return "atheismDose";
         } else if (responses.beliefInfo.whichReligion === "judaism") {
+          const suggestedLinks = (
+            <div className="space-y-2">
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex p-3 rounded-md border justify-between items-center border-red-600 text-red-700 bg-red-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-red-100"
+                href="/primary/god"
+              >
+                <span className="font-medium">Take Primary Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex p-3 rounded-md border justify-between items-center border-purple-600 text-purple-700 bg-purple-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-purple-100"
+                href="/religion/islam"
+              >
+                <span className="font-medium">Visit Religion Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+            </div>
+          );
+          setSuggestedLinks(suggestedLinks);
           return "judaismDose";
         } else if (responses.beliefInfo.whichReligion === "christianity") {
+          const suggestedLinks = (
+            <div className="space-y-2">
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex p-3 rounded-md border justify-between items-center border-red-600 text-red-700 bg-red-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-red-100"
+                href="/primary/god"
+              >
+                <span className="font-medium">Take Primary Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex p-3 rounded-md border justify-between items-center border-purple-600 text-purple-700 bg-purple-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-purple-100"
+                href="/religion/islam"
+              >
+                <span className="font-medium">Visit Religion Dose</span>
+                <ArrowRight className="h-5 w-5" />
+              </motion.a>
+            </div>
+          );
+          setSuggestedLinks(suggestedLinks);
           return "christianityDose";
         } else if (responses.beliefInfo.howMany === "many") {
           return "suggestPD2";
@@ -134,7 +264,10 @@ export default function ChatSurvey() {
       },
       type: "select",
     },
-    imaanIntro: { next: "remorse1", type: "message" },
+    imaanIntro: {
+      next: "remorse1",
+      type: "message",
+    },
     remorse1: { next: "remorse2", type: "radio" },
     remorse2: { next: "heart1", type: "radio" },
     heart1: { next: "heart2", type: "radio" },
@@ -158,17 +291,17 @@ export default function ChatSurvey() {
 
   const questions: { [key: string]: Question } = {
     gender: {
-      content: "What is your gender?",
+      content: "First, may I know how you'd like to be addressed?",
       options: [
         { value: "male", label: "Brother" },
         { value: "female", label: "Sister" },
       ],
     },
     age: {
-      content: "What is your age?",
+      content: "Wonderful! And how many trips around the sun have you made? 🌞",
     },
     ethnicity: {
-      content: "What is your nationality?",
+      content: "Where are you connecting from in this vast world? 🌍",
       options: [
         { value: "african", label: "African" },
         { value: "african_american", label: "African American" },
@@ -195,202 +328,195 @@ export default function ChatSurvey() {
       ],
     },
     believesInGod: {
-      content: "Do you believe in God?",
+      content: "Do you believe in a higher power or divine being?",
       options: [
-        { value: "true", label: "Yes" },
-        { value: "false", label: "No" },
+        { value: "true", label: "Yes, absolutely" },
+        { value: "false", label: "Not really" },
       ],
     },
     howMany: {
-      content: "How many gods do you believe in?",
+      content: "How would you describe this divine presence in your life?",
       options: [
-        { value: "one", label: "One" },
-        { value: "many", label: "Many" },
+        { value: "one", label: "One Supreme Power" },
+        { value: "many", label: "Multiple Supreme Power" },
       ],
     },
     whichReligion: {
-      content: "Which religion do you follow?",
-      options: [
-        { value: "agnostic", label: "Agnostic" },
-        { value: "atheist", label: "Atheist" },
-        { value: "buddhism", label: "Buddhism" },
-        { value: "christianity", label: "Christianity" },
-        { value: "hinduism", label: "Hinduism" },
-        { value: "islam", label: "Islam" },
-        { value: "judaism", label: "Judaism" },
-        { value: "sikhism", label: "Sikhism" },
-        { value: "taoism", label: "Taoism" },
-        { value: "jainism", label: "Jainism" },
-        { value: "shinto", label: "Shinto" },
-        { value: "paganism", label: "Paganism" },
-        { value: "spiritual", label: "Spiritual But Not Religious" },
-        { value: "none", label: "None" },
-        { value: "other", label: "Other" },
-      ],
+      content: "Which spiritual path resonates most with your heart?",
+      options: religion.filter((obj) => {
+        if (beliefInfo.howMany === "one") {
+          return obj.god === "one";
+        } else if (beliefInfo.howMany === "many") {
+          return obj.god === "many";
+        } else {
+          return obj;
+        }
+      }),
     },
     imaanIntro: {
       content:
-        "Thank you for your responses. Now let's assess your Imaan (faith) with a few questions about different aspects of your spiritual life.",
+        "Masha Allah! 🌙 Let's gently explore your spiritual journey together. These questions will help us understand where your heart is at - there are no right or wrong answers, just honest reflection.",
     },
     remorse1: {
       category: "Remorse Upon Committing Sin",
-      content: "Do you feel guilt or regret after committing a sin?",
+      content: "When you stumble, does your heart feel heavy with regret?",
       quranReference:
         '"And those who, when they commit an immorality or wrong themselves, remember Allah and seek forgiveness for their sins..." (Quran 3:135)',
       options: [
-        { value: "A", label: "Always" },
-        { value: "B", label: "Sometimes" },
-        { value: "C", label: "Rarely" },
-        { value: "D", label: "Never" },
+        { value: "A", label: "Always - my conscience won't let me rest" },
+        { value: "B", label: "Sometimes - depends on the situation" },
+        { value: "C", label: "Rarely - I don't think much about it" },
+        { value: "D", label: "Never - I don't feel regret" },
       ],
     },
     remorse2: {
       category: "Remorse Upon Committing Sin",
-      content: "How often do you seek forgiveness from Allah (Astaghfirullah)?",
+      content: "How often do you turn to Allah with a humble 'Astaghfirullah'?",
       options: [
-        { value: "A", label: "Daily" },
-        { value: "B", label: "Weekly" },
-        { value: "C", label: "Occasionally" },
-        { value: "D", label: "Rarely/Never" },
+        { value: "A", label: "Daily - it's part of my routine" },
+        { value: "B", label: "Weekly - when I remember" },
+        { value: "C", label: "Occasionally - when I feel really bad" },
+        { value: "D", label: "Rarely/Never - I don't think to ask" },
       ],
     },
     heart1: {
       category: "Stiffness of Heart",
-      content: "When you listen to Quran recitation, do you feel moved?",
+      content: "When the Quran is recited, does it stir something within you?",
       quranReference:
         '"Has the time not come for those who have believed that their hearts should become humbly submissive at the remembrance of Allah..." (Quran 57:16)',
       options: [
-        { value: "A", label: "Always" },
-        { value: "B", label: "Sometimes" },
-        { value: "C", label: "Rarely" },
-        { value: "D", label: "Never" },
+        { value: "A", label: "Always - tears sometimes come" },
+        { value: "B", label: "Sometimes - certain verses touch me" },
+        { value: "C", label: "Rarely - I listen but don't feel much" },
+        { value: "D", label: "Never - it's just words to me" },
       ],
     },
     heart2: {
       category: "Stiffness of Heart",
-      content: "Do you prefer listening to music over Islamic content?",
+      content: "What fills your quiet moments more often?",
       options: [
-        { value: "A", label: "I mostly listen to Islamic content" },
-        { value: "B", label: "I listen to both equally" },
-        { value: "C", label: "I mostly listen to music" },
-        { value: "D", label: "I never listen to Islamic content" },
+        { value: "A", label: "Mostly Islamic reminders and Quran" },
+        { value: "B", label: "A balance of both" },
+        { value: "C", label: "Mostly music and entertainment" },
+        { value: "D", label: "Never Islamic content" },
       ],
     },
     arrogance: {
       category: "Arrogance & Humility",
-      content:
-        "Do you feel superior to others due to your wealth, knowledge, or status?",
+      content: "Do worldly things ever make you feel superior to others?",
       quranReference:
         '"And do not turn your cheek [in contempt] toward people and do not walk through the earth exultantly. Indeed, Allah does not like the arrogant and boastful." (Quran 31:18)',
       options: [
-        { value: "A", label: "Never" },
-        { value: "B", label: "Occasionally" },
-        { value: "C", label: "Often" },
-        { value: "D", label: "Always" },
+        { value: "A", label: "Never - we're all equal before Allah" },
+        { value: "B", label: "Occasionally - I catch myself sometimes" },
+        { value: "C", label: "Often - I know I'm better in some ways" },
+        { value: "D", label: "Always - I am superior to many" },
       ],
     },
     charity: {
       category: "Charity & Generosity",
-      content: "How often do you give charity (Sadaqah)?",
+      content: "How does giving make you feel?",
       quranReference:
         '"The example of those who spend their wealth in the way of Allah is like a seed of grain that sprouts seven ears; in every ear is a hundred grains..." (Quran 2:261)',
       options: [
-        { value: "A", label: "Very often" },
-        { value: "B", label: "Sometimes" },
-        { value: "C", label: "Rarely" },
-        { value: "D", label: "Never" },
+        { value: "A", label: "Joyful - I give often and generously" },
+        { value: "B", label: "Good - when I remember to share" },
+        { value: "C", label: "Hesitant - I give but reluctantly" },
+        { value: "D", label: "Nothing - I rarely give" },
       ],
     },
     jealousy1: {
       category: "Jealousy & Contentment",
-      content: "Do you often compare yourself with others and feel jealous?",
+      content: "When you see others' blessings, what's your first thought?",
       quranReference:
         '"Do not wish for what Allah has favored some of you over others..." (Quran 4:32)',
       options: [
-        { value: "A", label: "Never" },
-        { value: "B", label: "Occasionally" },
-        { value: "C", label: "Often" },
-        { value: "D", label: "Always" },
+        { value: "A", label: "MashaAllah - I'm happy for them" },
+        {
+          value: "B",
+          label: "Mixed - sometimes I feel happy, sometimes envious",
+        },
+        { value: "C", label: "Why not me? - I often compare" },
+        { value: "D", label: "Resentment - it's not fair" },
       ],
     },
     jealousy2: {
       category: "Jealousy & Contentment",
-      content: "Do you find yourself complaining about your life?",
+      content:
+        "How often do you find yourself complaining about your situation?",
       options: [
-        { value: "A", label: "Never" },
-        { value: "B", label: "Occasionally" },
-        { value: "C", label: "Often" },
-        { value: "D", label: "Always" },
+        { value: "A", label: "Never - Alhamdulillah for everything" },
+        { value: "B", label: "Occasionally - when things get tough" },
+        { value: "C", label: "Often - life feels unfair" },
+        { value: "D", label: "Always - nothing goes right for me" },
       ],
     },
     ibadah1: {
       category: "Laziness in Ibadah (Worship)",
-      content: "How often do you pray your five daily Salah on time?",
+      content: "How consistent are you with your five daily prayers?",
       quranReference:
         '"Indeed, the prayer is a duty imposed on the believers at the appointed times." (Quran 4:103)',
       options: [
-        { value: "A", label: "Always" },
-        { value: "B", label: "Mostly" },
-        { value: "C", label: "Occasionally" },
-        { value: "D", label: "Rarely/Never" },
+        { value: "A", label: "Always - never miss them" },
+        { value: "B", label: "Mostly - sometimes delay" },
+        { value: "C", label: "Occasionally - miss more than I pray" },
+        { value: "D", label: "Rarely/Never - hardly pray" },
       ],
     },
     ibadah2: {
       category: "Laziness in Ibadah (Worship)",
-      content: "Do you struggle to wake up for Fajr prayer?",
+      content: "How's your relationship with Fajr prayer?",
       options: [
-        { value: "A", label: "Never" },
-        { value: "B", label: "Sometimes" },
-        { value: "C", label: "Often" },
-        { value: "D", label: "Always" },
+        { value: "A", label: "Strong - I never miss it" },
+        { value: "B", label: "Okay - sometimes I sleep through" },
+        { value: "C", label: "Struggling - often miss it" },
+        { value: "D", label: "Nonexistent - never wake up for it" },
       ],
     },
     trials: {
       category: "Reaction to Trials & Hardships",
-      content: "When faced with bad news, how do you react?",
+      content: "When hardship comes, where does your heart turn first?",
       quranReference:
         '"And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give glad tidings to the patient." (Quran 2:155)',
       options: [
         {
           value: "A",
-          label: "I immediately turn to Allah and say Alhamdulillah",
+          label: "To Allah - alhamdulillah, this is a test",
         },
         { value: "B", label: "I feel upset but try to be patient" },
-        { value: "C", label: "I complain and feel frustrated" },
-        { value: "D", label: "I react with anger and blame others" },
+        { value: "C", label: "I complain - why is this happening to me?" },
+        { value: "D", label: "Anger - I blame others or circumstances" },
       ],
     },
     hinduismDose: {
       content:
-        "Based on your beliefs in Hinduism, we have some specific resources that might interest you. Would you like to explore them?",
+        "I appreciate you sharing your beliefs with me. 🌸 Based on your spiritual path, I have some resources that might resonate with your journey towards understanding the Divine. Would you like to explore them?",
     },
     atheismDose: {
       content:
-        "Based on your atheist/agnostic views, we have resources about the existence of God from a rational perspective. Would you like to explore them?",
+        "Thank you for your honesty. 🤔 Many who've walked this path before found certain perspectives helpful in their search for truth. I'd love to share some resources with you - would that be okay?",
     },
     judaismDose: {
       content:
-        "Based on your belief in Judaism, we have some specific resources that might interest you. Would you like to explore them?",
+        "Shalom! ✡️ Your spiritual heritage is beautiful. I have some resources that might deepen your connection with the Divine while honoring your tradition. Interested to explore?",
     },
     christianityDose: {
       content:
-        "Based on your Christian beliefs, we have some specific resources that might interest you. Would you like to explore them?",
+        "Peace be with you! ✝️ Your faith journey matters. I'd love to share some resources that might enrich your understanding while respecting your Christian beliefs. Shall we?",
     },
     suggestPD1: {
       content:
-        "Based on your responses, we suggest learning more about the existence of God through our Primary Dose: Existence of God module.",
+        "Your spiritual curiosity is beautiful! 🌠 Many seekers find our 'Existence of God' module helpful in their journey. It presents rational perspectives you might find interesting.",
     },
     suggestPD2: {
       content:
-        "Based on your responses, we suggest learning more about the oneness of God through our Primary Dose: Oneness of God module.",
+        "Fascinating perspective! 💫 You might enjoy exploring our 'Oneness of God' module - it offers thoughtful insights about divine unity that could resonate with you.",
     },
   };
 
-  // Add this function to handle message-type questions
   const processMessageQuestion = (questionId: string) => {
     const nextQuestion = questionSequence[questionId].next;
 
-    // If the next question is a function, call it to get the next question ID
     const nextQuestionId =
       typeof nextQuestion === "function"
         ? nextQuestion({ personalInfo, beliefInfo, imaanAnswers })
@@ -398,12 +524,12 @@ export default function ChatSurvey() {
 
     setCurrentQuestion(nextQuestionId || "default-question");
 
-    // Add assistant message for the next question
     addMessage({
       role: "assistant",
       content: nextQuestionId
-        ? questions[nextQuestionId]?.content || "Thank you for your response."
-        : "Thank you for your response.",
+        ? questions[nextQuestionId]?.content ||
+          "Thank you for sharing that with me. 💖"
+        : "Thank you for walking this path with me today. 🌸",
       question: nextQuestionId ?? "",
     });
 
@@ -416,7 +542,6 @@ export default function ChatSurvey() {
     }
   }, [messages]);
 
-  // Update the useEffect that handles the initial question
   useEffect(() => {
     const storedResults = localStorage.getItem("imaanResults");
     if (storedResults) {
@@ -431,7 +556,6 @@ export default function ChatSurvey() {
     }
   }, []);
 
-  // Add this new useEffect to handle message-type questions
   useEffect(() => {
     if (
       currentQuestion &&
@@ -453,10 +577,10 @@ export default function ChatSurvey() {
   };
 
   const handleSelect = (value: string, questionId: string) => {
+    setIsTyping(true);
     let displayValue = value;
     let nextQuestion: string | null = null;
-    console.log("questionId", questionId);
-    // Handle personal info questions
+
     if (questionId === "gender") {
       setPersonalInfo((prev) => ({ ...prev, gender: value }));
       const option = questions.gender.options?.find(
@@ -474,10 +598,39 @@ export default function ChatSurvey() {
     } else if (questionId === "believesInGod") {
       const boolValue = value === "true";
       setBeliefInfo((prev) => ({ ...prev, believesInGod: boolValue }));
-      displayValue = boolValue ? "Yes" : "No";
+      displayValue = boolValue ? "Yes, absolutely" : "Not really";
       nextQuestion = boolValue
         ? (questionSequence.believesInGod.next as string)
         : "atheismDose";
+
+      const suggestedLinks = (
+        <div className="space-y-2">
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex p-3 rounded-md border justify-between items-center border-red-600 text-red-700 bg-red-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-red-100"
+            href="/primary/god"
+          >
+            <span className="font-medium">Take Primary Dose</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex p-3 rounded-md border justify-between items-center border-purple-600 text-purple-700 bg-purple-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-purple-100"
+            href="/religion/islam"
+          >
+            <span className="font-medium">Take Religion Dose</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+        </div>
+      );
+      if (!boolValue) {
+        setSuggestedLinks(suggestedLinks);
+      }
     } else if (questionId === "howMany") {
       setBeliefInfo((prev) => ({ ...prev, howMany: value }));
       displayValue = value === "one" ? "One" : "Many";
@@ -488,10 +641,9 @@ export default function ChatSurvey() {
         (opt) => opt.value === value
       );
       displayValue = option ? option.label : value;
-      console.log("value", value);
+
       const nextFn = questionSequence.whichReligion.next;
 
-      console.log("nextFn", nextFn);
       nextQuestion =
         typeof nextFn === "function"
           ? nextFn({
@@ -499,7 +651,6 @@ export default function ChatSurvey() {
             })
           : (nextFn as string);
     } else if (
-      // Handle Imaan questions
       questionId.startsWith("remorse") ||
       questionId.startsWith("heart") ||
       questionId === "arrogance" ||
@@ -508,7 +659,6 @@ export default function ChatSurvey() {
       questionId.startsWith("ibadah") ||
       questionId === "trials"
     ) {
-      console.log("questionId", questionId);
       setImaanAnswers((prev) => ({ ...prev, [questionId]: value }));
       const option = questions[questionId].options?.find(
         (opt) => opt.value === value
@@ -517,27 +667,24 @@ export default function ChatSurvey() {
       nextQuestion = questionSequence[questionId].next as string;
     }
 
-    // Add user response to chat
     addMessage({
       role: "user",
       content: displayValue,
       question: questionId,
     });
 
-    // Hide input temporarily
     setShowInput(false);
 
-    // Process next question with a slight delay to simulate conversation
     setTimeout(() => {
+      setIsTyping(false);
       if (nextQuestion === "calculateResults") {
         calculateResults();
         setCurrentQuestion("showResults");
 
-        // Add results message after a slight delay
         setTimeout(() => {
           addMessage({
             role: "assistant",
-            content: "Here are your Imaan Diagnosis results:",
+            content: "Your spiritual wellness report is ready! 🌟",
             question: "showResults",
           });
           setShowInput(true);
@@ -545,33 +692,34 @@ export default function ChatSurvey() {
       } else {
         setCurrentQuestion(nextQuestion ?? "");
 
-        // Add assistant message for the next question
         addMessage({
           role: "assistant",
           content: nextQuestion
-            ? questions[nextQuestion]?.content || "Thank you for your response."
-            : "Thank you for your response.",
+            ? questions[nextQuestion]?.content ||
+              "Thank you for sharing that with me. 💖"
+            : "Thank you for walking this path with me today. 🌸",
           question: nextQuestion ?? undefined,
         });
 
-        // Show input for next question
         setShowInput(true);
       }
     }, 1000);
   };
 
   const handleAgeInput = (value: string) => {
+    setIsTyping(true);
     setPersonalInfo((prev) => ({ ...prev, age: value }));
 
     addMessage({
       role: "user",
-      content: `${value} years old`,
+      content: `${value} years young`,
       question: "age",
     });
 
     setShowInput(false);
 
     setTimeout(() => {
+      setIsTyping(false);
       const nextQuestion = questionSequence.age.next as string;
       setCurrentQuestion(nextQuestion);
 
@@ -601,42 +749,206 @@ export default function ChatSurvey() {
       answeredQuestions++;
     });
 
+    const percentage = Math.round(
+      (totalPoints / (answeredQuestions * 5)) * 100
+    );
     let level: string;
     let message: string;
+    let suggestedLinks: ReactNode;
+
     if (totalPoints >= 45) {
-      level = "Strong Imaan";
-      message =
-        "MashaAllah, your Imaan is strong—Allahumma Barik! This is a beautiful blessing from Allah, and with it comes the test of staying humble. Shaytaan may try to whisper arrogance into your heart, but always remind yourself that this level of Imaan is purely a gift from Allah, and it can be taken away at any moment. Keep making du'a for steadfastness, sincerity, and protection from Shaytaan. May Allah keep you firm and increase you in goodness. You're doing great—just stay consistent and trust in Allah's mercy! 🤍";
+      level = "Flourishing Faith 🌟";
+      message = `MashaAllah! Your spiritual wellness shines brightly at ${percentage}%. This is a beautiful blessing from Allah - cherish it while staying humble. Remember, even the strongest trees need constant care. Keep nurturing your connection through:
+      
+      • Daily gratitude practices
+      • Consistent self-reflection
+      • Serving others with your light
+      
+      Your next step? Deepening this connection even further. The journey has only begun!`;
+      suggestedLinks = (
+        <div className="space-y-2">
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex p-3 rounded-md border justify-between items-center border-amber-600 text-amber-700 bg-amber-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-amber-100"
+            href="/self-help/quick-recovery"
+          >
+            <span className="font-medium">Advanced Spiritual Practices</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex p-3 rounded-md border justify-between items-center border-green-600 text-green-700 bg-green-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-green-100"
+            href="/self-help/learn-quran"
+          >
+            <span className="font-medium">Quranic Fluency Journey</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex p-3 rounded-md border justify-between items-center border-yellow-600 text-yellow-700 bg-yellow-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-yellow-100"
+            href="/self-help/learn-arabic"
+          >
+            <span className="font-medium">Sacred Language Immersion</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="flex p-3 rounded-md border justify-between items-center border-green-600 text-green-700 bg-green-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-green-100"
+            href="/self-help/hifz"
+          >
+            <span className="font-medium">Heart Memorization Program</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+        </div>
+      );
     } else if (totalPoints >= 30) {
-      level = "Moderate Imaan";
-      message =
-        "You have faith, but there are areas to improve. Keep making dua and increasing acts of worship.";
+      level = "Growing Faith 🌱";
+      message = `Your spiritual wellness is at ${percentage}% - you've planted good seeds! Now it's time to nurture them. Focus on:
+      
+      • Small, consistent acts of worship
+      • Building a daily spiritual routine
+      • Finding an accountability partner
+      
+      Every journey begins with a single step. Which area calls to you first?`;
+      suggestedLinks = (
+        <div className="space-y-2">
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex p-3 rounded-md border justify-between items-center border-amber-600 text-amber-700 bg-amber-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-amber-100"
+            href="/self-help/quick-recovery"
+          >
+            <span className="font-medium">Faith Growth Starter Kit</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex p-3 rounded-md border justify-between items-center border-blue-600 text-blue-700 bg-blue-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-blue-100"
+            href="/primary/god"
+          >
+            <span className="font-medium">Core Belief Reinforcement</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+        </div>
+      );
     } else if (totalPoints >= 20) {
-      level = "Weak Imaan";
-      message =
-        "There are signs of heedlessness. You need to work on increasing your connection with Allah.";
+      level = "Seeking Faith 🔍";
+      message = `Your spiritual wellness is at ${percentage}% - I hear the longing in your heart. This is your soul's wake-up call! Begin with:
+      
+      • 5 minutes of daily reflection
+      • One small act of kindness each day
+      • Reconnecting with basic spiritual practices
+      
+      The path begins wherever you are. Ready to take that first step?`;
+      suggestedLinks = (
+        <div className="space-y-2">
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex p-3 rounded-md border justify-between items-center border-green-600 text-green-700 bg-green-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-green-100"
+            href="/primary/god"
+          >
+            <span className="font-medium">Foundational Belief Course</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex p-3 rounded-md border justify-between items-center border-yellow-600 text-yellow-700 bg-yellow-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-yellow-100"
+            href="/religion/islam"
+          >
+            <span className="font-medium">Spiritual Reconnection Guide</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex p-3 rounded-md border justify-between items-center border-amber-600 text-amber-700 bg-amber-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-amber-100"
+            href="/self-help/quick-recovery"
+          >
+            <span className="font-medium">Daily Revival Challenge</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+        </div>
+      );
     } else {
-      level = "Low Imaan";
-      message =
-        "This is a warning sign. Reflect on your life and seek to return to Allah before it's too late.";
+      level = "Dormant Faith 💤";
+      message = `Your spiritual wellness is at ${percentage}% - but don't lose hope! Every soul goes through winters before spring arrives. Start with:
+      
+      • One sincere dua today
+      • Listening to one Quran verse
+      • Forgiving yourself and beginning anew
+      
+      Allah's mercy is greater than any distance. Will you take His hand today?`;
+      suggestedLinks = (
+        <div className="space-y-2">
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex p-3 rounded-md border justify-between items-center border-red-600 text-red-700 bg-red-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-red-100"
+            href="/primary/god"
+          >
+            <span className="font-medium">Spiritual First Aid Kit</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex p-3 rounded-md border justify-between items-center border-purple-600 text-purple-700 bg-purple-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-purple-100"
+            href="/religion/islam"
+          >
+            <span className="font-medium">Back to Basics Guide</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex p-3 rounded-md border justify-between items-center border-amber-600 text-amber-700 bg-amber-50 shadow hover:shadow-md transition-all hover:cursor-pointer hover:bg-amber-100"
+            href="/self-help/quick-recovery"
+          >
+            <span className="font-medium">30-Day Fresh Start</span>
+            <ArrowRight className="h-5 w-5" />
+          </motion.a>
+        </div>
+      );
     }
 
     const resultData: Results = {
       totalPoints,
       maxPossible: answeredQuestions * 5,
-      percentage: Math.round((totalPoints / (answeredQuestions * 5)) * 100),
+      percentage,
       level,
       message,
+      suggestedLinks,
       date: new Date().toLocaleString(),
       answers: imaanAnswers,
     };
 
     setResults(resultData);
     localStorage.setItem("imaanResults", JSON.stringify(resultData));
-  };
-
-  const handleSpecialDose = (dose: string) => {
-    console.log(`Navigating to ${dose} dose page`);
   };
 
   const resetSurvey = () => {
@@ -658,7 +970,7 @@ export default function ChatSurvey() {
         id: "welcome",
         role: "assistant",
         content:
-          "Welcome to the Spirituality Diagnosis survey. Let's start with some personal information.",
+          "Salaam! 🌟 Welcome back for another reflection. Ready to continue your spiritual journey?",
         question: "personal-intro",
       },
     ]);
@@ -687,12 +999,17 @@ export default function ChatSurvey() {
     switch (questionSequence[currentQuestion]?.type) {
       case "select":
         return (
-          <div className="flex flex-col space-y-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col space-y-2"
+          >
             <Select
               onValueChange={(value) => handleSelect(value, currentQuestion)}
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder={`Select ${currentQuestion}`} />
+                <SelectValue placeholder={`Select your answer`} />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
@@ -704,33 +1021,47 @@ export default function ChatSurvey() {
                 </SelectGroup>
               </SelectContent>
             </Select>
-          </div>
+          </motion.div>
         );
       case "radio":
         return (
-          <RadioGroup
-            className="flex gap-4"
-            onValueChange={(value) => handleSelect(value, currentQuestion)}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
           >
-            {question.options?.map((option) => (
-              <div
-                key={option.value}
-                className="flex items-center space-x-2 px-3 py-2 border rounded-md hover:cursor-pointer hover:bg-gray-200"
-              >
-                <RadioGroupItem
-                  value={option.value}
-                  id={`${currentQuestion}-${option.value}`}
-                />
-                <Label htmlFor={`${currentQuestion}-${option.value}`}>
-                  {option.label}
-                </Label>
-              </div>
-            ))}
-          </RadioGroup>
+            <RadioGroup
+              className="grid gap-2 grid-cols-1 sm:grid-cols-2"
+              onValueChange={(value) => handleSelect(value, currentQuestion)}
+            >
+              {question.options?.map((option) => (
+                <motion.div
+                  key={option.value}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex items-center space-x-2 px-3 py-2 border rounded-md hover:cursor-pointer hover:bg-gray-50">
+                    <RadioGroupItem
+                      value={option.value}
+                      id={`${currentQuestion}-${option.value}`}
+                    />
+                    <Label htmlFor={`${currentQuestion}-${option.value}`}>
+                      {option.label}
+                    </Label>
+                  </div>
+                </motion.div>
+              ))}
+            </RadioGroup>
+          </motion.div>
         );
       case "input":
         return (
-          <div className="flex space-x-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex space-x-2"
+          >
             <Input
               type="number"
               placeholder="Enter your age"
@@ -749,34 +1080,84 @@ export default function ChatSurvey() {
             >
               Submit
             </Button>
-          </div>
+          </motion.div>
         );
       case "results":
         return (
           results && (
-            <div className="flex flex-col space-y-4">
-              <div className="bg-slate-100 p-4 rounded-lg">
-                <h3 className="text-lg font-semibold">{results.level}</h3>
-                <p className="text-sm">{results.message}</p>
-                <div className="mt-2">
-                  <span className="font-bold">{results.totalPoints}</span> /{" "}
-                  {results.maxPossible} points ({results.percentage}%)
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-col space-y-4"
+            >
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-100 shadow-sm">
+                <div className="flex items-center mb-3">
+                  <Sparkles className="h-5 w-5 text-yellow-500 mr-2" />
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {results.level}
+                  </h3>
                 </div>
+                <div className="prose prose-sm text-gray-700 mb-4">
+                  {results.message.split("\n").map((paragraph, i) => (
+                    <p key={i} className="mb-2">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+                <div className="mt-4">
+                  <div className="flex justify-between text-sm text-gray-500 mb-1">
+                    <span>Your spiritual wellness</span>
+                    <span>{results.percentage}%</span>
+                  </div>
+                  <div className="bg-white rounded-full h-3 overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${results.percentage}%` }}
+                      transition={{ duration: 1, delay: 0.3 }}
+                      className="h-full bg-gradient-to-r from-blue-400 to-purple-500"
+                    />
+                  </div>
+                </div>
+                <div className="mt-6 space-y-3">{results.suggestedLinks}</div>
               </div>
-              <Button onClick={resetSurvey}>Retake Survey</Button>
-            </div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  onClick={resetSurvey}
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                >
+                  Reflect Again
+                </Button>
+              </motion.div>
+            </motion.div>
           )
         );
       case "specialDose":
         return (
-          <div className="flex space-x-2">
-            <Button onClick={() => handleSpecialDose(currentQuestion)}>
-              Explore Resources
-            </Button>
-            <Button variant="outline" onClick={resetSurvey}>
-              Restart Survey
-            </Button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="flex space-x-2 py-2 px-6"
+          >
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                variant="outline"
+                onClick={resetSurvey}
+                className="border-blue-500 text-blue-600 hover:bg-blue-50"
+              >
+                Restart Journey
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600">
+                Explore Resources
+              </Button>
+            </motion.div>
+          </motion.div>
         );
       default:
         return null;
@@ -788,7 +1169,9 @@ export default function ChatSurvey() {
       messages={messages}
       renderInput={renderInput}
       results={results}
+      suggestedLinks={suggestedLinks}
       showInput={showInput}
+      isTyping={isTyping}
     />
   );
 }

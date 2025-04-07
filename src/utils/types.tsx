@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface RevertStory {
   name: string;
   birthName: string;
@@ -40,6 +42,7 @@ export interface RevertStory {
 export interface ResultsType {
   level: string;
   message: string;
+  suggestedLinks: ReactNode;
   percentage: number;
   totalPoints: number;
   maxPossible: number;
