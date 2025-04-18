@@ -32,6 +32,7 @@ import {
   Brain,
   Egg,
   Sparkle,
+  WholeWord,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -125,6 +126,11 @@ const SidebarComponent = () => {
       title: "Learn Salah",
       url: "/self-help/learn-salah",
       icon: Egg,
+    },
+    {
+      title: "Keywords",
+      url: "/self-help/keywords",
+      icon: WholeWord,
     },
     {
       title: "Learn Quran",

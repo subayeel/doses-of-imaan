@@ -47,3 +47,74 @@ export interface ResultsType {
   totalPoints: number;
   maxPossible: number;
 }
+
+export interface EventType {
+  id: number;
+  name: string;
+  arabicName: string;
+  description: string;
+  sources: string[];
+}
+
+export interface JihadType {
+  id: number;
+  name: string;
+  arabicName: string;
+  description: string;
+  source: string;
+  icon: React.ReactNode;
+  color: string;
+}
+
+export interface RulingType {
+  id: number;
+  name: string;
+  arabicName: string;
+  description: string;
+  examples: string[];
+  additionalInfo?: string;
+  color: string;
+  icon: React.ReactNode;
+}
+
+export type AngelType = {
+  id: number;
+  name: string;
+  arabicName: string;
+  role: string;
+  source: string;
+  color: string;
+};
+
+export type MajorSinType = {
+  id: number;
+  name: string;
+  description: string;
+  category: "shirk" | "moral" | "social" | "financial" | "worship" | "family";
+};
+
+export type FamilyMemberType = {
+  id: number;
+  name: string;
+  arabicName: string;
+  relation: string;
+  significance?: string;
+};
+
+export type CompanionType = {
+  id: number;
+  name: string;
+  arabicName: string;
+  achievement: string;
+  color: string;
+};
+
+export type DivineBooksType = {
+  id: number;
+  name: string;
+  arabicName: string;
+  prophet: string;
+  arabicProphetName: string;
+  color: string;
+  description: string;
+};

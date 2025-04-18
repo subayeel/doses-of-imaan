@@ -50,7 +50,7 @@ function SpiritualityDrawer({ state, resolvedTheme }: SpiritualityDrawerProps) {
               Have you ever gazed at the stars and wondered about the origin of
               our universe? Through pure logic and reasoning, we'll explore how
               the intricate design of our cosmos points to the existence of
-              Allah. No blind faith required—just your intellect and an open
+              Designer. No blind faith required—just your intellect and an open
               heart to discover the Creator's unmistakable signs.
               <div className="flex flex-wrap gap-2 mt-3">
                 <Badge
