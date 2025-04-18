@@ -498,11 +498,11 @@ export default function ChatSurvey() {
     },
     judaismDose: {
       content:
-        "Shalom! ✡️ Your spiritual heritage is beautiful. I have some resources that might deepen your connection with the Divine while honoring your tradition. Interested to explore?",
+        "I have some resources that might deepen your connection with the Divine while honoring your tradition. Interested to explore?",
     },
     christianityDose: {
       content:
-        "Peace be with you! ✝️ Your faith journey matters. I'd love to share some resources that might enrich your understanding while respecting your Christian beliefs. Shall we?",
+        "I'd love to share some resources that might enrich your understanding while respecting your Christian beliefs. Shall we?",
     },
     suggestPD1: {
       content:

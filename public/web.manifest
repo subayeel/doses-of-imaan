@@ -1,0 +1,32 @@
+{
+  "name": "Spiritual Journey",
+  "short_name": "Spirituality",
+  "theme_color": "#4D7278",
+  "background_color": "#F7F7F7",
+  "start_url": "/",
+  "id": "MovieMaster",
+  "display": "standalone",
+  "description": "A tool to guide you in your Spiritual Journey.",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "apple-touch-icon.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "android-chrome-512x512.png",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "type": "image/png",
+      "sizes": "1080x1920",
+      "form_factor": "narrow"
+    }
+  ]
+}
