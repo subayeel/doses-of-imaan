@@ -33,6 +33,7 @@ import {
   Egg,
   Sparkle,
   WholeWord,
+  MessageCircleWarning,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -131,6 +132,11 @@ const SidebarComponent = () => {
       title: "Keywords",
       url: "/self-help/keywords",
       icon: WholeWord,
+    },
+    {
+      title: "Modern Problems",
+      url: "/self-help/modern-problem",
+      icon: MessageCircleWarning,
     },
     {
       title: "Learn Quran",
