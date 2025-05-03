@@ -40,7 +40,7 @@ function MentalClarityDrawer({
     <Sheet>
       <SheetTrigger>
         <Card
-          className="border shadow-lg z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-r from-cyan-100 to-teal-100 dark:from-cyan-900 dark:to-teal-900"
+          className="border shadow-lg z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer "
           style={{
             background: state
               ? resolvedTheme === "dark"

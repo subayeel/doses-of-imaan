@@ -77,10 +77,10 @@ function RelativesDrawer() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-br from-purple-50 to-blue-50 border-blue-200">
+        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gray-50 dark:bg-gray-600">
           <CardContent className="pt-6">
-            <CardTitle className="mb-2 flex justify-between items-center text-blue-800">
-              Relatives <ArrowUpRight className="text-purple-600" />
+            <CardTitle className="mb-2 flex justify-between items-center ">
+              Relatives <ArrowUpRight />
             </CardTitle>
 
             <CardDescription className="text-gray-700">

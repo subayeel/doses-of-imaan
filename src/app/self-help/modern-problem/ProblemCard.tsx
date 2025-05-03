@@ -34,9 +34,7 @@ export default function IslamicSolutionCard({
     return "modern-problem/" + folderName;
   };
   return (
-    <Card
-      className={`${bgColor} shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200`}
-    >
+    <Card className={`${bgColor} transition-all duration-300 border-1 `}>
       <CardHeader className="pb-3">
         <CardTitle className="text-xl font-bold text-gray-800">
           {title}

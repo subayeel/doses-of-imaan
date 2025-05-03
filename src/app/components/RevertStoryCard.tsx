@@ -10,10 +10,8 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BookOpen,
-  ArrowRight,
   Heart,
   PlayCircle,
   Quote,
@@ -63,7 +61,7 @@ const RevertStoryCard = ({ story }: { story: RevertStory }) => {
   };
 
   return (
-    <Card className="w-full max-w-3xl mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className="w-full  mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader className="pb-4">
         <div className="flex justify-between items-start">
           <div className="flex items-center gap-4">
@@ -86,155 +84,139 @@ const RevertStoryCard = ({ story }: { story: RevertStory }) => {
 
       <Separator />
 
-      <Tabs defaultValue="story" className="w-full">
-        <TabsList className="w-full justify-start px-6 pt-2">
-          <TabsTrigger value="story">
-            <BookOpen className="h-4 w-4 mr-2" /> Story
-          </TabsTrigger>
-          <TabsTrigger value="journey">
-            <ArrowRight className="h-4 w-4 mr-2" /> Journey
-          </TabsTrigger>
-          <TabsTrigger value="advice">
-            <Lightbulb className="h-4 w-4 mr-2" /> Advice
-          </TabsTrigger>
-        </TabsList>
+      <div className="px-6 pb-4 pt-4">
+        {renderSection(
+          "Background",
+          story.background,
+          <User className="h-5 w-5 text-blue-500" />
+        )}
+        {renderSection(
+          "Religious Upbringing",
+          story.religiousUpbringing,
+          <Scroll className="h-5 w-5 text-purple-500" />
+        )}
+        {renderSection(
+          "Catalyst for Journey",
+          story.catalystForJourney,
+          <HistoryIcon className="h-5 w-5 text-green-500" />
+        )}
+        {renderSection(
+          "Initial Beliefs",
+          story.islamophobia,
+          <AlertTriangle className="h-5 w-5 text-red-500" />
+        )}
+        {renderSection(
+          "Materialism & Void",
+          story.materialismAndVoid,
+          <Heart className="h-5 w-5 text-pink-500" />
+        )}
+      </div>
 
-        <TabsContent value="story" className="p-6 pt-4">
-          {renderSection(
-            "Background",
-            story.background,
-            <User className="h-5 w-5 text-blue-500" />
-          )}
-          {renderSection(
-            "Religious Upbringing",
-            story.religiousUpbringing,
-            <Scroll className="h-5 w-5 text-purple-500" />
-          )}
-          {renderSection(
-            "Catalyst for Journey",
-            story.catalystForJourney,
-            <HistoryIcon className="h-5 w-5 text-green-500" />
-          )}
-          {renderSection(
-            "Initial Beliefs",
-            story.islamophobia,
-            <AlertTriangle className="h-5 w-5 text-red-500" />
-          )}
-          {renderSection(
-            "Materialism & Void",
-            story.materialismAndVoid,
-            <Heart className="h-5 w-5 text-pink-500" />
-          )}
-        </TabsContent>
+      <div className="px-6 pb-4 pt-4">
+        {renderSection(
+          "Journey",
+          story.journey,
+          <MapPin className="h-5 w-5 text-red-500" />
+        )}
+        {renderSection(
+          "First Muslim Encounter",
+          story.firstMuslimEncounter,
+          <User className="h-5 w-5 text-blue-500" />
+        )}
+        {renderSection(
+          "Learning Journey",
+          story.learningJourney,
+          <BookOpen className="h-5 w-5 text-green-500" />
+        )}
+        {renderSection(
+          "Quran Experience",
+          story.quranExperience,
+          <Scroll className="h-5 w-5 text-amber-500" />
+        )}
+        {renderSection(
+          "Islam Experience",
+          story.islamExperience,
+          <Scroll className="h-5 w-5 text-amber-500" />
+        )}
+        {renderSection(
+          "Spiritual Turning Point",
+          story.spiritualTurningPoint,
+          <Heart className="h-5 w-5 text-pink-500" />
+        )}
+        {renderSection(
+          "Sign From Allah",
+          story.signFromAllah,
+          <Lightbulb className="h-5 w-5 text-yellow-500" />
+        )}
+        {renderSection(
+          "Mosque Experience",
+          story.mosqueTakeover,
+          <MapPin className="h-5 w-5 text-purple-500" />
+        )}
+        {renderSection(
+          "Conversion Experience",
+          story.conversionExperience,
+          <Heart className="h-5 w-5 text-pink-500" />
+        )}
+        {renderSection(
+          "Shahada",
+          story.shahada,
+          <Quote className="h-5 w-5 text-green-500" />
+        )}
+        {renderSection(
+          "Aftermath",
+          story.aftermath,
+          <Clock className="h-5 w-5 text-blue-500" />
+        )}
+        {renderSection(
+          "Community Reaction",
+          story.reactionOfCommunity,
+          <User className="h-5 w-5 text-indigo-500" />
+        )}
+        {renderSection(
+          "Transformation",
+          story.transformation,
+          <HistoryIcon className="h-5 w-5 text-teal-500" />
+        )}
+        {renderSection(
+          "Reflections",
+          story.reflections,
+          <Lightbulb className="h-5 w-5 text-amber-500" />
+        )}
+        {renderSection(
+          "Realizations",
+          story.realizations,
+          <Lightbulb className="h-5 w-5 text-amber-500" />
+        )}
+        {renderSection(
+          "Conversion",
+          story.conversion,
+          <Heart className="h-5 w-5 text-pink-500" />
+        )}
+        {renderSection(
+          "Challenges",
+          story.challenges,
+          <AlertTriangle className="h-5 w-5 text-red-500" />
+        )}
+      </div>
 
-        <TabsContent value="journey" className="p-6 pt-4">
-          {renderSection(
-            "Journey",
-            story.journey,
-            <MapPin className="h-5 w-5 text-red-500" />
-          )}
-          {renderSection(
-            "First Muslim Encounter",
-            story.firstMuslimEncounter,
-            <User className="h-5 w-5 text-blue-500" />
-          )}
-          {renderSection(
-            "Learning Journey",
-            story.learningJourney,
-            <BookOpen className="h-5 w-5 text-green-500" />
-          )}
-          {renderSection(
-            "Quran Experience",
-            story.quranExperience,
-            <Scroll className="h-5 w-5 text-amber-500" />
-          )}
-          {renderSection(
-            "Islam Experience",
-            story.islamExperience,
-            <Scroll className="h-5 w-5 text-amber-500" />
-          )}
-          {renderSection(
-            "Spiritual Turning Point",
-            story.spiritualTurningPoint,
-            <Heart className="h-5 w-5 text-pink-500" />
-          )}
-          {renderSection(
-            "Sign From Allah",
-            story.signFromAllah,
-            <Lightbulb className="h-5 w-5 text-yellow-500" />
-          )}
-          {renderSection(
-            "Mosque Experience",
-            story.mosqueTakeover,
-            <MapPin className="h-5 w-5 text-purple-500" />
-          )}
-          {renderSection(
-            "Conversion Experience",
-            story.conversionExperience,
-            <Heart className="h-5 w-5 text-pink-500" />
-          )}
-          {renderSection(
-            "Shahada",
-            story.shahada,
-            <Quote className="h-5 w-5 text-green-500" />
-          )}
-          {renderSection(
-            "Aftermath",
-            story.aftermath,
-            <Clock className="h-5 w-5 text-blue-500" />
-          )}
-          {renderSection(
-            "Community Reaction",
-            story.reactionOfCommunity,
-            <User className="h-5 w-5 text-indigo-500" />
-          )}
-          {renderSection(
-            "Transformation",
-            story.transformation,
-            <HistoryIcon className="h-5 w-5 text-teal-500" />
-          )}
-          {renderSection(
-            "Reflections",
-            story.reflections,
-            <Lightbulb className="h-5 w-5 text-amber-500" />
-          )}
-          {renderSection(
-            "Realizations",
-            story.realizations,
-            <Lightbulb className="h-5 w-5 text-amber-500" />
-          )}
-          {renderSection(
-            "Conversion",
-            story.conversion,
-            <Heart className="h-5 w-5 text-pink-500" />
-          )}
-          {renderSection(
-            "Challenges",
-            story.challenges,
-            <AlertTriangle className="h-5 w-5 text-red-500" />
-          )}
-        </TabsContent>
-
-        <TabsContent value="advice" className="p-6 pt-4">
-          {story.advice ? (
-            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="h-5 w-5 text-yellow-500" />
-                <h3 className="text-lg font-semibold">
-                  Advice for New Muslims
-                </h3>
-              </div>
-              <p className="italic text-gray-700 dark:text-gray-300">
-                "{story.advice}"
-              </p>
+      <div className="px-6 pb-4 pt-4">
+        {story.advice ? (
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-2 mb-2">
+              <Lightbulb className="h-5 w-5 text-yellow-500" />
+              <h3 className="text-lg font-semibold">Advice for New Muslims</h3>
             </div>
-          ) : (
-            <div className="text-center p-6 text-gray-500">
-              No specific advice was shared in this story.
-            </div>
-          )}
-        </TabsContent>
-      </Tabs>
+            <p className="italic text-gray-700 dark:text-gray-300">
+              "{story.advice}"
+            </p>
+          </div>
+        ) : (
+          <div className="text-center p-6 text-gray-500">
+            No specific advice was shared in this story.
+          </div>
+        )}
+      </div>
 
       <CardFooter className="bg-gray-50 dark:bg-gray-800 flex justify-between items-center p-4 border-t border-gray-200 dark:border-gray-700">
         <div className="text-sm text-gray-500 dark:text-gray-400">

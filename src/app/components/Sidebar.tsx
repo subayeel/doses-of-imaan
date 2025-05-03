@@ -34,6 +34,7 @@ import {
   Sparkle,
   WholeWord,
   MessageCircleWarning,
+  BookHeart,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -227,6 +228,21 @@ const SidebarComponent = () => {
                   <a href="/">
                     <Home size={16} />
                     <span>Home</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  className={
+                    isActive("/guide-your-friend")
+                      ? "relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary before:rounded-r-sm bg-muted"
+                      : ""
+                  }
+                >
+                  <a href="/guide-your-friend">
+                    <BookHeart size={16} />
+                    <span>Guide your Friend</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>

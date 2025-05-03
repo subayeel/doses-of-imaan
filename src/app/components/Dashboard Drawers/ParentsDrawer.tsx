@@ -32,13 +32,13 @@ function ParentsDrawer() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Card className="border border-purple-100  z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-br from-purple-50 to-blue-50 hover:shadow-purple-200/50">
+        <Card className="border border-purple-100 z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gray-50 dark:bg-gray-600">
           <CardContent>
-            <CardTitle className="mb-2 flex justify-between text-purple-800">
-              Parents <ArrowUpRight className="text-pink-500" />
+            <CardTitle className="mb-2 flex justify-between ">
+              Parents <ArrowUpRight />
             </CardTitle>
 
-            <CardDescription className="text-blue-900/80">
+            <CardDescription>
               Allah elevates honoring parents just below worship of Him alone.
               Discover the profound spiritual rewards of treating parents with
               excellence (ihsan), even when challenging. The Prophet Muhammad

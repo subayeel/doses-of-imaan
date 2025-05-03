@@ -144,10 +144,10 @@ function NeighborDrawer() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-br from-green-50 to-teal-50 border-teal-200">
+        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gray-50 dark:bg-gray-600">
           <CardContent className="pt-6">
-            <CardTitle className="mb-2 flex justify-between items-center text-teal-800">
-              Neighbors <ArrowUpRight className="text-emerald-600" />
+            <CardTitle className="mb-2 flex justify-between items-center ">
+              Neighbors <ArrowUpRight />
             </CardTitle>
 
             <CardDescription className="text-gray-700">

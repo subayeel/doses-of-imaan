@@ -33,38 +33,7 @@ const Page = () => {
   useEffect(() => {
     setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
   }, [resolvedTheme]);
-  //   {
-  //     title: "God's Existence",
-  //     description:
-  //       "Understanding God's existence through Reasons, Common Sense and Logic",
-  //     link: "/primary/god",
-  //     status: "completed",
-  //   },
-  //   {
-  //     title: "Oneness of God",
-  //     description: "Exploring the concept of One God through reasoning",
-  //     link: "/primary/oneness",
-  //     status: "completed",
-  //   },
-  //   {
-  //     title: "Revelation from God",
-  //     description: "How God communicates with humanity",
-  //     link: "/primary/revelation",
-  //     status: "active",
-  //   },
-  //   {
-  //     title: "Quran",
-  //     description: "Studying the divine book",
-  //     link: "/primary/quran",
-  //     status: "upcoming",
-  //   },
-  //   {
-  //     title: "Prophethood",
-  //     description: "Learning about the messengers of God",
-  //     link: "/primary/prophethood",
-  //     status: "upcoming",
-  //   },
-  // ];
+
   return (
     <div className="relative flex flex-col items-center justify-start w-full pb-24">
       <div className="relative flex flex-col items-center justify-start">

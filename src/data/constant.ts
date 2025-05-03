@@ -28,3 +28,37 @@ export const madhabNotes = {
     "✅ Multiple Qunut: Recite Qunut in Witr prayer during the last half of Ramadan.",
   ],
 };
+
+export const religion = [
+  { value: "agnostic", label: "Agnostic", god: "none" },
+  { value: "atheist", label: "Atheist", god: "none" },
+  { value: "buddhism", label: "Buddhism", god: "one" },
+  { value: "christianity", label: "Christianity", god: "one" },
+  { value: "hinduism", label: "Hinduism", god: "many" },
+  { value: "islam", label: "Islam", god: "one" },
+  { value: "jainism", label: "Jainism", god: "one" },
+  { value: "judaism", label: "Judaism", god: "one" },
+  { value: "paganism", label: "Paganism", god: "many" },
+  { value: "shinto", label: "Shinto", god: "one" },
+  { value: "sikhism", label: "Sikhism", god: "one" },
+  { value: "taoism", label: "Taoism", god: "one" },
+];
+
+export const ageGroupOptions = [
+  {
+    label: "< 13",
+    value: "pre-teen",
+  },
+  {
+    label: "13-19",
+    value: "teenager",
+  },
+  {
+    label: "20-29",
+    value: "twenties",
+  },
+  {
+    label: "Adult",
+    value: "adult",
+  },
+];

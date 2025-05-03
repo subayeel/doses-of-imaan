@@ -17,6 +17,7 @@ import ChatUI from "./ChatUI";
 import { ResultsType } from "@/utils/types";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { religion } from "@/data/constant";
 
 interface Message {
   id: string;
@@ -99,28 +100,6 @@ export default function ChatSurvey() {
   const [isTyping, setIsTyping] = useState<boolean>(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const religion = [
-    // { value: "agnostic", label: "Agnostic", god: "none" },
-    // { value: "atheist", label: "Atheist", god: "none" },
-    { value: "buddhism", label: "Buddhism", god: "one" },
-    { value: "christianity", label: "Christianity", god: "one" },
-    { value: "hinduism", label: "Hinduism", god: "many" },
-    { value: "islam", label: "Islam", god: "one" },
-    { value: "jainism", label: "Jainism", god: "one" },
-    { value: "judaism", label: "Judaism", god: "one" },
-    { value: "paganism", label: "Paganism", god: "many" },
-    { value: "shinto", label: "Shinto", god: "one" },
-    { value: "sikhism", label: "Sikhism", god: "one" },
-    { value: "taoism", label: "Taoism", god: "one" },
-    // {
-    //   value: "spiritual",
-    //   label: "Spiritual But Not Religious",
-    //   god: "one",
-    // },
-    // { value: "none", label: "None", god: "one" },
-    // { value: "other", label: "Other", god: "one" },
-  ];
 
   const questionSequence: QuestionSequence = {
     "personal-intro": { next: "gender", type: "message" },

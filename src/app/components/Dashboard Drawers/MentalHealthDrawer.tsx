@@ -35,7 +35,7 @@ function MentalHealthDrawer({ state, resolvedTheme }: MentalHealthDrawerProps) {
     <Sheet>
       <SheetTrigger>
         <Card
-          className="border shadow-lg z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900"
+          className="border shadow-lg z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer"
           style={{
             background: state
               ? resolvedTheme === "dark"

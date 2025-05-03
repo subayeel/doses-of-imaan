@@ -30,9 +30,9 @@ function LawDrawer() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-r from-emerald-50 to-teal-50">
+        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gray-50 dark:bg-gray-600">
           <CardContent>
-            <CardTitle className="mb-2 flex justify-between text-emerald-700">
+            <CardTitle className="mb-2 flex justify-between ">
               Law & Order <ArrowUpRight />
             </CardTitle>
 

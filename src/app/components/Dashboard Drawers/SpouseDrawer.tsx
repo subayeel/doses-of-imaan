@@ -23,12 +23,12 @@ function SpouseDrawer() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Card className="border border-pink-100   z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-br from-rose-50 to-amber-50 hover:shadow-rose-200/50">
+        <Card className="border border-pink-100   z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gray-50 dark:bg-gray-600">
           <CardContent>
-            <CardTitle className="mb-2 flex justify-between text-rose-800">
-              Spouse <ArrowUpRight className="text-rose-600" />
+            <CardTitle className="mb-2 flex justify-between ">
+              Spouse <ArrowUpRight />
             </CardTitle>
-            <CardDescription className="text-amber-900/80">
+            <CardDescription>
               Islamic marriage is a sacred bond of love, mercy, and mutual
               respect. Discover the beautiful balance of rights and
               responsibilities between husband and wife as guided by the Qur'an
@@ -37,7 +37,7 @@ function SpouseDrawer() {
           </CardContent>
         </Card>
       </SheetTrigger>
-      <SheetContent className="bg-gradient-to-br from-rose-100 to-teal-100">
+      <SheetContent>
         <SheetHeader>
           <SheetTitle className="text-2xl font-bold">
             Rights of Spouses in Islam

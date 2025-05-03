@@ -57,14 +57,14 @@ function FriendsDrawer() {
   return (
     <Sheet>
       <SheetTrigger className="w-full">
-        <Card className="border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-sm hover:shadow-md z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer">
+        <Card className="border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-sm hover:shadow-md z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gray-50 dark:bg-gray-600">
           <CardContent className="p-6">
-            <CardTitle className="mb-4 flex justify-between items-center text-blue-700">
+            <CardTitle className="mb-4 flex justify-between items-center ">
               <div className="flex items-center gap-2">
-                <Users className="text-blue-600" size={24} />
+                <Users size={24} />
                 Friends in Islam
               </div>
-              <ArrowUpRight className="text-blue-600" />
+              <ArrowUpRight />
             </CardTitle>
 
             <CardDescription className="text-gray-700 text-base">

@@ -32,13 +32,13 @@ function ChildrenDrawer() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gradient-to-br from-blue-50 to-purple-50">
+        <Card className="border shadow-none z-10 hover:scale-105 transition-all ease-in-out hover:cursor-pointer bg-gray-50 dark:bg-gray-600">
           <CardContent>
-            <CardTitle className="mb-2 flex justify-between items-center text-indigo-700">
+            <CardTitle className="mb-2 flex justify-between items-center ">
               Your Children <ArrowUpRight />
             </CardTitle>
 
-            <CardDescription className="text-purple-700">
+            <CardDescription>
               Learn about children's rights in Islam
             </CardDescription>
           </CardContent>

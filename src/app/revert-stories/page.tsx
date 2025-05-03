@@ -17,7 +17,7 @@ import {
 
 export default function RevertStoriesPage() {
   // Combine all stories into one object
-  const allStories = {
+  const allStories = [
     SIKHISM_TO_ISLAM,
     PSYCHOLOGY_TO_ISLAM,
     MULTIPLE_FAITH_TO_ISLAM,
@@ -28,11 +28,11 @@ export default function RevertStoriesPage() {
     FEMALE_CHRISTIANITY_TO_ISLAM,
     CHRISTIANITY_TO_ATHEISM_TO_ISLAM,
     JEWISH_TO_ISLAM,
-  };
+  ];
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
-      <RevertStoriesCollection stories={allStories} />
+      <RevertStoriesCollection stories={allStories} isDocument={false} />
     </div>
   );
 }
