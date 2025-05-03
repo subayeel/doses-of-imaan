@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Step1_MemoryRating from "./Step1_MemoryRating";
 import Step2_UserCategory from "./Step2_UserCategory";
@@ -13,8 +13,19 @@ import Step4_PlanDisplay from "./Step4_PlanDisplay";
 import { parseShareData } from "../utils/shareLink";
 import { generateHifzPlan } from "../utils/generatePlan";
 import type { HifzPlanData, HifzPlanResult } from "@/utils/types";
+import { Loader2 } from "lucide-react";
 
-export default function HifzPlannerClient() {
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br p-6">
+    <div className="text-center">
+      <Loader2 className="mx-auto h-12 w-12 text-teal-400 animate-spin" />
+      <p className="mt-4 text-xl">Loading personalized journey...</p>
+    </div>
+  </div>
+);
+
+function HifzPlannerClientContent() {
   const [currentStep, setCurrentStep] = useState(1);
   const [planData, setPlanData] = useState<HifzPlanData>({
     memoryRating: 5,
@@ -203,7 +214,11 @@ export default function HifzPlannerClient() {
   return <div className="space-y-6">{renderStep()}</div>;
 }
 
-// Ensure types are correctly imported or defined if not in a separate file
-// export type UserCategory = 'student' | 'employee' | 'housewife' | 'retired' | 'unemployed' | null;
-// export interface HifzPlanData { ... }
-// export interface HifzPlanResult { ... }
+const HifzPlannerClient: React.FC = () => {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <HifzPlannerClientContent />
+    </Suspense>
+  );
+};
+export default HifzPlannerClient;
