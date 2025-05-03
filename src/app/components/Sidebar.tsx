@@ -146,7 +146,7 @@ const SidebarComponent = () => {
     },
     {
       title: "Hifz Quran Guide",
-      url: "/self-help/hifz",
+      url: "/hifz-planner",
       icon: Book,
     },
     {
