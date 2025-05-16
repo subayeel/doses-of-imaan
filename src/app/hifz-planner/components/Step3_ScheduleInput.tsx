@@ -3,7 +3,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
   CardContent,
   CardFooter,
   CardHeader,
@@ -95,24 +94,17 @@ export default function Step3_ScheduleInput({
   };
 
   return (
-    <Card>
+    <div>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center text-primary">
-          Personalized Hifz Plan Generator
+        <CardTitle className="text-4xl text-primary font-bold">
+          Step 3: Your Schedule <br></br>Details
         </CardTitle>
-        <CardDescription className="text-center text-muted-foreground">
-          Create a realistic Quran memorization schedule based on your
-          lifestyle.
-        </CardDescription>
-      </CardHeader>
-      <CardHeader>
-        <CardTitle>Step 3: Your Schedule Details</CardTitle>
         <CardDescription>
           Provide details about your typical time commitments to help estimate
           your available time for Hifz.
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">{renderForm()}</CardContent>
+      <CardContent className="space-y-2">{renderForm()}</CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline" onClick={onBack}>
           Back
@@ -120,6 +112,6 @@ export default function Step3_ScheduleInput({
         {/* Add disabled={!canProceed} after implementing validation in sub-forms */}
         <Button onClick={onNext}>Generate Plan</Button>
       </CardFooter>
-    </Card>
+    </div>
   );
 }

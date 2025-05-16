@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
-  Card,
   CardContent,
   CardFooter,
   CardHeader,
@@ -42,22 +41,22 @@ export default function Step2_UserCategory({
   const canProceed = formData.userCategory !== null;
 
   return (
-    <Card>
+    <div>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center text-primary">
-          Personalized Hifz Plan Generator
+        <CardTitle className="text-4xl font-bold  text-primary">
+          Personalized Hifz <br></br>Plan Generator
         </CardTitle>
-        <CardDescription className="text-center text-muted-foreground">
+        <CardDescription className=" text-muted-foreground">
           Create a realistic Quran memorization schedule based on your
           lifestyle.
         </CardDescription>
       </CardHeader>
       <CardHeader>
         <CardTitle>Step 2: Tell Us About Yourself</CardTitle>
-        <CardDescription>
+        <p className="text-sm text-gray-600">
           Select the category that best describes your current primary
           occupation or life stage.
-        </CardDescription>
+        </p>
       </CardHeader>
       <CardContent>
         <RadioGroup
@@ -93,6 +92,6 @@ export default function Step2_UserCategory({
           Next
         </Button>
       </CardFooter>
-    </Card>
+    </div>
   );
 }

@@ -62,31 +62,40 @@ export default function Step3_CurrentHifz({
   };
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold">Step 3: Your Current Hifz Progress</h2>
-      <p>Select the Surahs you have already memorized completely.</p>
+    <div className="space-y-2">
+      <div className="flex justify-between items-start w-full mb-8">
+        <h2 className="text-4xl font-bold text-primary">
+          Step 3: Your Current <br></br> Hifz Progress
+        </h2>
 
-      <div className="p-4 bg-muted rounded-md text-sm">
-        <p className="font-medium">Progress Summary:</p>
-        <p>
-          Memorized Verses:{" "}
-          <span className="font-bold text-primary">{memorizedVerses}</span> /{" "}
-          {TOTAL_QURAN_VERSES}
-        </p>
-        <p>
-          Quran Completion:{" "}
-          <span className="font-bold text-primary">{percentage}%</span>
-        </p>
+        <div className="px-3 py-2 bg-gray-50 border w-fit rounded-md text-sm">
+          {/* <p className="font-medium">Progress Summary:</p> */}
+          <p>
+            Memorized Verses:{" "}
+            <span className="font-bold text-primary">{memorizedVerses}</span> /{" "}
+            {TOTAL_QURAN_VERSES}
+          </p>
+          <p>
+            Quran Completion:{" "}
+            <span className="font-bold text-primary">{percentage}%</span>
+          </p>
+        </div>
       </div>
 
       {/* Select All/Deselect All buttons */}
-      <div className="flex space-x-2">
-        <Button type="button" variant="secondary" onClick={handleSelectAll}>
-          Select All
-        </Button>
-        <Button type="button" variant="outline" onClick={handleDeselectAll}>
-          Deselect All
-        </Button>
+
+      <div className="flex items-center justify-between w-full">
+        <p className="text-sm text-gray-700">
+          Select the Surahs you have <br></br>already memorized completely.
+        </p>
+        <div className="flex space-x-2">
+          <Button type="button" variant="secondary" onClick={handleSelectAll}>
+            Select All
+          </Button>
+          <Button type="button" variant="outline" onClick={handleDeselectAll}>
+            Deselect All
+          </Button>
+        </div>
       </div>
 
       {/* List of Surahs with checkboxes */}

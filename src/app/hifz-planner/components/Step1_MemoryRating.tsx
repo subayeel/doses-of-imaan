@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider"; // Use Slider for rating
 import {
-  Card,
   CardContent,
   CardFooter,
   CardHeader,
@@ -34,12 +33,12 @@ export default function Step1_MemoryRating({
   const canProceed = formData.memoryRating !== null;
 
   return (
-    <Card>
+    <div>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center text-primary">
-          Personalized Hifz Plan Generator
+        <CardTitle className="text-4xl font-bold  text-primary">
+          Personalized Hifz <br></br>Plan Generator
         </CardTitle>
-        <CardDescription className="text-center text-muted-foreground">
+        <CardDescription className=" text-muted-foreground">
           Create a realistic Quran memorization schedule based on your
           lifestyle.
         </CardDescription>
@@ -76,6 +75,6 @@ export default function Step1_MemoryRating({
           Next
         </Button>
       </CardFooter>
-    </Card>
+    </div>
   );
 }

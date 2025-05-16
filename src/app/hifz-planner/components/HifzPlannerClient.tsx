@@ -14,6 +14,7 @@ import { parseShareData } from "../utils/shareLink";
 import { generateHifzPlan } from "../utils/generatePlan";
 import type { HifzPlanData, HifzPlanResult } from "@/utils/types";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -211,7 +212,22 @@ function HifzPlannerClientContent() {
     }
   };
 
-  return <div className="space-y-6">{renderStep()}</div>;
+  return (
+    <div className="space-y-6 grid grid-cols-1 md:grid-cols-2 w-full">
+      <div className="flex w-full">{renderStep()}</div>
+
+      <div className="hidden md:flex w-full justify-center ">
+        <Image
+          src="/hifz-illustration.png"
+          height={300}
+          width={300}
+          alt="Hifz"
+          objectFit="contain"
+          className="pointer-events-auto m-auto mix-blend-darken"
+        />
+      </div>
+    </div>
+  );
 }
 
 const HifzPlannerClient: React.FC = () => {

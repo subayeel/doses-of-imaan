@@ -8,9 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Copy, Download, RefreshCw, Edit, RefreshCcw } from "lucide-react"; // Icons
 import { generateShareURL } from "../utils/shareLink";
 import { generatePdf } from "../utils/pdfGenerator";
@@ -111,23 +109,13 @@ export default function Step4_PlanDisplay({
   }${days} day(s)`;
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-center text-2xl text-primary">
-          Your Personalized Hifz Plan
-        </CardTitle>
-        <CardDescription className="text-center">
-          This is an estimated plan based on your input. Consistency and
-          revision are key!
-        </CardDescription>
-      </CardHeader>
+    <div>
       <CardContent
         ref={planRef}
         className="space-y-4 p-6 bg-background rounded-md"
       >
-        {" "}
         {/* Add ref here and styling */}
-        <h3 className="font-semibold text-lg border-b pb-2 mb-3">
+        <h3 className="font-semibold text-4xl text-primary border-b pb-2 mb-3">
           Plan Summary
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
@@ -241,7 +229,7 @@ export default function Step4_PlanDisplay({
             {estimatedCompletionDate}
           </p>
         </div>
-        <Alert className="mt-4 bg-amber-50 border-amber-200 text-amber-800">
+        {/* <Alert className="mt-4 bg-amber-50 border-amber-200 text-amber-800">
           <RefreshCw className="h-4 w-4 !text-amber-600" />
           <AlertTitle className="font-semibold !text-amber-900">
             Crucial: Revision is Essential!
@@ -251,7 +239,7 @@ export default function Step4_PlanDisplay({
             emphasizes: without constant revision, memorization fades quickly.
             Make it a non-negotiable part of your daily/weekly routine.
           </AlertDescription>
-        </Alert>
+        </Alert> */}
         {/* Hidden section with raw data for PDF if needed, or just style the above */}
         <div id="pdf-data-details" className="hidden">
           {/* Include user schedule details here if needed for the PDF */}
@@ -322,6 +310,6 @@ export default function Step4_PlanDisplay({
           Start New Plan
         </Button>
       </CardFooter>
-    </Card>
+    </div>
   );
 }

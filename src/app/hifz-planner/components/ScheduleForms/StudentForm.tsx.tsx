@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import { StudentSchedule } from "@/utils/types";
 import { calculateStudentTime } from "../../utils/calculateTime";
 
@@ -41,14 +40,14 @@ export default function StudentForm({ schedule, onChange }: Props) {
     }));
   };
 
-  const handleCheckboxChange = (checked: boolean | "indeterminate") => {
-    const isChecked = checked === true;
-    setLocalSchedule((prev) => ({
-      ...prev,
-      isVacation: isChecked,
-      vacationDays: isChecked ? prev.vacationDays ?? 30 : null, // Reset or keep previous value if needed
-    }));
-  };
+  // const handleCheckboxChange = (checked: boolean | "indeterminate") => {
+  //   const isChecked = checked === true;
+  //   setLocalSchedule((prev) => ({
+  //     ...prev,
+  //     isVacation: isChecked,
+  //     vacationDays: isChecked ? prev.vacationDays ?? 30 : null, // Reset or keep previous value if needed
+  //   }));
+  // };
 
   // Calculate potential free time based on inputs (display only)
   const commitments = calculateStudentTime(localSchedule);
@@ -159,7 +158,7 @@ export default function StudentForm({ schedule, onChange }: Props) {
         </div>
 
         {/* Vacation */}
-        <div className="md:col-span-2 flex items-center space-x-2 pt-4">
+        {/* <div className="md:col-span-2 flex items-center space-x-2 pt-4">
           <Checkbox
             id="isVacation"
             name="isVacation"
@@ -167,7 +166,7 @@ export default function StudentForm({ schedule, onChange }: Props) {
             onCheckedChange={handleCheckboxChange}
           />
           <Label htmlFor="isVacation">Currently on Vacation?</Label>
-        </div>
+        </div> */}
         {localSchedule.isVacation && (
           <div className="space-y-1 md:col-span-2">
             <Label htmlFor="vacationDays">Total Vacation Days</Label>
