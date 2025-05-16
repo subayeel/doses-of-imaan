@@ -50,11 +50,13 @@ interface SurveyResponse {
 interface PersonalizedPDFGeneratorProps {
   surveyResponse: SurveyResponse;
   onPDFGenerated?: (pdfUrl: string | null) => void; // Notify parent when content is ready
+  url: string;
 }
 
 const PersonalizedPDFGenerator: React.FC<PersonalizedPDFGeneratorProps> = ({
   surveyResponse,
   onPDFGenerated,
+  url,
 }) => {
   const [pdfContent, setPdfContent] = useState<React.ReactNode[]>([]);
   const [pdfTitle, setPdfTitle] = useState<string>("");
@@ -180,13 +182,13 @@ const PersonalizedPDFGenerator: React.FC<PersonalizedPDFGeneratorProps> = ({
 
     // Add introduction
     content.push(
-      <div key="introduction" className="mb-8 print-only">
+      <div key="introduction" className="mb-8 print-only mx-4">
         {" "}
         {/* Use print-only class for print media */}
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-900 dark:text-gray-50">
+        <h1 className="text-3xl font-bold mb-4 text-primary mt-4 dark:text-gray-50">
           {personalizedTitle}
         </h1>
-        <p className="text-lg text-center text-gray-600">
+        <p className="text-lg text-gray-600">
           Dear Reader, this guide has been specially curated for {name} based on
           their background and interests, shared by a caring friend. We hope it
           offers valuable insights and guidance on their spiritual path.
@@ -311,13 +313,10 @@ const PersonalizedPDFGenerator: React.FC<PersonalizedPDFGeneratorProps> = ({
         /\s+/g,
         "-"
       )}-spiritual-guide.pdf`}
+      url={url}
     >
       {/* Render the dynamically generated content */}
-      <div className="text-gray-200">
-        {" "}
-        {/* Add some padding and text color */}
-        {pdfContent}
-      </div>
+      <div className="border rounded-lg shadow-lg">{pdfContent}</div>
     </PDFDocument>
   );
 };

@@ -5,19 +5,22 @@ import React, { ReactNode, useRef, useState } from "react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react"; // Assuming you have lucide-react installed for icons
+import { Copy, Download, Loader2 } from "lucide-react"; // Assuming you have lucide-react installed for icons
+import { Input } from "@/components/ui/input";
+import { toast } from "@/hooks/use-toast";
 
 interface PDFDocumentProps {
   children: ReactNode;
   title: string;
   fileName: string;
+  url: string;
   // isLoading: boolean; // We'll manage loading internally for the download process
 }
 
 export const PDFDocument: React.FC<PDFDocumentProps> = ({
   children,
-  title,
   fileName,
+  url,
   // isLoading, // Removed external isLoading prop
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -75,26 +78,66 @@ export const PDFDocument: React.FC<PDFDocumentProps> = ({
     }
   };
 
+  const handleCopyLink = async () => {
+    if (url) {
+      try {
+        await navigator.clipboard.writeText(url);
+        toast({
+          title: "Copied!",
+          description: "Share link copied to clipboard.",
+        });
+      } catch (err) {
+        console.error("Failed to copy:", err);
+        toast({
+          title: "Error",
+          description: "Failed to copy link. Please try manually.",
+          variant: "destructive",
+        });
+      }
+    }
+  };
+
   return (
     <div className="pdf-document animate-fadeIn">
-      <div className="mb-6 flex flex-col sm:flex-row justify-between items-center border-b border-gray-700 pb-4 px-8">
-        <h2 className="text-2xl font-bold text-gray-500 mb-4 sm:mb-0">
-          {title}
-        </h2>
-        <Button
-          onClick={generatePDF}
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold transition duration-200 disabled:opacity-50 disabled:pointer-events-none"
-          disabled={isGeneratingPDF}
-        >
-          {isGeneratingPDF ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Generating PDF...
-            </>
-          ) : (
-            "Download Guide PDF"
-          )}
-        </Button>
+      <div className="mb-8 text-center space-y-4 px-8">
+        <p className="text-gray-600 dark:text-gray-300 mt-4">
+          Share this link with your friend:
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
+          <Input
+            value={url}
+            readOnly
+            className="flex-grow bg-gray-700 border-gray-600 text-teal-300 text-sm truncate sm:w-auto w-full" // Added truncate and width adjustments
+          />
+          {/* Highlighted Copy Button */}
+
+          <div className="flex gap-2">
+            <Button
+              onClick={handleCopyLink}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-200 w-full sm:w-auto"
+            >
+              <Copy className="mr-2 h-4 w-4 animate-bounce" /> Copy Link
+            </Button>
+
+            <Button
+              onClick={generatePDF}
+              className="bg-teal-600 hover:bg-teal-700 text-white font-semibold transition duration-200 disabled:opacity-50 disabled:pointer-events-none"
+              disabled={isGeneratingPDF}
+            >
+              {isGeneratingPDF ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generating PDF...
+                </>
+              ) : (
+                <>
+                  <Download className="mr-2 h-4 w-4 animate-pulse" />
+                  Download Guide PDF
+                </>
+              )}
+            </Button>
+          </div>
+        </div>
       </div>
 
       <div ref={contentRef}>{children}</div>

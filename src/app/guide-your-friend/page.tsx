@@ -17,10 +17,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CardContent, CardTitle } from "@/components/ui/card";
-import { Loader2, Copy } from "lucide-react"; // Icons for loading, share, copy
+import { Loader2 } from "lucide-react"; // Icons for loading, share, copy
 import { toast } from "@/hooks/use-toast"; // Assuming you have shadcn toast setup
 import { ageGroupOptions, religion } from "@/data/constant";
 import { Toaster } from "@/components/ui/toaster";
+import Image from "next/image";
 
 interface SurveyFormState {
   name: string;
@@ -139,25 +140,6 @@ const IslamicContentSurveyContent: React.FC = () => {
     }
   };
 
-  const handleCopyLink = async () => {
-    if (shareUrl) {
-      try {
-        await navigator.clipboard.writeText(shareUrl);
-        toast({
-          title: "Copied!",
-          description: "Share link copied to clipboard.",
-        });
-      } catch (err) {
-        console.error("Failed to copy:", err);
-        toast({
-          title: "Error",
-          description: "Failed to copy link. Please try manually.",
-          variant: "destructive",
-        });
-      }
-    }
-  };
-
   // Render loading state while checking URL
   if (isLoadingInitialData) {
     return <LoadingFallback />;
@@ -174,15 +156,16 @@ const IslamicContentSurveyContent: React.FC = () => {
       <div className="p-0 w-full max-w-5xl backdrop-filter backdrop-blur-sm rounded-lg relative z-10 animate-fadeIn">
         <CardContent className="!p-0">
           <CardTitle className="text-3xl font-bold text-center text-primary mt-4">
-            {isShareLinkView
-              ? "Your Friend's Personalized Guide"
-              : "Help a Friend on Their Spiritual Journey"}
+            {isShareLinkView ? "Your Friend's Personalized Guide" : ""}
           </CardTitle>
           {!isShareLinkView ? (
             // --- Form State ---
-            <>
+            <div className="grid grid-cols-1 md:grid-cols-2">
               <form onSubmit={handleSubmit} className="space-y-6 p-8">
-                <p className="mb-8 text-center text-gray-600">
+                <CardTitle className="text-4xl tracking-wide leading-0 font-bold text-primary mt-4">
+                  Help a Friend on <br></br>Their Spiritual Journey
+                </CardTitle>
+                <p className="mb-8  text-gray-600">
                   Complete this short survey to generate a personalized
                   spiritual guide tailored for someone you care about and get a
                   shareable link.
@@ -286,38 +269,34 @@ const IslamicContentSurveyContent: React.FC = () => {
                   </Select>
                 </div>
 
-                <div className="mt-8">
-                  <Button type="submit">Generate Shareable Guide Link</Button>
+                <div className="mt-8 flex justify-end w-full">
+                  <Button type="submit" className="w-full bg-primary">
+                    Generate Shareable Guide Link
+                  </Button>
                 </div>
               </form>
-            </>
+
+              <div className="w-ful h-full hidden md:flex">
+                <Image
+                  src={"/help-friend.png"}
+                  alt="helping asset"
+                  height={400}
+                  width={400}
+                  objectFit="contain"
+                  className="pointer-events-auto m-auto"
+                />
+              </div>
+            </div>
           ) : (
             // --- Share Link & Content Preview State ---
             <div className="animate-fadeIn">
-              <div className="mb-8 text-center space-y-4 px-8">
-                <p className="text-gray-600 dark:text-gray-300 mt-4">
-                  Share this link with your friend:
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
-                  <Input
-                    value={shareUrl}
-                    readOnly
-                    className="flex-grow bg-gray-700 border-gray-600 text-teal-300 text-sm truncate sm:w-auto w-full" // Added truncate and width adjustments
-                  />
-                  {/* Highlighted Copy Button */}
-                  <Button
-                    onClick={handleCopyLink}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-200 w-full sm:w-auto"
-                  >
-                    <Copy className="mr-2 h-4 w-4" /> Copy Link
-                  </Button>
-                </div>
-              </div>
-
               {/* PersonalizedPDFGenerator renders the content and the PDFDocument wrapper */}
-              <PersonalizedPDFGenerator surveyResponse={formData} />
+              <PersonalizedPDFGenerator
+                surveyResponse={formData}
+                url={shareUrl}
+              />
 
-              <div className="mt-8 text-center">
+              <div className="my-8 text-center flex justify-center w-full">
                 <Button
                   onClick={() => {
                     // Redirect back to the clean form URL
@@ -333,8 +312,8 @@ const IslamicContentSurveyContent: React.FC = () => {
                     });
                     setShareUrl("");
                   }}
-                  variant="outline"
-                  className="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-200"
+                  variant="default"
+                  className="bg-primary"
                 >
                   Create Another Guide
                 </Button>
@@ -343,6 +322,7 @@ const IslamicContentSurveyContent: React.FC = () => {
           )}
         </CardContent>
       </div>
+
       {/* Ensure ToastProvider is somewhere in your app, e.g., layout.tsx */}
       <Toaster />
     </div>
