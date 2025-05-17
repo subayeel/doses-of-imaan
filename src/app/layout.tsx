@@ -48,6 +48,18 @@ export default function RootLayout({
         disableTransitionOnChange
       >
         <body className="flex flex-col min-h-screen bg-background font-sans antialiased">
+          <div
+            id="google_translate_element"
+            style={{
+              position: "fixed",
+              right: 16,
+              top: 16,
+              zIndex: 1000,
+              backgroundColor: "#eee",
+              borderRadius: "10px",
+              padding: "12px",
+            }}
+          ></div>
           <SidebarProvider defaultOpen={true}>
             <SidebarComponent />
             {/* <SidebarTrigger className="ml-2 aspect-square hidden md:block" /> */}

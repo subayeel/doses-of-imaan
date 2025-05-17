@@ -52,6 +52,14 @@ const SidebarComponent = () => {
   useEffect(() => {
     setCurrentPath(window.location.pathname);
   }, []);
+  useEffect(() => {
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element"
+      );
+    };
+  }, []);
 
   // Menu items.
   const primaryDose = [

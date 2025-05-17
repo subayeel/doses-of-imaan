@@ -34,29 +34,8 @@ const Page = () => {
     setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
   }, [resolvedTheme]);
 
-  useEffect(() => {
-    window.googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
-        { pageLanguage: "en" },
-        "google_translate_element"
-      );
-    };
-  }, []);
-
   return (
     <div className="relative flex flex-col items-center justify-start w-full pb-24">
-      <div
-        id="google_translate_element"
-        style={{
-          position: "fixed",
-          right: 0,
-          top: 0,
-          zIndex: 1000,
-          backgroundColor: "#eee",
-          borderRadius: "10px",
-          padding: "12px",
-        }}
-      ></div>
       <div className="relative flex flex-col items-center justify-start">
         <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-7xl mt-8 font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 z-10">
           Spiritual Journey
