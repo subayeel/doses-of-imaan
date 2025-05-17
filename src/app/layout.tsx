@@ -9,6 +9,7 @@ import { ThemeProvider } from "next-themes";
 import SidebarComponent from "./components/Sidebar";
 import Link from "next/link";
 import React from "react";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Spiritual Doses",
@@ -30,6 +31,15 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        {/* Google Translate */}
+        <Script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></Script>
+
+        {/* Google Translate CSS */}
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.26tY-h6gH9w.L.W.O/am=CAM/d=0/rs=AN8SPfpIXxhebB2A47D9J-MACsXmFF6Vew/m=el_main_css"
+        />
       </head>
       <ThemeProvider
         attribute="class"
