@@ -418,9 +418,7 @@ export const SalahGuide = ({ isDocument = false }: SalahGuideProps) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            <p>
-              Made with ❤️ to help Muslims pray according to the Shafi'i madhab
-            </p>
+            <p>Made with ❤️ to help Muslims pray</p>
           </motion.footer>
         )}
       </motion.div>
