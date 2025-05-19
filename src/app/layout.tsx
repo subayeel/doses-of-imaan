@@ -68,7 +68,7 @@ export default function RootLayout({
               </div>
 
               <div className="z-10">{children}</div>
-              <div
+              {/* <div
                 id="google_translate_element"
                 style={{
                   display: "flex",
@@ -80,7 +80,7 @@ export default function RootLayout({
                   backgroundColor: "#f7f7f7",
                   padding: "12px",
                 }}
-              ></div>
+              ></div> */}
             </main>
           </SidebarProvider>
         </body>

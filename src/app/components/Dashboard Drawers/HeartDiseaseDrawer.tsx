@@ -125,7 +125,7 @@ function HeartDiseaseDrawer({ state, resolvedTheme }: HeartDiseaseDrawerProps) {
     <Sheet>
       <SheetTrigger>
         <Card
-          className="border shadow-lg z-10 hover:scale-105 transition-all duration-300 ease-in-out hover:cursor-pointer md:min-w-[350px] overflow-hidden relative "
+          className="border shadow-lg z-10 hover:scale-105 transition-all duration-300 ease-in-out hover:cursor-pointer md:min-w-[300px] overflow-hidden relative "
           style={{
             background: state
               ? resolvedTheme === "dark"
@@ -152,7 +152,7 @@ function HeartDiseaseDrawer({ state, resolvedTheme }: HeartDiseaseDrawerProps) {
               ailments from an Islamic perspective, and their impact on our
               wellbeing and relationships.
             </CardDescription>
-            <div className="flex flex-wrap min-w-[400px] gap-2">
+            <div className="flex flex-wrap min-w-[300px] gap-2">
               {diseaseCategories.map((category) => (
                 <Badge
                   key={category.title}
