@@ -35,6 +35,7 @@ import {
   WholeWord,
   MessageCircleWarning,
   BookHeart,
+  Bug,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -118,6 +119,11 @@ const SidebarComponent = () => {
       title: "Quick Recovery of Imaan",
       url: "/self-help/quick-recovery",
       icon: ChartNoAxesCombined,
+    },
+    {
+      title: "Anti-Bid'ah",
+      url: "/self-help/anti-bidah",
+      icon: Bug,
     },
 
     {
