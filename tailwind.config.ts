@@ -88,6 +88,7 @@ export default {
         },
       },
       fontFamily: {
+        outfit: ["Outfit", "Arial", "Helvetica", "sans-serif"],
         arabic: ["Noto Naskh Arabic", "serif"], // Add your preferred Arabic font
       },
     },

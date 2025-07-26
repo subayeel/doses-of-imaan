@@ -16,11 +16,11 @@ const commonBidahs: BidahListItem[] = [
   },
   {
     id: 2,
-    description: "Celebrating Shabe-ba’rat (15th of Shaban).",
+    description: "Celebrating Shabe-ba'rat (15th of Shaban).",
   },
   {
     id: 3,
-    description: "Celebrating the night of ascension (mi’raj) (27th of Rajab).",
+    description: "Celebrating the night of ascension (mi'raj) (27th of Rajab).",
   },
   {
     id: 4,
@@ -133,7 +133,7 @@ const commonBidahs: BidahListItem[] = [
     description:
       "Believing in the sufi methodology of tarikat, abdaals, and such.",
     explanation:
-      "These believes have no basis in sharia. Search for ‘abdal’ on wikipedia for a general understanding of this concept.",
+      "These believes have no basis in sharia. Search for 'abdal' on wikipedia for a general understanding of this concept.",
   },
   {
     id: 26,
@@ -262,7 +262,7 @@ const commonBidahs: BidahListItem[] = [
   {
     id: 50,
     description:
-      "Believing that the Prophet (PBUH) is everywhere and/or that he attends certain gatherings of ‘remembrance’.",
+      "Believing that the Prophet (PBUH) is everywhere and/or that he attends certain gatherings of 'remembrance'.",
   },
   {
     id: 51,
@@ -279,64 +279,107 @@ const commonBidahs: BidahListItem[] = [
 
 const CommonBidahsList: React.FC = () => {
   return (
-    <div className="my-8 p-6 bg-red-50 border-l-4 border-red-500 rounded-lg shadow-md">
-      <h2 className="text-2xl font-semibold text-red-700 mb-4">
-        Examples of Commonly Practiced Bid'ah (Innovations)
-      </h2>
-      <p className="text-gray-700 mb-6">
-        The following list includes examples of actions and beliefs that are
-        considered Bid'ah (reprehensible innovations) in Islam, as they lack a
-        basis in the Quran and the authentic Sunnah of the Prophet Muhammad
-        (Peace Be Upon Him). It is crucial for us Muslims to adhere strictly to
-        the teachings validated by the primary sources of Islamic law ie Quran
-        and Sunnah.
-      </p>
-      <ul className="space-y-3">
-        {commonBidahs.map((bidah) => (
-          <li
-            key={bidah.id}
-            className="p-3 bg-red-100 rounded-md border border-red-200"
+    <div className="my-12 p-8 bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/10 dark:to-pink-900/10 border-l-4 border-red-500 dark:border-red-400 rounded-lg shadow-md">
+      <div className="flex items-start gap-4 mb-6">
+        <div className="p-2 rounded-lg bg-red-100 dark:bg-red-900">
+          <svg
+            className="w-6 h-6 text-red-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            <p className="text-red-800 font-medium">
-              {bidah.id}. {bidah.description}
-            </p>
-            {bidah.explanation && (
-              <p className="text-sm text-gray-600 ml-6 italic">
-                ({bidah.explanation})
-              </p>
-            )}
-            {bidah.reference && (
-              <p className="text-sm text-blue-600 ml-6">{bidah.reference}</p>
-            )}
-          </li>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"
+            />
+          </svg>
+        </div>
+        <div>
+          <h2 className="text-2xl md:text-3xl  font-bold text-red-700 dark:text-red-300 mb-2">
+            Examples of Commonly Practiced Bid'ah (Innovations)
+          </h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300">
+            The following list includes examples of actions and beliefs that are
+            considered Bid'ah (reprehensible innovations) in Islam, as they lack
+            a basis in the Quran and the authentic Sunnah of the Prophet
+            Muhammad (Peace Be Upon Him).
+          </p>
+        </div>
+      </div>
+
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 mb-6">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+          Important Note:
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          It is crucial for us Muslims to adhere strictly to the teachings
+          validated by the primary sources of Islamic law - the Quran and
+          Sunnah. These examples serve as guidance to help identify practices
+          that may contradict authentic Islamic teachings.
+        </p>
+      </div>
+
+      <div className="grid gap-4 mb-8">
+        {commonBidahs.map((bidah) => (
+          <div
+            key={bidah.id}
+            className="p-5 bg-white dark:bg-gray-800 rounded-lg border border-red-200 dark:border-red-800 hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                {bidah.id}
+              </span>
+              <div className="flex-1">
+                <p className="text-red-800 dark:text-red-200 font-medium leading-relaxed">
+                  {bidah.description}
+                </p>
+                {bidah.explanation && (
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 italic border-l-2 border-gray-300 dark:border-gray-600 pl-4">
+                    Explanation: {bidah.explanation}
+                  </p>
+                )}
+                {bidah.reference && (
+                  <p className="text-sm text-blue-600 dark:text-blue-400 mt-2 font-medium">
+                    {bidah.reference}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
         ))}
-      </ul>
-      <p className="mt-6 text-sm text-red-700">
-        <strong>Note:</strong> This list is not exhaustive. The principle is
-        that any act of worship or religious belief not sanctioned by the Quran
-        or authentic Sunnah is to be avoided. Muslims should strive to learn
-        their religion from authentic sources and consult with knowledgeable
-        scholars who adhere to the Quran and Sunnah.
-      </p>
+      </div>
+
+      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-700 rounded-lg p-6">
+        <div className="flex items-start gap-3">
+          <svg
+            className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-1 flex-shrink-0"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fillRule="evenodd"
+              d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <div>
+            <h4 className="font-semibold text-amber-800 dark:text-amber-200 mb-2">
+              Important Disclaimer:
+            </h4>
+            <p className="text-amber-800 dark:text-amber-200 leading-relaxed">
+              <strong>This list is not exhaustive.</strong> The principle is
+              that any act of worship or religious belief not sanctioned by the
+              Quran or authentic Sunnah is to be avoided. Muslims should strive
+              to learn their religion from authentic sources and consult with
+              knowledgeable scholars who adhere to the Quran and Sunnah.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default CommonBidahsList;
-
-// To use this component in a Next.js page (e.g., at the beginning of your Bidah article page):
-//
-// import CommonBidahsList from '../components/CommonBidahsList'; // Adjust path as needed
-//
-// const YourArticlePage = () => {
-//   return (
-//     <div>
-//       <CommonBidahsList />
-//       {/* The rest of your article content, like the BidahExplainedPage component */}
-//     </div>
-//   );
-// };
-//
-// export default YourArticlePage;
-//
-// Ensure you have Tailwind CSS setup in your Next.js project.
