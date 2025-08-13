@@ -455,6 +455,80 @@ export const NeedForRevelation = ({
               Creator would guide us through revelation and messengers.
             </p>
 
+            <div className="bg-primary/5 border-l-4 border-primary p-6 my-8 rounded-r-lg">
+              <p className="text-lg font-semibold mb-2">
+                But there are so many religions:
+              </p>
+              <p>
+                Yes, there are so many religions, for that we have a tool which
+                will allow you to compare all the religions beginning from 3500
+                BC to 2025 AD.
+              </p>
+              <a
+                className="text-yellow-600 underline hover:cursor-pointer"
+                href="https://which-religion.vercel.app/"
+                target="_blank"
+              >
+                Which Religion?
+              </a>
+            </div>
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              Find out which religion complies with the definition of God, has
+              absolute monotheism, has messenger who transformed the
+              middle-east, established the most just system which integrated
+              well with innate dispositions of humans, allowed other faith and
+              communities to co-exist, abolished the unjust and sinful
+              activities at the time like idol worship, consumption of Usury,
+              consumption of Intoxicants, slavery, established proper system of
+              charity, established proper Judicial system, established proper
+              Family system, established proper system of governance.
+            </p>
+
+            <div className="bg-primary/5 border-l-4 border-primary p-6 my-8 rounded-r-lg">
+              <p className="text-lg font-semibold mb-2">
+                Who is this Messenger?
+              </p>
+              <p>
+                A messenger who lived a simple life and later established the
+                most just system of governance as an example for the entire
+                mankind. Visit the website to know more about the messenger.
+              </p>
+              <a
+                className="text-yellow-600 underline hover:cursor-pointer"
+                href="https://quranic-miracles.vercel.app/"
+                target="_blank"
+              >
+                Which Messenger?
+              </a>
+            </div>
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              But this was not possible by a an ordinary person, it was only
+              possible by a messenger who was chosen by God and was given the
+              scripture from God.
+            </p>
+
+            <div className="bg-primary/5 border-l-4 border-primary p-6 my-8 rounded-r-lg">
+              <p className="text-lg font-semibold mb-2">
+                What is the Scripture?
+              </p>
+              <p>
+                This scripture is the reason why there are around 2 billion who
+                so devout to their Lord they pray 5 times a day, gives 2.5% of
+                their wealth to charity and maintain the ethics and morality of
+                the highest order. Visit the website to know more about the
+                scripture.
+              </p>
+              <a
+                className="text-yellow-600 underline hover:cursor-pointer"
+                href="https://quranic-miracles.vercel.app/"
+                target="_blank"
+              >
+                Which scripture?
+              </a>
+            </div>
+
             <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
               This brings us to the Quran and Prophet Muhammad ﷺ. Having
               established the need for divine guidance, we can now explore why

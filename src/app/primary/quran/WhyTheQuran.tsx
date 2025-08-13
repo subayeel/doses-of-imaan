@@ -601,6 +601,37 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
               our lives in accordance with our Creator's wisdom and purpose.
             </p>
           </section>
+
+          {/* Conclusion Section */}
+          <section id="conclusion" className="mb-16 scroll-mt-20">
+            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+              Miracle of the Quran
+            </h2>
+
+            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+              The Quran is a miracle in itself. It is a book that has been
+              preserved perfectly for over 1400 years. It is a book that has
+              been translated into all the languages of the world. It is a book
+              that has been proven to be the word of God by the most
+              sophisticated scientific and historical methods.
+            </p>
+
+            <div className="bg-primary/5 border-l-4 border-primary p-6 my-8 rounded-r-lg">
+              <p className="text-lg font-semibold mb-2">Not convinced yet?</p>
+              <p>
+                Once you see the scientific,mathematical and historical miracles
+                in Quran, you will be convinced that this book cannot be
+                written. Visit the website to know more about the miracles.
+              </p>
+              <a
+                href="https://quranic-miracles.vercel.app/"
+                target="_blank"
+                className="text-yellow-600 underline hover:cursor-pointer"
+              >
+                Quranic Miracles
+              </a>
+            </div>
+          </section>
         </article>
       </main>
 
