@@ -509,13 +509,13 @@ export const SalahGuide = ({ isDocument = false }: SalahGuideProps) => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
-        <div className="max-w-4xl mx-auto px-4 py-4">
+      <header className="border-b border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-40">
+        <div className="max-w-3xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Book
                 className="text-green-600 dark:text-green-400 hidden md:block"
-                size={28}
+                size={24}
               />
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
                 Complete Guide to Salah
@@ -528,7 +528,7 @@ export const SalahGuide = ({ isDocument = false }: SalahGuideProps) => {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mt-2 font-light">
+          <p className="text-lg text-gray-600 dark:text-gray-400 mt-3 font-normal leading-relaxed">
             A comprehensive guide to performing the Islamic prayer with proper
             steps and etiquette.
           </p>
@@ -571,245 +571,225 @@ export const SalahGuide = ({ isDocument = false }: SalahGuideProps) => {
         </div>
       )}
 
-      <main className="max-w-4xl mx-auto px-4 py-8">
+      <main className="max-w-3xl mx-auto px-6 py-12">
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <section id="preparation" className="mb-16 scroll-mt-20">
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900">
-                  <Hand className="text-blue-500" size={24} />
+          <section id="preparation" className="mb-20 scroll-mt-20">
+            <div className="flex items-center gap-3 mb-8">
+              <Hand className="text-green-600 dark:text-green-400" size={24} />
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                Preparation for Prayer
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+              Before beginning the prayer, ensure you have completed these
+              essential preparations.
+            </p>
+            <div className="space-y-12">
+              {preparationSteps.map((step, index) => (
+                <div
+                  key={index}
+                  className="border-l-4 border-green-200 dark:border-green-800 pl-8"
+                >
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                    {step.title}
+                  </h3>
+                  <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                    {step.description}
+                  </p>
+                  {step.reference && (
+                    <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                      Reference: {step.reference}
+                    </p>
+                  )}
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                  Preparation for Prayer
-                </h2>
-              </div>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                Before beginning the prayer, ensure you have completed these
-                essential preparations.
-              </p>
-              <div className="space-y-6">
-                {preparationSteps.map((step, index) => (
-                  <div
-                    key={index}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-blue-200 dark:border-blue-800"
-                  >
-                    <h3 className="text-xl font-semibold text-blue-700 dark:text-blue-300 mb-3">
+              ))}
+            </div>
+          </section>
+
+          <section id="prayer-steps" className="mb-20 scroll-mt-20">
+            <div className="flex items-center gap-3 mb-8">
+              <Book className="text-green-600 dark:text-green-400" size={24} />
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                Step-by-Step Prayer Guide
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+              Follow these steps carefully to perform the prayer. Note the
+              variations for different schools of thought where indicated.
+            </p>
+            <div className="space-y-16">
+              {prayerSteps.map((step, index) => {
+                const content = step.hasVariation
+                  ? step.variations[madhhab as keyof typeof step.variations]
+                  : step.substeps
+                  ? step.substeps[0]
+                  : null;
+                return (
+                  <div key={index} className="relative">
+                    {step.hasVariation && <MadhhabToggle />}
+                    <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 pr-32">
                       {step.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-3">
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                       {step.description}
                     </p>
-                    {step.reference && (
-                      <p className="text-sm italic text-gray-600 dark:text-gray-400 border-l-2 border-blue-300 dark:border-blue-600 pl-3">
-                        Reference: {step.reference}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
 
-          <section id="prayer-steps" className="mb-16 scroll-mt-20">
-            <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900">
-                  <Book className="text-green-500" size={24} />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                  Step-by-Step Prayer Guide
-                </h2>
-              </div>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                Follow these steps carefully to perform the prayer. Note the
-                variations for different schools of thought where indicated.
-              </p>
-              <div className="space-y-8">
-                {prayerSteps.map((step, index) => {
-                  const content = step.hasVariation
-                    ? step.variations[madhhab as keyof typeof step.variations]
-                    : step.substeps
-                    ? step.substeps[0]
-                    : null;
-                  return (
-                    <div
-                      key={index}
-                      className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-green-200 dark:border-green-800 relative"
-                    >
-                      {step.hasVariation && <MadhhabToggle />}
-                      <h3 className="text-xl font-semibold text-green-700 dark:text-green-300 mb-4 pr-32">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 mb-4">
-                        {step.description}
-                      </p>
-
-                      {step.substeps &&
-                        !step.hasVariation &&
-                        step.substeps.map((sub, subIndex) => (
-                          <div
-                            key={subIndex}
-                            className="bg-green-50 dark:bg-green-900/30 rounded-lg p-4 mb-4 border-l-4 border-green-200 dark:border-green-700"
-                          >
-                            <p className="text-right text-2xl text-green-800 dark:text-green-200 mb-2 font-arabic">
-                              {sub.arabicText}
-                            </p>
-                            <p className="text-green-700 dark:text-green-300 mb-1 italic">
-                              {sub.transliteration}
-                            </p>
-                            <p className="text-gray-600 dark:text-gray-400 mb-3">
-                              "{sub.translation}"
-                            </p>
-                            {"reference" in sub && sub.reference && (
-                              <p className="text-sm italic text-gray-600 dark:text-gray-400">
-                                Reference: {sub.reference}
-                              </p>
-                            )}
-                          </div>
-                        ))}
-
-                      {content && step.hasVariation && (
-                        <div className="bg-green-50 dark:bg-green-900/30 rounded-lg p-4 mb-4">
-                          <p className="text-right text-2xl text-green-800 dark:text-green-200 mb-2 font-arabic">
-                            {content.arabicText}
+                    {step.substeps &&
+                      !step.hasVariation &&
+                      step.substeps.map((sub, subIndex) => (
+                        <div
+                          key={subIndex}
+                          className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 mb-6"
+                        >
+                          <p className="text-right text-2xl text-gray-800 dark:text-gray-200 mb-3 font-arabic leading-relaxed">
+                            {sub.arabicText}
                           </p>
-                          <p className="text-green-700 dark:text-green-300 mb-1 italic">
-                            {content.transliteration}
+                          <p className="text-gray-600 dark:text-gray-400 mb-2 italic text-lg">
+                            {sub.transliteration}
                           </p>
-                          <p className="text-gray-600 dark:text-gray-400 mb-3">
-                            "{content.translation}"
+                          <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
+                            "{sub.translation}"
                           </p>
+                          {"reference" in sub && sub.reference && (
+                            <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                              Reference: {sub.reference}
+                            </p>
+                          )}
                         </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
+                      ))}
 
-          <section id="post-prayer-adhkar" className="mb-16 scroll-mt-20">
-            <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900">
-                  <Sparkles className="text-purple-500" size={24} />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                  Post-Prayer Adhkar
-                </h2>
-              </div>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                After completing the obligatory prayer, it is a Sunnah to engage
-                in these remembrances of Allah.
-              </p>
-              <div className="space-y-6">
-                {postPrayerAdhkar.map((step, index) => (
-                  <div
-                    key={index}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-purple-200 dark:border-purple-800"
-                  >
-                    <h3 className="text-xl font-semibold text-purple-700 dark:text-purple-300 mb-3">
-                      {step.title}
-                    </h3>
-                    {step.description && (
-                      <p className="text-gray-700 dark:text-gray-300 mb-4">
-                        {step.description}
-                      </p>
-                    )}
-
-                    {step.arabicText && (
-                      <div className="bg-purple-50 dark:bg-purple-900/30 rounded-lg p-4 mb-4">
-                        <p className="text-right text-2xl text-purple-800 dark:text-purple-200 mb-2 font-arabic whitespace-pre-wrap">
-                          {step.arabicText}
+                    {content && step.hasVariation && (
+                      <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 mb-6">
+                        <p className="text-right text-2xl text-gray-800 dark:text-gray-200 mb-3 font-arabic leading-relaxed">
+                          {content.arabicText}
                         </p>
-                        <p className="text-purple-700 dark:text-purple-300 mb-1 italic whitespace-pre-wrap">
-                          {step.transliteration}
+                        <p className="text-gray-600 dark:text-gray-400 mb-2 italic text-lg">
+                          {content.transliteration}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 whitespace-pre-wrap">
-                          "{step.translation}"
+                        <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
+                          "{content.translation}"
                         </p>
                       </div>
                     )}
-                    <p className="text-sm italic text-gray-600 dark:text-gray-400 border-l-2 border-purple-300 dark:border-purple-600 pl-3">
-                      Reference: {step.reference}
-                    </p>
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
           </section>
 
-          <section id="khushu-tips" className="mb-16 scroll-mt-20">
-            <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-red-100 dark:bg-red-900">
-                  <Heart className="text-red-500" size={24} />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                  Achieving Khushu (Humility and Concentration)
-                </h2>
-              </div>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                Khushu is the state of humility, concentration, and mindfulness
-                during prayer. Here are some tips to help you achieve it.
-              </p>
-              <div className="space-y-6">
-                {khushuTips.map((tip, index) => (
-                  <div
-                    key={index}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-red-200 dark:border-red-800"
-                  >
-                    <h3 className="text-xl font-semibold text-red-700 dark:text-red-300 mb-3">
-                      {tip.title}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-3">
-                      {tip.description}
+          <section id="post-prayer-adhkar" className="mb-20 scroll-mt-20">
+            <div className="flex items-center gap-3 mb-8">
+              <Sparkles
+                className="text-green-600 dark:text-green-400"
+                size={24}
+              />
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                Post-Prayer Adhkar
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+              After completing the obligatory prayer, it is a Sunnah to engage
+              in these remembrances of Allah.
+            </p>
+            <div className="space-y-12">
+              {postPrayerAdhkar.map((step, index) => (
+                <div
+                  key={index}
+                  className="border-l-4 border-green-200 dark:border-green-800 pl-8"
+                >
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                    {step.title}
+                  </h3>
+                  {step.description && (
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                      {step.description}
                     </p>
-                    {tip.reference && (
-                      <p className="text-sm italic text-gray-600 dark:text-gray-400 border-l-2 border-red-300 dark:border-red-600 pl-3">
-                        Reference: {tip.reference}
+                  )}
+
+                  {step.arabicText && (
+                    <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 mb-6">
+                      <p className="text-right text-2xl text-gray-800 dark:text-gray-200 mb-3 font-arabic whitespace-pre-wrap leading-relaxed">
+                        {step.arabicText}
                       </p>
-                    )}
-                  </div>
-                ))}
-              </div>
+                      <p className="text-gray-600 dark:text-gray-400 mb-2 italic text-lg whitespace-pre-wrap">
+                        {step.transliteration}
+                      </p>
+                      <p className="text-gray-700 dark:text-gray-300 text-lg whitespace-pre-wrap">
+                        "{step.translation}"
+                      </p>
+                    </div>
+                  )}
+                  <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                    Reference: {step.reference}
+                  </p>
+                </div>
+              ))}
             </div>
           </section>
 
-          <section id="common-mistakes" className="mb-16 scroll-mt-20">
-            <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-orange-100 dark:bg-orange-900">
-                  <Eye className="text-orange-500" size={24} />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                  Common Mistakes to Avoid
-                </h2>
-              </div>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                Be aware of these common mistakes that can affect the validity
-                or quality of your prayer.
-              </p>
-              <div className="space-y-6">
-                {commonMistakes.map((mistake, index) => (
-                  <div
-                    key={index}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-orange-200 dark:border-orange-800"
-                  >
-                    <h3 className="text-xl font-semibold text-orange-700 dark:text-orange-300 mb-3">
-                      {mistake.title}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-3">
-                      {mistake.description}
+          <section id="khushu-tips" className="mb-20 scroll-mt-20">
+            <div className="flex items-center gap-3 mb-8">
+              <Heart className="text-green-600 dark:text-green-400" size={24} />
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                Achieving Khushu (Humility and Concentration)
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+              Khushu is the state of humility, concentration, and mindfulness
+              during prayer. Here are some tips to help you achieve it.
+            </p>
+            <div className="space-y-12">
+              {khushuTips.map((tip, index) => (
+                <div
+                  key={index}
+                  className="border-l-4 border-green-200 dark:border-green-800 pl-8"
+                >
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                    {tip.title}
+                  </h3>
+                  <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                    {tip.description}
+                  </p>
+                  {tip.reference && (
+                    <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                      Reference: {tip.reference}
                     </p>
-                    {mistake.reference && (
-                      <p className="text-sm italic text-gray-600 dark:text-gray-400 border-l-2 border-orange-300 dark:border-orange-600 pl-3">
-                        Reference: {mistake.reference}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="common-mistakes" className="mb-20 scroll-mt-20">
+            <div className="flex items-center gap-3 mb-8">
+              <Eye className="text-green-600 dark:text-green-400" size={24} />
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                Common Mistakes to Avoid
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+              Be aware of these common mistakes that can affect the validity or
+              quality of your prayer.
+            </p>
+            <div className="space-y-12">
+              {commonMistakes.map((mistake, index) => (
+                <div
+                  key={index}
+                  className="border-l-4 border-green-200 dark:border-green-800 pl-8"
+                >
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                    {mistake.title}
+                  </h3>
+                  <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                    {mistake.description}
+                  </p>
+                  {mistake.reference && (
+                    <p className="text-sm text-gray-500 dark:text-gray-500 italic">
+                      Reference: {mistake.reference}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
           </section>
         </article>

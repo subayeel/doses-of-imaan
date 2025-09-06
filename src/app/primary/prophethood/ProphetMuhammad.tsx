@@ -87,7 +87,7 @@ export const ProphetMuhammad = ({
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              Was Muhammad ﷺ Really a Messenger of God?
+              Was Muhammad ﷺ a Messenger of God?
             </h1>
             {!isDocument && (
               <button

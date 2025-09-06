@@ -1,10 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Book, Award, ArrowRight } from "lucide-react";
+import { BookOpen, Book, Award } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 interface IslamicSolutionCardProps {
   title: string;
@@ -25,14 +23,6 @@ export default function IslamicSolutionCard({
   implementation,
   bgColor = "bg-green-100",
 }: IslamicSolutionCardProps) {
-  const getLink = () => {
-    const folderName = title
-      .toLowerCase()
-      .replace(/[^a-z]+/g, "-")
-      .replace(/^-|-$/g, "");
-
-    return "modern-problem/" + folderName;
-  };
   return (
     <Card className={`${bgColor} transition-all duration-300 border-1 `}>
       <CardHeader className="pb-3">
@@ -75,11 +65,6 @@ export default function IslamicSolutionCard({
             </div>
           </div>
         </div>
-        <Link className="flex w-full" href={getLink()}>
-          <Button variant="outline" className="ml-auto">
-            View More <ArrowRight />
-          </Button>
-        </Link>
       </CardContent>
     </Card>
   );
