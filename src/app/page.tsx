@@ -11,10 +11,10 @@ const Page = () => {
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            The Purification of the Self (Tazkiyat al-Nafs) 🌟
+          <h1 className="text-2xl  lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-900 mb-4">
+            The Purification of the Self (Tazkiyat al-Nafs)
           </h1>
-          <h2 className="text-2xl text-gray-700 mb-6">
+          <h2 className="text-sm md:text-lg text-gray-700 mb-6">
             A Journey to Spiritual Excellence and Inner Peace
           </h2>
           <p className="text-lg text-gray-600 italic">
@@ -24,14 +24,14 @@ const Page = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t-2 border-gray-200 mb-12"></div>
+        <div className="border-t-2 border-gray-200 mb-12 hidden md:block"></div>
 
         {/* What is Tazkiyat al-Nafs Section */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            What is Tazkiyat al-Nafs? 🤔
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            Tazkiyat al-Nafs
           </h2>
-          <p className="text-lg text-gray-700 mb-6">
+          <p className="text-base md:text-lg text-gray-700 mb-6">
             The purification of self (Tazkiyat al-Nafs) is an{" "}
             <strong>extremely important</strong> approach to perfecting the
             human condition and actualizing the state of being God's vicegerent

@@ -161,11 +161,11 @@ const IslamicContentSurveyContent: React.FC = () => {
           {!isShareLinkView ? (
             // --- Form State ---
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <form onSubmit={handleSubmit} className="space-y-6 p-8">
-                <CardTitle className="text-4xl tracking-wide leading-0 font-bold text-primary mt-4">
+              <form onSubmit={handleSubmit} className="space-y-6 p-6">
+                <CardTitle className="text-2xl md:text-4xl tracking-wide leading-0 font-bold text-primary mt-4">
                   Help a Friend on <br></br>Their Spiritual Journey
                 </CardTitle>
-                <p className="mb-8  text-gray-600">
+                <p className="mb-4 text-gray-600">
                   Complete this short survey to generate a personalized
                   spiritual guide tailored for someone you care about and get a
                   shareable link.
