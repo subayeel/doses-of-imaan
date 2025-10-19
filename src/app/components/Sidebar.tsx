@@ -219,7 +219,9 @@ const SidebarComponent = () => {
                 className="object-contain"
               />{" "}
               <div className="text-core flex flex-col font-bold text-xl leading-3">
-                <span className="tracking-wide m-0">Spiritual Doses</span>
+                <span className="tracking-wide m-0 text-nowrap">
+                  Spiritual Doses
+                </span>
               </div>
             </Link>
             <ModeToggle />
