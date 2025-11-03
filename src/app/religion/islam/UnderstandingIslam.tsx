@@ -1,188 +1,35 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
+import React from "react";
+import { Check } from "lucide-react";
 
-import React, { useEffect, useMemo, useState } from "react";
-import { Check, ArrowUp, ArrowRight, ArrowLeft, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-interface UnderstandingIslamProps {
-  isDocument: boolean;
-}
-
-export const UnderstandingIslam = ({
-  isDocument = false,
-}: UnderstandingIslamProps) => {
-  const [activeSection, setActiveSection] = useState("introduction");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const contents = useMemo(() => {
-    return [
-      {
-        id: "introduction",
-        title: "What Islam Really Is",
-      },
-      {
-        id: "shia",
-        title: "Shia & Sunni",
-      },
-      {
-        id: "islamic-madhhabs",
-        title: "Madhabs",
-      },
-      {
-        id: "misconceptions",
-        title: "Clearing Up Misconceptions",
-      },
-      {
-        id: "five-pillars",
-        title: "The Five Pillars",
-      },
-      {
-        id: "pure-monotheism",
-        title: "Pure Monotheism",
-      },
-      {
-        id: "core-beliefs",
-        title: "Core Beliefs",
-      },
-      {
-        id: "true-islam",
-        title: "The True Face of Islam",
-      },
-      {
-        id: "prophets",
-        title: "The Line of Prophets",
-      },
-      {
-        id: "companions",
-        title: "The Companions",
-      },
-      {
-        id: "golden-period",
-        title: "The Golden Age",
-      },
-      {
-        id: "caliphates",
-        title: "Islamic Caliphates",
-      },
-      {
-        id: "fastest-growing",
-        title: "Fastest Growing Religion",
-      },
-    ];
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    setActiveSection(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
-
-    contents.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => {
-      contents.forEach(({ id }) => {
-        const element = document.getElementById(id);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
-  }, [contents]);
-
+export const UnderstandingIslam = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              Understanding Islam: A Complete Guide
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+              Module 1: Understanding Islam
             </h1>
-            {!isDocument && (
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            )}
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mt-2 font-light">
+          <p className="text-gray-600 dark:text-gray-400 mt-2 font-light">
             Discover the core teachings, history, and beauty of Islam through
             this comprehensive guide
           </p>
         </div>
       </header>
 
-      {/* Mobile Navigation Menu */}
-      {!isDocument && isMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="fixed inset-0 bg-black/20"
-            onClick={() => setIsMenuOpen(false)}
-          />
-          <div className="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl p-4">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold">Contents</h2>
-              <button onClick={() => setIsMenuOpen(false)}>
-                <X size={20} />
-              </button>
-            </div>
-            <nav className="space-y-3 max-h-[80vh] overflow-y-auto">
-              {contents.map(({ id, title }) => (
-                <button
-                  key={id}
-                  onClick={() => {
-                    scrollToSection(id);
-                    setIsMenuOpen(false);
-                  }}
-                  className={`block w-full text-left px-3 py-2 rounded-md transition-colors ${
-                    activeSection === id
-                      ? "bg-gray-100 dark:bg-gray-800 font-medium"
-                      : "hover:bg-gray-50 dark:hover:bg-gray-800"
-                  }`}
-                >
-                  {title}
-                </button>
-              ))}
-            </nav>
-          </div>
-        </div>
-      )}
-
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Introduction Section */}
           <section id="introduction" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
-              What Islam Really Is
+            <h2 className="text-2xl  font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              What is Islam?
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-4 text-gray-700 dark:text-gray-300">
               If you refer to Arabic language dictionaries, you will find that
               the meaning of the word Islam is: <strong>submission</strong>,{" "}
               <strong>humbling oneself</strong>, and{" "}
@@ -192,7 +39,7 @@ export const UnderstandingIslam = ({
               faith in Him.
             </p>
 
-            <p className="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               All the religions on earth are called by various names, either the
               name of a specific man or a specific nation. So Christianity takes
               its name from Christ; Buddhism takes its name from its founder,
@@ -200,13 +47,13 @@ export const UnderstandingIslam = ({
               because their founder and standard-bearer was Zoroaster.
             </p>
 
-            <p className="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Similarly, Judaism took its name from a tribe known as Yehudah
               (Judah), so it became known as Judaism. And so on.
             </p>
 
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 my-8">
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              <p className="leading-relaxed text-gray-700 dark:text-gray-300">
                 Except for Islam; for it is not attributed to any specific man
                 or to any specific nation, rather its name refers to the meaning
                 of the word Islam. What this name indicates is that the
@@ -218,7 +65,7 @@ export const UnderstandingIslam = ({
               </p>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               So everyone who acquires this attribute, whether he is from the
               past or the present, is a Muslim, and everyone who acquires this
               attribute in the future will also be a Muslim. Let's explore what
@@ -230,11 +77,11 @@ export const UnderstandingIslam = ({
 
           {/* Sunni & Shia */}
           <section id="shia" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Why there are Sunnis and Shias?
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               If a child asks about the Shi'ah, they can be informed in a simple
               manner that these are people who commit wrong actions and slander
               the noble companions and wives of the Prophet (peace and blessings
@@ -242,7 +89,7 @@ export const UnderstandingIslam = ({
               the Prophets, we do not approve of such behavior.
             </p>
 
-            <p className="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               If the child has seen Shi'ah practices, such as touching graves or
               celebrating 'Ashoora', they should be taught that these acts are
               not permissible in Islam. We worship Allah alone, without
@@ -251,7 +98,7 @@ export const UnderstandingIslam = ({
               such actions are deviations from the correct path.
             </p>
 
-            <p className="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               To ensure clarity, the child should be reminded that we are Sunnis
               who follow the Sunnah of the Prophet (peace and blessings be upon
               him) without introducing innovations into our religion. If they
@@ -259,7 +106,7 @@ export const UnderstandingIslam = ({
               clear warnings and explanations.
             </p>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               For further understanding, one can refer to trustworthy sources
               that explain the deviations of the Shi'ah and why their beliefs
               and practices are misguided.
@@ -268,11 +115,11 @@ export const UnderstandingIslam = ({
 
           {/* Madhabs */}
           <section id="islamic-madhhabs" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Understanding Islamic Schools of Thought (Madhhabs)
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Throughout Islamic history, different approaches to understanding
               Islamic law developed, resulting in schools of thought known as
               "madhhabs." These schools aren't different religions but different
@@ -280,12 +127,12 @@ export const UnderstandingIslam = ({
             </p>
 
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Key Points About Islamic Madhhabs:
               </h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     1. The Foundation: Quran and Sunnah
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -299,7 +146,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     2. The Famous Four Schools
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -313,7 +160,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     3. Why Differences Exist
                   </h4>
                   <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -341,7 +188,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     4. Following a Madhhab
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -361,7 +208,7 @@ export const UnderstandingIslam = ({
               </div>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               People follow different madhhabs based on their background,
               education, and local community. These differences in understanding
               are considered a mercy in Islam, providing flexibility while
@@ -373,22 +220,22 @@ export const UnderstandingIslam = ({
 
           {/* Misconceptions Section */}
           <section id="misconceptions" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Clearing Up Major Misconceptions
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Before diving into what Islam is, let's address some common
               misunderstandings that might be clouding our view:
             </p>
 
             <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Common misconceptions about Islam:
               </h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Misconception: Islam promotes violence
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -401,7 +248,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Misconception: Islam oppresses women
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -415,7 +262,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Misconception: Islam is just for Arabs
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -429,7 +276,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Misconception: Islam is rigid and unchanging
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -443,7 +290,7 @@ export const UnderstandingIslam = ({
               </div>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               It's important to distinguish between the teachings of Islam and
               the actions of some individuals or cultural practices that may
               contradict those teachings. Just as we wouldn't judge any faith by
@@ -454,11 +301,11 @@ export const UnderstandingIslam = ({
 
           {/* Five Pillars Section */}
           <section id="five-pillars" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Five Pillars: Islam's Foundation
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Like any building needs a strong foundation, Islam is built on
               five core practices that shape a Muslim's life. These Five Pillars
               provide the structure that helps Muslims maintain their faith and
@@ -466,12 +313,12 @@ export const UnderstandingIslam = ({
             </p>
 
             <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 The Five Pillars of Islam:
               </h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     1. Shahada (Declaration of Faith)
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -487,7 +334,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     2. Salah (Prayer)
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -504,7 +351,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     3. Zakat (Charitable Giving)
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -520,7 +367,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     4. Sawm (Fasting)
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -538,7 +385,7 @@ export const UnderstandingIslam = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     5. Hajj (Pilgrimage)
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -557,7 +404,7 @@ export const UnderstandingIslam = ({
               </div>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               These pillars aren't meant to be burdensome rituals but practices
               that enrich life and foster a continuous connection with God. They
               balance personal spiritual growth with social responsibility,
@@ -568,18 +415,18 @@ export const UnderstandingIslam = ({
 
           {/* Pure Monotheism Section */}
           <section id="pure-monotheism" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Pure Monotheism: The Essence of Islam
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               At the very heart of Islam is a crystal-clear concept of God - a
               pure monotheism that's often described as the most uncompromising
               form of belief in One God.
             </p>
 
             <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-6 my-8">
-              <p className="text-lg text-center italic text-gray-600 dark:text-gray-400 mb-2">
+              <p className="text-center italic text-gray-600 dark:text-gray-400 mb-2">
                 Say: He is Allah, the One and Only; Allah, the Eternal,
                 Absolute; He begets not, nor is He begotten; And there is none
                 like unto Him.
@@ -590,7 +437,7 @@ export const UnderstandingIslam = ({
             </div>
 
             <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Key aspects of Islamic monotheism:
               </h3>
               <ul className="space-y-4">
@@ -643,7 +490,7 @@ export const UnderstandingIslam = ({
               </ul>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               This understanding of God isn't abstract theology - it shapes how
               Muslims approach life. When you believe that there is only One
               Ultimate Reality worthy of worship, your focus and priorities
@@ -656,11 +503,11 @@ export const UnderstandingIslam = ({
 
           {/* Core Beliefs Section */}
           <section id="core-beliefs" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Core Beliefs: The Articles of Faith
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Beyond the Five Pillars that shape daily practice, Islam has six
               fundamental beliefs that form its theological foundation. These
               Articles of Faith provide the worldview through which Muslims
@@ -668,7 +515,7 @@ export const UnderstandingIslam = ({
             </p>
 
             <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 The Six Articles of Faith:
               </h3>
               <div className="space-y-4">
@@ -745,18 +592,18 @@ export const UnderstandingIslam = ({
 
           {/* Fastest Growing Religion Section */}
           <section id="fastest-growing" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Islam: The Fastest Growing Religion
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Did you know that Islam is the fastest-growing religion in the
               world? This isn't just about numbers; it's about people finding
               meaning, purpose, and peace in its teachings.
             </p>
 
             <div className="bg-cyan-50 dark:bg-cyan-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Why Islam Resonates:
               </h3>
               <ul className="space-y-4">
@@ -795,7 +642,7 @@ export const UnderstandingIslam = ({
               </ul>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               Whether through personal reflection, the example of Muslim
               friends, or simply reading the Quran, millions are discovering the
               beauty of Islam every year. It's a testament to the timeless
@@ -805,11 +652,11 @@ export const UnderstandingIslam = ({
 
           {/* Conclusion Section */}
           <section id="conclusion" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Discovering Islam for Yourself
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               We've covered a lot, but this is just the beginning. Islam is a
               vast ocean of wisdom, and the best way to understand it is to dive
               in yourself. Whether you're curious about its teachings, inspired
@@ -817,69 +664,21 @@ export const UnderstandingIslam = ({
               has something to offer.
             </p>
 
-            <p className="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Remember, Islam isn't about blind faith—it's about seeking truth
               with an open heart and mind. As the Quran says: "So have they not
               traveled through the earth and have hearts by which to reason and
               ears by which to hear?" (22:46)
             </p>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               If you're interested in learning more, start by reading the Quran,
               visiting a local mosque, or talking to Muslims in your community.
               You might just find the peace and purpose you've been looking for.
             </p>
-
-            {!isDocument && (
-              <div className="flex justify-center mt-8">
-                <Button
-                  onClick={() => (window.location.href = "/religion/imaan")}
-                  className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200"
-                >
-                  Learn about Imaan <ArrowRight size={16} className="ml-2" />
-                </Button>
-              </div>
-            )}
           </section>
         </article>
       </main>
-
-      {/* Clean Footer */}
-      {!isDocument && (
-        <footer className="border-t border-gray-200 dark:border-gray-700 py-12 mt-16">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h3 className="text-xl  font-semibold mb-4 text-gray-900 dark:text-gray-100">
-              Foundation of Islam
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-              O Allah, guide our hearts to the truth of Islam, grant us
-              understanding of Your deen, and make us steadfast upon the path
-              that pleases You.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                variant="outline"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800"
-              >
-                <ArrowUp size={16} className="mr-2" /> Back to Top
-              </Button>
-              <Button
-                onClick={() => (window.location.href = "/primary/god")}
-                className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200"
-              >
-                <ArrowLeft size={16} className="mr-2" /> Revisit Primary Dose
-              </Button>
-              <Button
-                onClick={() => (window.location.href = "/religion/imaan")}
-                className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200"
-              >
-                Learn about Imaan <ArrowRight size={16} className="ml-2" />
-              </Button>
-            </div>
-          </div>
-        </footer>
-      )}
     </div>
   );
 };

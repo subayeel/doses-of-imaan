@@ -86,11 +86,11 @@ export const GodsOneness = ({ isDocument = false }: GodsOnenessProps) => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              Understanding God's Oneness
+            <h1 className="text-3xl  font-bold text-gray-900 dark:text-gray-100">
+              Module 3: Understanding God's Oneness
             </h1>
             {!isDocument && (
               <button
@@ -149,7 +149,7 @@ export const GodsOneness = ({ isDocument = false }: GodsOnenessProps) => {
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Introduction Section */}
           <section id="introduction" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Why There Can Only Be One God
             </h2>
 
@@ -168,7 +168,7 @@ export const GodsOneness = ({ isDocument = false }: GodsOnenessProps) => {
 
           {/* Creator vs Creation Section */}
           <section id="creator-nature" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Creator Is Not Like Creation
             </h2>
 
@@ -215,7 +215,7 @@ export const GodsOneness = ({ isDocument = false }: GodsOnenessProps) => {
 
           {/* Self-Creation Impossibility */}
           <section id="self-creation" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Could the Universe Create Itself?
             </h2>
 
@@ -249,7 +249,7 @@ export const GodsOneness = ({ isDocument = false }: GodsOnenessProps) => {
 
           {/* Infinite Regression Section */}
           <section id="infinite-regression" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Who Created the Creator?
             </h2>
 
@@ -313,7 +313,7 @@ export const GodsOneness = ({ isDocument = false }: GodsOnenessProps) => {
 
           {/* Uncreated Creator Section */}
           <section id="uncreated-creator" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Uncreated Creator
             </h2>
 
@@ -373,7 +373,7 @@ export const GodsOneness = ({ isDocument = false }: GodsOnenessProps) => {
 
           {/* Oneness Section */}
           <section id="oneness" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Why There Can Only Be One
             </h2>
 

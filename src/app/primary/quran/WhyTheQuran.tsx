@@ -93,11 +93,11 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              Why the Quran is Divine Revelation
+            <h1 className="text-3xl  font-bold text-gray-900 dark:text-gray-100">
+              Module 6: Why the Quran is Divine Revelation
             </h1>
             {!isDocument && (
               <button
@@ -155,7 +155,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Introduction Section */}
           <section id="introduction" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Our Guide for Life
             </h2>
 
@@ -179,7 +179,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Preservation Section */}
           <section id="preservation" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Remarkably Preserved
             </h2>
 
@@ -240,7 +240,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Inimitability Section */}
           <section id="inimitability" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Impossible to Imitate
             </h2>
 
@@ -284,7 +284,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Clear Message Section */}
           <section id="clear-message" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               A Clear Message About God
             </h2>
 
@@ -371,7 +371,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Universal Message Section */}
           <section id="universal-message" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               A Message for Everyone
             </h2>
 
@@ -454,7 +454,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Falsification Test Section */}
           <section id="falsification-test" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Quran's Own Test of Authenticity
             </h2>
 
@@ -491,7 +491,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Accuracies Section */}
           <section id="accuracies" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Remarkable Accuracies
             </h2>
 
@@ -577,7 +577,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Conclusion Section */}
           <section id="conclusion" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Bringing It All Together
             </h2>
 
@@ -595,7 +595,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
               manual for life from the Creator Himself.
             </p>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
               Just as we would trust the manufacturer's guide to show us how to
               use our devices properly, the Quran offers guidance on how to live
               our lives in accordance with our Creator's wisdom and purpose.
@@ -604,7 +604,7 @@ export const WhyTheQuran = ({ isDocument = false }: WhyTheQuranProps) => {
 
           {/* Conclusion Section */}
           <section id="conclusion" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Miracle of the Quran
             </h2>
 

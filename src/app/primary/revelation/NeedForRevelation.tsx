@@ -87,11 +87,11 @@ export const NeedForRevelation = ({
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              Why We Need Divine Guidance
+            <h1 className="text-3xl  font-bold text-gray-900 dark:text-gray-100">
+              Module 5: Why We Need Divine Guidance
             </h1>
             {!isDocument && (
               <button
@@ -150,7 +150,7 @@ export const NeedForRevelation = ({
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Introduction Section */}
           <section id="introduction" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Next Step in Our Journey
             </h2>
 
@@ -169,7 +169,7 @@ export const NeedForRevelation = ({
 
           {/* Every Need Fulfilled Section */}
           <section id="needs-fulfilled" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               A Creator Who Meets Our Every Need
             </h2>
 
@@ -233,7 +233,7 @@ export const NeedForRevelation = ({
 
           {/* Big Questions Section */}
           <section id="big-questions" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Big Questions We All Ask
             </h2>
 
@@ -279,7 +279,7 @@ export const NeedForRevelation = ({
 
           {/* Need for Divine Explanation Section */}
           <section id="divine-explanation" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Some Things Only God Can Explain
             </h2>
 
@@ -342,7 +342,7 @@ export const NeedForRevelation = ({
 
           {/* God's Communication Section */}
           <section id="gods-communication" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Why Would God Talk To Us?
             </h2>
 
@@ -392,7 +392,7 @@ export const NeedForRevelation = ({
 
           {/* Prophets Section */}
           <section id="prophets" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Why Prophets Make Perfect Sense
             </h2>
 

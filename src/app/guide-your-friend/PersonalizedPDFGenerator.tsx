@@ -209,9 +209,9 @@ const PersonalizedPDFGenerator: React.FC<PersonalizedPDFGeneratorProps> = ({
             Deepening Faith
           </h2>
           {/* Add key and isDocument prop to your imported components */}
-          <UnderstandingIslam key="understanding-islam" isDocument={true} />
-          <SweetnessOfIman key="sweetness-of-iman" isDocument={true} />
-          <ThreeDimensionsOfFaith key="dimensions-of-faith" isDocument={true} />
+          <UnderstandingIslam key="understanding-islam" />
+          <SweetnessOfIman key="sweetness-of-iman" />
+          <ThreeDimensionsOfFaith key="dimensions-of-faith" />
           <ImmanRecoveryRemedies key="imman-recovery" isDocument={true} />
           <SalahGuide key="salah-guide" isDocument={true} />
         </div>

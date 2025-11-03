@@ -15,27 +15,19 @@ import {
   SidebarFooter,
 } from "@/components/ui/sidebar";
 import {
-  Dot,
   Book,
-  Tally1,
-  User,
-  HandHeart,
   TreePalm,
-  Leaf,
   ChartNoAxesCombined,
-  ShieldCheck,
   Settings,
   ChevronUp,
-  MessageCircle,
   Home,
   Feather,
   Brain,
   Egg,
-  Sparkle,
-  WholeWord,
   MessageCircleWarning,
   BookHeart,
   Bug,
+  Globe,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -62,59 +54,82 @@ const SidebarComponent = () => {
     };
   }, []);
 
-  // Menu items.
-  const primaryDose = [
-    {
-      title: "God's Existence",
-      url: "/primary/god",
-      icon: Dot,
-    },
-    {
-      title: "Oneness of God",
-      url: "/primary/oneness",
-      icon: Tally1,
-    },
-    {
-      title: "Revelation from God",
-      url: "/primary/revelation",
-      icon: MessageCircle,
-    },
-    {
-      title: "Quran",
-      url: "/primary/quran",
-      icon: Book,
-    },
-    {
-      title: "Prophethood",
-      url: "/primary/prophethood",
-      icon: User,
-    },
-  ];
+  // // Menu items.
+  // const primaryDose = [
+  //   {
+  //     title: "God's Existence",
+  //     url: "/primary/god",
+  //     icon: Dot,
+  //   },
+  //   {
+  //     title: "Oneness of God",
+  //     url: "/primary/oneness",
+  //     icon: Tally1,
+  //   },
+  //   {
+  //     title: "Revelation from God",
+  //     url: "/primary/revelation",
+  //     icon: MessageCircle,
+  //   },
+  //   {
+  //     title: "Quran",
+  //     url: "/primary/quran",
+  //     icon: Book,
+  //   },
+  //   {
+  //     title: "Prophethood",
+  //     url: "/primary/prophethood",
+  //     icon: User,
+  //   },
+  // ];
 
-  const religionDose = [
+  // const religionDose = [
+  //   {
+  //     title: "Islam",
+  //     url: "/religion/islam",
+  //     icon: TreePalm,
+  //   },
+  //   {
+  //     title: "Imaan",
+  //     url: "/religion/imaan",
+  //     icon: Leaf,
+  //   },
+  //   {
+  //     title: "Ihsaan",
+  //     url: "/religion/ihsaan",
+  //     icon: HandHeart,
+  //   },
+  // ];
+
+  const journeys = [
     {
-      title: "Islam",
-      url: "/religion/islam",
+      title: "A Global Journey",
+      url: "/journey/global",
+      icon: Globe,
+    },
+    {
+      title: "A Spiritual Journey",
+      url: "/journey/spiritual",
       icon: TreePalm,
     },
     {
-      title: "Imaan",
-      url: "/religion/imaan",
-      icon: Leaf,
+      title: "A Religious Journey",
+      url: "/journey/religious",
+      icon: Book,
     },
     {
-      title: "Ihsaan",
-      url: "/religion/ihsaan",
-      icon: HandHeart,
+      title: "A Mindfulness Journey",
+      url: "/journey/tazkiya",
+      icon: Brain,
     },
   ];
 
   const selfHelp = [
-    {
-      title: "Diagnose your Imaan",
-      url: "/self-help/diagnosis",
-      icon: ShieldCheck,
-    },
+    // {
+    //   title: "Diagnose your Imaan",
+    //   url: "/self-help/diagnosis",
+    //   icon: ShieldCheck,
+    // },
     {
       title: "Quick Recovery of Imaan",
       url: "/self-help/quick-recovery",
@@ -143,31 +158,31 @@ const SidebarComponent = () => {
       url: "/self-help/learn-salah",
       icon: Egg,
     },
-    {
-      title: "Keywords",
-      url: "/self-help/keywords",
-      icon: WholeWord,
-    },
+    // {
+    //   title: "Keywords",
+    //   url: "/self-help/keywords",
+    //   icon: WholeWord,
+    // },
     {
       title: "Modern Problems",
       url: "/self-help/modern-problem",
       icon: MessageCircleWarning,
     },
-    {
-      title: "Learn Quran",
-      url: "/self-help/learn-quran",
-      icon: Book,
-    },
+    // {
+    //   title: "Learn Quran",
+    //   url: "/self-help/learn-quran",
+    //   icon: Book,
+    // },
     {
       title: "Hifz Quran Guide",
       url: "/hifz-planner",
       icon: Book,
     },
-    {
-      title: "Learn Arabic",
-      url: "/self-help/learn-arabic",
-      icon: Sparkle,
-    },
+    // {
+    //   title: "Learn Arabic",
+    //   url: "/self-help/learn-arabic",
+    //   icon: Sparkle,
+    // },
   ];
 
   // Function to determine if a link is currently active
@@ -219,9 +234,7 @@ const SidebarComponent = () => {
                 className="object-contain"
               />{" "}
               <div className="text-core flex flex-col font-bold text-xl leading-3">
-                <span className="tracking-wide m-0 text-nowrap">
-                  Spiritual Doses
-                </span>
+                <span className="tracking-wide m-0 text-nowrap">Tazkiya</span>
               </div>
             </Link>
             <ModeToggle />
@@ -265,7 +278,20 @@ const SidebarComponent = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* Journey */}
         <SidebarGroup>
+          <SidebarGroupLabel>Journey</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {journeys.map((item) => (
+                <MenuItemWithActiveState key={item.title} item={item} />
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* <SidebarGroup>
           <SidebarGroupLabel>Primary Dose</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -284,7 +310,7 @@ const SidebarComponent = () => {
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
-        </SidebarGroup>
+        </SidebarGroup> */}
 
         <SidebarGroup>
           <SidebarGroupLabel>Self-Help</SidebarGroupLabel>

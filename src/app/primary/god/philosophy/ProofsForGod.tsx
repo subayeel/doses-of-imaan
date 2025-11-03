@@ -102,11 +102,11 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
-              Proofs for God's Existence
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+              Module 2: Proofs for God's Existence
             </h1>
             {!isDocument && (
               <button
@@ -165,7 +165,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Introduction Section */}
           <section id="introduction" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Understanding the Proofs for God
             </h2>
 
@@ -215,7 +215,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Proof 1 Section */}
           <section id="proof-1" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Proof 1: Dependence on an Independent Existence
             </h2>
 
@@ -291,7 +291,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Proof 2 Section */}
           <section id="proof-2" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Proof 2: Necessary Facts Presuppose Existence
             </h2>
 
@@ -369,7 +369,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Proof 3 Section */}
           <section id="proof-3" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Proof 3: Arrangement Indicates a Choosing Agent
             </h2>
 
@@ -446,7 +446,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Proof 4 Section */}
           <section id="proof-4" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Proof 4: Fine-Tuning of the Universe
             </h2>
 
@@ -524,7 +524,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Proof 5 Section */}
           <section id="proof-5" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Proof 5: Causation of Composite Things
             </h2>
 
@@ -596,7 +596,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Arguments for Oneness Divider */}
           <div className="py-8 border-t border-gray-200 dark:border-gray-700 my-16">
-            <h2 className="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold text-center mb-4 text-gray-900 dark:text-gray-100">
               Arguments for the Oneness of God
             </h2>
             <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
@@ -607,7 +607,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Oneness Argument 1 */}
           <section id="oneness-1" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Argument 1: Uniqueness by Definition
             </h2>
 
@@ -668,7 +668,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Oneness Argument 2 */}
           <section id="oneness-2" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Argument 2: Ultimate Capacity
             </h2>
 
@@ -740,7 +740,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Oneness Argument 3 */}
           <section id="oneness-3" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Argument 3: Natural Order
             </h2>
 
@@ -814,7 +814,7 @@ export const ProofsForGod = ({ isDocument }: ProofsForGodProps) => {
 
           {/* Conclusion Section */}
           <section id="conclusion" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               Conclusion: One Necessary Creator
             </h2>
 

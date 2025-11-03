@@ -83,11 +83,11 @@ export const ProphetMuhammad = ({
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              Was Muhammad ﷺ a Messenger of God?
+            <h1 className="text-3xl  font-bold text-gray-900 dark:text-gray-100">
+              Module 4: Was Muhammad ﷺ a Messenger of God?
             </h1>
             {!isDocument && (
               <button
@@ -146,7 +146,7 @@ export const ProphetMuhammad = ({
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Introduction Section */}
           <section id="introduction" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Understanding the Prophet's Claim
             </h2>
 
@@ -216,7 +216,7 @@ export const ProphetMuhammad = ({
 
           {/* Was He Lying Section */}
           <section id="lying" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Was He Lying?
             </h2>
 
@@ -345,7 +345,7 @@ export const ProphetMuhammad = ({
 
           {/* Was He Deluded Section */}
           <section id="deluded" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Was He Mistaken or Deluded?
             </h2>
 
@@ -440,7 +440,7 @@ export const ProphetMuhammad = ({
 
           {/* Was He Truthful Section */}
           <section id="truthful" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Conclusion: He Was Truthful
             </h2>
 
@@ -542,7 +542,7 @@ export const ProphetMuhammad = ({
 
           {/* Conclusion Section */}
           <section id="conclusion" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               A Messenger for Humanity
             </h2>
 

@@ -1,172 +1,42 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
 
-import React, { useState, useEffect, useMemo } from "react";
-import { Check, ArrowUp, ArrowRight, ArrowLeft, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React from "react";
+import { Check } from "lucide-react";
 
-interface ThreeDimensionsOfFaithProps {
-  isDocument: boolean;
-}
-
-export const ThreeDimensionsOfFaith = ({
-  isDocument = false,
-}: ThreeDimensionsOfFaithProps) => {
-  const [activeSection, setActiveSection] = useState("intro");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const contents = useMemo(() => {
-    return [
-      {
-        id: "intro",
-        title: "The Three Dimensions",
-      },
-      {
-        id: "iman",
-        title: "Iman: The Roots",
-      },
-      {
-        id: "islam",
-        title: "Islam: The Trunk",
-      },
-      {
-        id: "ihsan",
-        title: "Ihsan: The Fruit",
-      },
-      {
-        id: "ihsan-meaning",
-        title: "The Meaning of Ihsan",
-      },
-      {
-        id: "ihsan-rewards",
-        title: "Rewards of Ihsan",
-      },
-      {
-        id: "daily-life",
-        title: "Ihsan in Daily Life",
-      },
-    ];
-  }, []);
-
-  // Set up Intersection Observer to track which section is in view
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
-
-    // Observe all section elements
-    contents.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => {
-      contents.forEach(({ id }) => {
-        const element = document.getElementById(id);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
-  }, [contents]);
-
-  const scrollToSection = (id: string) => {
-    setActiveSection(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+export const ThreeDimensionsOfFaith = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              The Three Dimensions of Faith
+            <h1 className="text-3xl  font-bold text-gray-900 dark:text-gray-100">
+              Module 3: The Three Dimensions of Faith
             </h1>
-            {!isDocument && (
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            )}
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mt-2 font-light">
+          <p className=" text-gray-600 dark:text-gray-400 mt-2 font-light">
             Discover the beautiful harmony of Iman (Faith), Islam (Submission),
             and Ihsan (Excellence)
           </p>
         </div>
       </header>
 
-      {/* Mobile Navigation Menu */}
-      {!isDocument && isMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="fixed inset-0 bg-black/20"
-            onClick={() => setIsMenuOpen(false)}
-          />
-          <div className="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl p-4">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold">Contents</h2>
-              <button onClick={() => setIsMenuOpen(false)}>
-                <X size={20} />
-              </button>
-            </div>
-            <nav className="space-y-3">
-              {contents.map(({ id, title }) => (
-                <button
-                  key={id}
-                  onClick={() => {
-                    scrollToSection(id);
-                    setIsMenuOpen(false);
-                  }}
-                  className={`block w-full text-left px-3 py-2 rounded-md transition-colors ${
-                    activeSection === id
-                      ? "bg-gray-100 dark:bg-gray-800 font-medium"
-                      : "hover:bg-gray-50 dark:hover:bg-gray-800"
-                  }`}
-                >
-                  {title}
-                </button>
-              ))}
-            </nav>
-          </div>
-        </div>
-      )}
-
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Introduction */}
           <section id="intro" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Three Dimensions of Faith
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Our faith consists of three beautiful, interconnected dimensions
               that work together to create a balanced spiritual life:
             </p>
 
             <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 The Three Connected Dimensions:
               </h3>
               <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -197,7 +67,7 @@ export const ThreeDimensionsOfFaith = ({
               </ul>
             </div>
 
-            <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               Each dimension builds upon the previous one, creating a path of
               spiritual growth that leads to a fulfilling relationship with
               Allah and a beautiful life.
@@ -206,24 +76,24 @@ export const ThreeDimensionsOfFaith = ({
 
           {/* Iman Section */}
           <section id="iman" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Iman: The Roots of Faith
             </h2>
 
             <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6 my-8">
-              <p className="text-lg text-center italic text-gray-700 dark:text-gray-300">
+              <p className=" text-center italic text-gray-700 dark:text-gray-300">
                 "Iman or faith must be mentioned as the first part of our deen
                 because it serves as our roots."
               </p>
             </div>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               For many years at the beginning of Prophet Muhammad's mission,
               Allah revealed nothing except the concepts of:
             </p>
 
             <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 The Foundation Concepts:
               </h3>
               <ul className="space-y-4 text-gray-700 dark:text-gray-300">
@@ -260,7 +130,7 @@ export const ThreeDimensionsOfFaith = ({
               </ul>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className=" leading-relaxed text-gray-700 dark:text-gray-300">
               It was only after the hearts of the first Muslims became saturated
               and strong with true Iman that Allah began introducing the next
               concept - Islam.
@@ -269,12 +139,12 @@ export const ThreeDimensionsOfFaith = ({
 
           {/* Islam Section */}
           <section id="islam" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Islam: The Trunk of Faith
             </h2>
 
             <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-6 my-8">
-              <p className="text-lg text-center italic text-gray-700 dark:text-gray-300">
+              <p className=" text-center italic text-gray-700 dark:text-gray-300">
                 "After our roots are firmly in place and take hold within the
                 rich soil of Iman and that is watered and nourished continually,
                 we can begin understanding and encouraging the practice of Islam
@@ -282,7 +152,7 @@ export const ThreeDimensionsOfFaith = ({
               </p>
             </div>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Islam - our submission to Allah - is like the trunk of the tree:
               sturdy and reaching up to heights. It represents the outward
               actions and practices that demonstrate our faith.
@@ -290,7 +160,7 @@ export const ThreeDimensionsOfFaith = ({
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
               <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                   The Trunk of the Tree
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
@@ -301,7 +171,7 @@ export const ThreeDimensionsOfFaith = ({
               </div>
 
               <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                   Building on Strong Roots
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
@@ -313,7 +183,7 @@ export const ThreeDimensionsOfFaith = ({
               </div>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className=" leading-relaxed text-gray-700 dark:text-gray-300">
               When our roots of faith are strong, our practice of Islam can grow
               tall and strong. This is why parents spend the first seven years
               teaching their children about Allah, about paradise, about
@@ -324,12 +194,12 @@ export const ThreeDimensionsOfFaith = ({
 
           {/* Ihsan Section */}
           <section id="ihsan" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Ihsan: The Fruit of Faith
             </h2>
 
             <div className="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-6 my-8">
-              <p className="text-lg text-center italic text-gray-700 dark:text-gray-300">
+              <p className=" text-center italic text-gray-700 dark:text-gray-300">
                 "Ihsan, which means excellence in belief, is the neglected 1/3
                 of our deen... It is the fruit that blossoms from our planted
                 trees and shows up when the roots are strong and nourished, free
@@ -337,7 +207,7 @@ export const ThreeDimensionsOfFaith = ({
               </p>
             </div>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               Ihsan is our lost treasure that we must unearth and revive. If we
               fail to nourish our Iman by submitting to Allah, we will bear no
               fruit and our soul will die. But look into the Islamic legacy - it
@@ -345,7 +215,7 @@ export const ThreeDimensionsOfFaith = ({
             </p>
 
             <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Legacy of Excellence
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -364,18 +234,18 @@ export const ThreeDimensionsOfFaith = ({
 
           {/* The Meaning of Ihsan */}
           <section id="ihsan-meaning" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Meaning of Ihsan
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               "Ihsan...what does it mean? Like so many other Arabic words that I
               have mentioned, it has a vast array of meanings. It cannot be
               summed up prettily in one English word or phrase."
             </p>
 
             <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 The Many Faces of Ihsan:
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -406,14 +276,14 @@ export const ThreeDimensionsOfFaith = ({
               </div>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+            <p className=" leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
               Ihsan is a human reflection, a human attempt to achieve a high
               level in the areas covered by the revealed 99 beautiful names of
               Allah.
             </p>
 
             <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-6 my-8">
-              <p className="text-lg text-gray-600 dark:text-gray-400 italic">
+              <p className=" text-gray-600 dark:text-gray-400 italic">
                 "When a man says I cannot, he has made a suggestion to himself.
                 He has weakened his power of accomplishing that which otherwise
                 would have been accomplished."
@@ -424,7 +294,7 @@ export const ThreeDimensionsOfFaith = ({
             </div>
 
             <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 The Powerful Question
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
@@ -438,22 +308,22 @@ export const ThreeDimensionsOfFaith = ({
 
           {/* Rewards of Ihsan */}
           <section id="ihsan-rewards" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Rewards of Ihsan
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               The Quranic question "Is there any reward for ihsan except ihsan?"
               has multiple beautiful layers of meaning:
             </p>
 
             <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Three Levels of Reward:
               </h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className=" font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     1. Sweetness of Faith
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -464,7 +334,7 @@ export const ThreeDimensionsOfFaith = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className=" font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     2. Success in This World
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -476,7 +346,7 @@ export const ThreeDimensionsOfFaith = ({
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h4 className=" font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     3. Paradise in the Hereafter
                   </h4>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -488,7 +358,7 @@ export const ThreeDimensionsOfFaith = ({
               </div>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className=" leading-relaxed text-gray-700 dark:text-gray-300">
               Those who realize the value of ihsan, who reach and strive and
               work for excellence, who nourish their roots and groom their trunk
               in order to bear plentiful, amazing fruit will be rewarded with
@@ -499,11 +369,11 @@ export const ThreeDimensionsOfFaith = ({
 
           {/* Ihsan in Daily Life */}
           <section id="daily-life" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Ihsan in Daily Life
             </h2>
 
-            <p className="text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
               So how does this relate to us right here, right now? Whether
               you're a student, working professional, newly married, or
               fulfilling family responsibilities - ihsan can transform your
@@ -511,7 +381,7 @@ export const ThreeDimensionsOfFaith = ({
             </p>
 
             <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Changing Our Perspective
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
@@ -523,7 +393,7 @@ export const ThreeDimensionsOfFaith = ({
             </div>
 
             <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-6 my-8">
-              <p className="text-lg text-gray-600 dark:text-gray-400 italic">
+              <p className=" text-gray-600 dark:text-gray-400 italic">
                 "Allah loves when one of you is given a task, that he or she
                 does it in the most excellent manner."
                 <span className="block text-sm font-normal mt-1">
@@ -533,7 +403,7 @@ export const ThreeDimensionsOfFaith = ({
             </div>
 
             <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6 my-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Imagine This:
               </h3>
               <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -561,7 +431,7 @@ export const ThreeDimensionsOfFaith = ({
             </div>
 
             <div className="bg-gradient-to-r from-amber-500/10 to-yellow-500/10 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-lg p-6 my-8 text-center">
-              <p className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+              <p className=" font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 So when you have a test or a paper or chores or any task, do it
                 with ihsan!
               </p>
@@ -577,58 +447,16 @@ export const ThreeDimensionsOfFaith = ({
             </div>
 
             <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-6 my-8">
-              <p className="text-lg text-gray-600 dark:text-gray-400 italic">
+              <p className=" text-gray-600 dark:text-gray-400 italic">
                 "We are given just a few moments in this world. Each breath is a
                 priceless jewel and when it passes it never returns...make this
                 moment, this breath, this heart beat one that resounds with
                 ihsan (Excellence)!"
               </p>
             </div>
-
-            {!isDocument && (
-              <div className="flex justify-center mt-8">
-                <Button
-                  onClick={() => (window.location.href = "/religion/imaan")}
-                  className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200"
-                >
-                  Explore Iman <ArrowRight size={16} className="ml-2" />
-                </Button>
-              </div>
-            )}
           </section>
         </article>
       </main>
-
-      {/* Clean Footer */}
-      {!isDocument && (
-        <footer className="border-t border-gray-200 dark:border-gray-700 py-12 mt-16">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h3 className="text-xl  font-semibold mb-4 text-gray-900 dark:text-gray-100">
-              Journey to Excellence
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-              May we all strive for ihsan in every aspect of our lives, building
-              beautiful roots of faith and cultivating a life of meaning and
-              purpose.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                variant="outline"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800"
-              >
-                <ArrowUp size={16} className="mr-2" /> Back to Top
-              </Button>
-              <Button
-                onClick={() => (window.location.href = "/religion/imaan")}
-                className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200"
-              >
-                <ArrowLeft size={16} className="mr-2" /> Revisit Imaan
-              </Button>
-            </div>
-          </div>
-        </footer>
-      )}
     </div>
   );
 };

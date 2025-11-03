@@ -84,11 +84,11 @@ export function GodExistence({
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       {/* Clean Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
+      <header className="border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900 dark:text-gray-100">
-              Understanding God's Existence Through Reason
+            <h1 className="text-3xl  font-bold text-gray-900 dark:text-gray-100">
+              Module 1: Understanding God's Existence Through Reason
             </h1>
             {!isDocument && (
               <button
@@ -147,7 +147,7 @@ export function GodExistence({
         <article className="prose prose-lg dark:prose-invert max-w-none">
           {/* Premise Section */}
           <section id="premise" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Premise of Our Discussion
             </h2>
 
@@ -196,7 +196,7 @@ export function GodExistence({
 
           {/* Natural Disposition Section */}
           <section id="natural-disposition" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Natural Predisposition to Belief
             </h2>
 
@@ -261,7 +261,7 @@ export function GodExistence({
 
           {/* Common Sense Section */}
           <section id="common-sense" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Power of Common Sense
             </h2>
 
@@ -305,7 +305,7 @@ export function GodExistence({
 
           {/* Design Argument Section */}
           <section id="design-argument" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Design Argument
             </h2>
 
@@ -339,7 +339,7 @@ export function GodExistence({
 
           {/* Universe Order Section */}
           <section id="universe-order" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Order in the Universe
             </h2>
 
@@ -388,7 +388,7 @@ export function GodExistence({
 
           {/* Creator's Nature Section */}
           <section id="creator-nature" className="mb-16 scroll-mt-20">
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               The Nature of the Creator
             </h2>
 
@@ -476,7 +476,7 @@ export function GodExistence({
               </p>
             </div>
 
-            <h2 className="text-3xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl  font-bold mb-6 text-gray-900 dark:text-gray-100">
               Philosophical Perspective
             </h2>
 
